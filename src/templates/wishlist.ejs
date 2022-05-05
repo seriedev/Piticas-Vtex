@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>  
+  <%if (process.env.NODE_ENV === 'development') { %>
+    <%- require('ejs-webpack-loader!./partials/subtemplates/head.ejs')() -%>
+  <% } else {%>
+    <vtex:template id="FRN-Head" />
+    <link rel="stylesheet" href="/arquivos/frn.lojapiticas.wishlist.css" />
+  <% }  %>
+</head>
+
+<body>
+  <%if (process.env.NODE_ENV === 'development') { %>
+    <%- require('ejs-webpack-loader!./partials/subtemplates/header.ejs')() -%>
+  <% } else {%>
+    <vtex:template id="FRN-Header" />
+  <% }  %>
+
+  <main>
+    <div class="wishlist">
+      <div class="wishlist__wrapper">
+        <h2 class="wishlist__title">Produtos favoritos</h2>
+        <div class="wishlist__list"></div>
+      </div>
+    </div>
+  </main>
+
+  <%if (process.env.NODE_ENV === 'development') { %>
+    <%- require('ejs-webpack-loader!./partials/subtemplates/footer.ejs')() -%>
+    <%- require('ejs-webpack-loader!./partials/subtemplates/scripts.ejs')() -%>
+  <% } else {%>
+    <vtex:template id="FRN-Footer" />
+    <vtex:template id="FRN-Scripts" />
+    <script src="/arquivos/frn.lojapiticas.wishlist.js"></script>
+  <% }  %>
+</body>
+
+</html>

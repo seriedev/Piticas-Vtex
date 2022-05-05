@@ -1,0 +1,78 @@
+@import '../utils/mixins';
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 2.25rem;
+  color: #201e1e;
+  background: 0 0;
+  cursor: pointer;
+  border: 0;
+  z-index: 10;
+  outline: 0;
+
+  &-left {
+    left: -2rem;
+  }
+
+  &-right {
+    right: -2rem;
+  }
+}
+
+.slick-disabled {
+  opacity: 0.50;
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0 !important;
+}
+
+.slick-dots {
+  bottom: 18px !important;
+
+  li {
+    button {
+      padding: 0 !important;
+      outline: 0 !important;
+      width: 12px !important;
+      border: 3px solid #d3791e;
+      height: 12px !important;
+      border-radius: 50% !important;
+      background-color:  #fff!important;
+      &::before {
+        color: transparent !important;
+      }
+    }
+    &.slick-active {
+      button {
+        background-color: #d3791e !important;
+        &::before {
+          color: #d3791e !important;
+          width: 12px !important;
+          height: 12px !important;
+        }
+      }
+    }
+  }
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+@include mobile {
+  .home__collections,
+  .productPage__collections {
+    .slick-arrow-right {
+      right: -10px;
+    }
+
+    .slick-arrow-left {
+      left: -1rem;
+    }
+  }
+}

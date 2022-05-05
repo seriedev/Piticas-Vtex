@@ -1,0 +1,42 @@
+@import './variables';
+@import '../utils/mixins';
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+.opacity-none {
+  height: 0;
+  opacity: 0;
+}
+
+.primary-color {
+  background-color: $primary-color !important;
+}
+
+input[type='search'] {
+  -webkit-appearance: none;
+}
+
+input[type='text'] {
+  -webkit-appearance: searchfield;
+}
+
+.ajax-content-loader {
+  display: none !important;
+}
+
+#ajaxBusy {
+  display: none !important;
+}
+
+a {
+  text-decoration: none;
+
+  cursor: pointer;
+}

@@ -1,0 +1,90 @@
+@mixin mobile {
+  @media screen and (max-width: 48rem) {
+    @content;
+  }
+}
+
+@mixin mobile-min {
+  @media screen and (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin desktop-mid {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin wrapper {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+@mixin wrapper-mobile {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color: mix($foreground-color, white, 50%)
+) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 2.5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: 2.5px;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin slider {
+  -webkit-font-smoothing: antialiased;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: translate(-100%);
+  -ms-transform: translate(-100%);
+  transform: translate(-100%);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  -o-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+@mixin slider-right-to-left {
+  -webkit-font-smoothing: antialiased;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: translate(110%);
+  -ms-transform: translate(110%);
+  transform: translate(110%);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  -o-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}

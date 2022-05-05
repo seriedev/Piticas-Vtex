@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Noah';
+  src: url('https://lojapiticas.vteximg.com.br/arquivos/Noah-Regular.woff2.css') format('woff2'),
+      url('https://lojapiticas.vteximg.com.br/arquivos/Noah-Regular.woff.css') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noah';
+  src: url('https://lojapiticas.vteximg.com.br/arquivos/Noah-BoldItalic.woff2.css') format('woff2'),
+      url('https://lojapiticas.vteximg.com.br/arquivos/Noah-BoldItalic.woff.css') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noah';
+  src: url('https://lojapiticas.vteximg.com.br/arquivos/Noah-RegularItalic.woff2.css') format('woff2'),
+      url('https://lojapiticas.vteximg.com.br/arquivos/Noah-RegularItalic.woff.css') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noah';
+  src: url('https://lojapiticas.vteximg.com.br/arquivos/Noah-Bold.woff2.css') format('woff2'),
+      url('https://lojapiticas.vteximg.com.br/arquivos/Noah-Bold.woff.css') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: 'Noah', sans-serif;
+  font-weight: normal; 
+  font-style: normal;
+  font-size: 16px;
+}
+
+$font-default: 1rem;
+
+$font-10: 0.625rem;
+$font-12: 0.75rem;
+$font-14: 0.875rem;
+$font-15: 0.9375rem;
+$font-18: 1.125rem;
+
+$font-20: 1.25rem;
+$font-22: 1.375rem;
+
+$font-30: 1.875rem;
+$font-40: 2.5rem;
+$font-44: 2.75rem;

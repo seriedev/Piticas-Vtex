@@ -1,0 +1,147 @@
+@import '../../utils/mixins';
+@import '../../base/variables';
+
+.stripeArea {
+  background: #f9f9f9;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  margin: {
+    top: 2rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    @include wrapper;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__icon {
+    font-size: 1rem;
+    color: $black;
+  }
+
+  &__info {
+    margin: {
+      left: 0.75rem;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: $black;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    line-height: 1.125rem;
+  }
+
+  &__description {
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: $grey-dark;
+    letter-spacing: -0.1px;
+    line-height: 0.875rem;
+    text-align: left;
+    margin: {
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  .slick {
+    &-track {
+      display: flex;
+      align-items: center;
+    }
+
+    &-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.75rem;
+      color: #b8b8b8;
+      line-height: 4.25rem;
+      text-align: center;
+      cursor: pointer;
+      z-index: 10;
+
+      &-left {
+        left: 1rem;
+      }
+
+      &-right {
+        right: 1rem;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .stripeArea {
+    margin: 0.75rem 0 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .slick {
+      &-dotted {
+        position: static;
+      }
+
+      &-arrow {
+        position: absolute;
+        top: 80%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        line-height: 5rem;
+        color: $primary-color;
+        z-index: 1;
+
+        &.fa-caret {
+          &-left {
+            left: 0.5rem;
+          }
+
+          &-right {
+            right: 0.5rem;
+          }
+        }
+      }
+    }
+
+    &__wrapper {
+      position: relative;
+      padding: {
+        right: 0;
+      }
+    }
+
+    &__item {
+      display: flex !important;
+      flex-direction: row;
+      justify-content: center;
+      margin: {
+        right: 1.5rem;
+      }
+    }
+
+    &__icon {
+      margin: {
+        right: 1.5rem;
+      }
+    }
+
+    &__info {
+      text-align: left;
+      margin: {
+        top: 0;
+      }
+    }
+  }
+}

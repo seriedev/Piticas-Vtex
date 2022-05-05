@@ -1,0 +1,40 @@
+#set($id = $product.Id)
+#set($uri = $product.Uri)
+#set($escapedName = $product.HtmlEscapedName)
+<li>
+  <article class="productCard" data-product-id="$id">
+    <div class="render-checkbox"></div>
+    <div class="productCard__flag">
+    </div>
+    <div class="productCard__image js-product-image">
+      <a class="productCard__link" href="$uri">
+       $product.GetImageTag(192, 192)
+      </a>
+    </div>
+
+    <span class="productCard__brand">
+       $product.BrandName
+    </span>
+    <a class="productCard__link" href="$uri">
+      <h3 class="productCard__name">
+        $escapedName
+      </h3>
+    </a>
+    #if ($product.IsInStock)
+    <div class="productCard__price productCard__price--visible">
+      <span class="productCard__price--best" data-price="200.00">
+        $product.BestPrice
+      </span>
+      #if ($product.HasBestPrice)
+      <span class="productCard__price--old">
+        $product.ListPrice
+      </span>
+      #end
+    </div>
+    #end #else
+    <span class="productCard__unavailable productCard__unavailable--hidden">
+      Indisponível
+    </span>
+    #end
+  </article>
+</li>

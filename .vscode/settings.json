@@ -1,0 +1,12 @@
+{
+  "atlascode.jira.jqlList": [
+    {
+      "id": "845955b9-c812-4607-a55d-42dfa31406e0",
+      "siteId": "ee572866-60ed-4fdf-afe5-76c454b4051b",
+      "name": "Boiler Issues",
+      "query": "project=\"Projeto Boilerplate\" AND assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "enabled": true,
+      "monitor": true
+    }
+  ]
+}

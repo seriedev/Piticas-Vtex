@@ -1,0 +1,622 @@
+@import '../../utils/mixins';
+@import '../../base/variables';
+
+.account {
+  &Page {
+    margin: {
+      bottom: 3rem;
+    }
+
+    &__wrapper {
+      @include wrapper;
+    }
+
+    &__header {
+      text-align: center;
+
+      margin: {
+        top: 3rem;
+        bottom: 2rem;
+      }
+    }
+
+    &__title {
+      font-weight: 400;
+      font-size: 14px;
+      color: #000;
+      letter-spacing: 0.1px;
+      text-align: center;
+      line-height: 2rem;
+      text-transform: uppercase;
+
+      margin: {
+        top: 0;
+        bottom: 0.5rem;
+      }
+    }
+
+    &__description {
+      font-weight: 400;
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 0.2px;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1rem;
+      max-width: 46rem;
+      margin: 0 auto 2rem;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &Card {
+    width: 100%;
+    border: 1px solid $grey-3;
+    border-radius: $radius-medium;
+    padding: 1.875rem 2rem;
+
+    &__header {
+      display: flex;
+      align-items: center;
+
+      margin: {
+        bottom: 1.875rem;
+      }
+    }
+
+    &__title {
+      display: block;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #000;
+      letter-spacing: 0.2px;
+      line-height: 1.5rem;
+      text-transform: uppercase;
+
+      margin: {
+        left: 0.625rem;
+      }
+
+      svg {
+        margin: {
+          right: 0.625rem;
+        }
+      }
+
+      path {
+        fill: $primary-color;
+      }
+    }
+
+    &__button {
+      display: block;
+      width: 100%;
+      height: 2.75rem;
+      line-height: 2.75rem;
+      background: $primary-color;
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: $white;
+      letter-spacing: 0.1px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: all 0.3s $ease;
+
+      &:hover {
+        background: {
+          color: #000;
+        }
+      }
+    }
+
+    .row {
+      margin: {
+        left: 0;
+        right: 0;
+      }
+    }
+
+    h4 {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #000;
+      letter-spacing: 0.2px;
+      line-height: 1.5rem;
+      text-transform: uppercase;
+
+      margin: {
+        left: 0.625rem;
+      }
+
+      margin: {
+        top: 0;
+        bottom: 1.5rem;
+      }
+    }
+
+    h5 {
+      margin: {
+        top: 0;
+        bottom: 0;
+      }
+    }
+
+    .profile-detail-display {
+      display: flex;
+      flex-direction: column;
+
+      h4 {
+        order: 1;
+
+        &:before {
+          content: '\f007';
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 400;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+          color: $primary-color;
+          font-size: 1.25rem;
+
+          margin: {
+            right: 0.625rem;
+          }
+        }
+      }
+
+      h5 {
+        order: 3;
+      }
+
+      .profile-detail-display-email {
+        order: 3;
+      }
+
+      .edit-profile-link {
+        order: 2;
+
+        margin: {
+          top: 0;
+          bottom: 1.5rem;
+        }
+      }
+
+      .profile-detail-display-info {
+        order: 4;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        text-transform: initial;
+        color: $grey-dark;
+        letter-spacing: 0.1px;
+        line-height: 1.125rem;
+
+        margin: {
+          bottom: 1.125rem;
+        }
+      }
+    }
+
+    .edit.edit-profile-link {
+      a {
+        display: block;
+        width: 100%;
+        height: 2.75rem;
+        line-height: 2.75rem;
+        background: $primary-color;
+        font-weight: 700;
+        font-size: 1.75rem;
+        color: $white;
+        letter-spacing: 0.1px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: all 0.3s $ease;
+
+        &:hover {
+          background: {
+            color: #000;
+          }
+        }
+      }
+    }
+
+    .address-display-block {
+      h4 {
+        &:before {
+          content: '\f3c5';
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 400;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+          color: $primary-color;
+          font-size: 1.25rem;
+
+          margin: {
+            right: 0.625rem;
+          }
+        }
+      }
+    }
+
+    .new-address-link {
+      .address-update {
+        display: block;
+        width: 100%;
+        height: 2.75rem;
+        line-height: 2.75rem;
+        background: $primary-color;
+        font-weight: 700;
+        font-size: 1.75rem;
+        color: $white;
+        letter-spacing: 0.1px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: all 0.3s $ease;
+
+        &:hover {
+          background: {
+            color: #000;
+          }
+        }
+      }
+    }
+
+    .address-display-unit {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .edit-address-link {
+      display: flex;
+      order: 2;
+      font-size: 0;
+    }
+
+    .address-display-unit-info {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      text-transform: initial;
+      color: $grey-dark;
+      letter-spacing: 0.1px;
+      line-height: 1.125rem;
+
+      margin: {
+        bottom: 1.125rem;
+      }
+    }
+
+    #address-update {
+      display: block;
+      width: 6.25rem;
+      height: 2.25rem;
+      line-height: 2.25rem;
+      border-radius: 3px;
+
+      background: {
+        color: $grey-1;
+      }
+
+      font-size: 0;
+      text-align: center;
+
+      margin: {
+        right: 0.625rem;
+      }
+
+      &:before {
+        content: 'Alterar';
+        font-size: 1.75rem;
+        color: #000;
+        letter-spacing: 0.2px;
+      }
+    }
+
+    .delete {
+      display: block;
+      width: 6.25rem;
+      height: 2.25rem;
+      line-height: 2.25rem;
+      border-radius: 3px;
+
+      background: {
+        color: $grey-1;
+      }
+
+      font-size: 1.75rem;
+      color: #000;
+      letter-spacing: 0.2px;
+      text-align: center;
+    }
+  }
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+  background: {
+    color: $secundary-color;
+  }
+
+  color: #000;
+}
+
+// Ajustes
+.span.flex.align-baseline.relative {
+  color: #000;
+}
+
+.flex.items-center.justify-center.h-100.pv2.ph5 span {
+  color: #fff;
+}
+
+.bg-action-primary {
+  background-color: #d3791e;
+}
+
+.b--action-primary {
+  border-color: #f18920;
+}
+
+.b--action-primary span {
+  color: #fff !important;
+}
+
+.hover-b--action-primary:hover {
+  border-color: #d6791b;
+  background-color: #d6791b !important;
+}
+
+.hover-bg-action-primary:hover {
+  background-color: #d3791e;
+}
+
+div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > main
+  > div
+  > article
+  > main
+  > form
+  > div.vtex-profile-form__toggle-business-btn__wrapper.mb7
+  > button {
+  background: #bb6b1b;
+  border: #bb6b1b;
+  color: #fff !important;
+}
+
+div:nth-child(26)
+  > div
+  > div
+  > div.ph6.ph8-ns.overflow-auto.flex-shrink-1.flex-grow-1.pb8.pt5.pt6-ns.vtex-styleguide-8-x-scrollBar
+  > div
+  > div
+  > div
+  > button
+  > div
+  > span {
+  color: #fff;
+}
+
+div:nth-child(26)
+  > div
+  > div
+  > div.ph6.ph8-ns.overflow-auto.flex-shrink-1.flex-grow-1.pb8.pt5.pt6-ns.vtex-styleguide-8-x-scrollBar
+  > div
+  > span
+  > button
+  > div {
+  color: #d3791e;
+}
+
+div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > header
+  > div
+  > div.c-on-base.flex.flex-wrap.flex-row.justify-between.mt0
+  > div.vtex-pageHeader__children.order-2.order-0-ns.mt0-ns
+  > a
+  > button
+  > div
+  > span {
+  color: #fff;
+}
+
+div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > main
+  > div
+  > article
+  > main
+  > form
+  > button
+  > div
+  > span {
+  color: #fff !important;
+}
+
+div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > main
+  > div
+  > article
+  > main
+  > div.vtex-address-form__postalCode.flex-m.flex-row.pb7
+  > div
+  > button
+  > div {
+  color: #fff;
+}
+
+div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > main
+  > div
+  > article
+  > main
+  > button {
+  border-color: #d3791e;
+  background-color: #d3791e;
+}
+
+div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > main
+  > div
+  > article
+  > main
+  > button
+  > div
+  > span {
+  color: #fff !important;
+}
+
+div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > main
+  > div
+  > article
+  > main
+  > div.vtex-address-form__postalCode.flex-m.flex-row.pb7
+  > div
+  > button
+  > div {
+  color: #d3791e;
+}
+
+.flex.items-center.justify-center.h-100.pv2.ph5 span {
+  display: flex;
+  align-items: center;
+  color: #3f3f40;
+}
+
+.vtex-button {
+  background-color: #f18920 !important;
+  div > span {
+    color: #fff !important;
+    span > svg {
+      margin-left: 10px;
+      color: #fff !important;
+    }
+  }
+
+}
+
+.hover-bg-action-secondary {
+  .h-100 {
+    height: auto;
+  }
+}
+
+.hover-bg-action-secondary:focus,
+.hover-bg-action-secondary:hover {
+  background-color: #d6791b !important;
+
+  div > span {
+    color: #fff !important;
+
+    span > svg {
+      margin-left: 10px;
+      color: #fff !important;
+    }
+  }
+}
+
+body
+  > div.accountPage
+  > div
+  > div.accountPage__container
+  > div
+  > div
+  > div
+  > div
+  > div
+  > section
+  > main
+  > main
+  > div.w-40-ns.w-100-s
+  > div.pb5.pr5-ns.flex-auto.mw6-ns
+  > article
+  > main
+  > div.pt4.flex.justify-center
+  > button
+  > div
+  > span {
+  color: #fff !important;
+}
+
+#root > form > div.w-100 > form > div > a,
+#root
+  > form
+  > div.w-100
+  > div.vtex-address-form__country.pb6
+  > div
+  > label
+  > div
+  > div
+  > div
+  > div.vtex-dropdown__arrow.flex-none.flex.items-center.pl2.c-action-primary {
+  color: #d3791e !important;
+}

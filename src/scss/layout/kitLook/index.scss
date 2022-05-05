@@ -1,0 +1,20 @@
+@import '../../utils/mixins';
+
+.kitlook {
+  &__wrapper {
+    @include wrapper;
+  }
+}
+.productPage__kitlook {
+  display: flex;
+  flex-direction: column;
+
+  .kitlook__title {
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: block;
+    color: #000;
+    margin: 1rem 0.5rem;
+  }
+}

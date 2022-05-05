@@ -1,0 +1,44 @@
+/**All your scss HERE!!**/
+@import '../../layout/productCard/index.scss';
+@import '../../utils/mixins';
+
+.wishlist {
+  margin: 40px 0;
+
+  .loader {
+    display: block !important;
+    width: 10em !important;
+    position: relative !important;
+    bottom: 0 !important;
+    transform: translate(-50%, -50%);
+  }
+
+  &__wrapper {
+    @include wrapper();
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+
+    margin: 20px 0;
+
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__warning {
+    &--no-favorites {
+      display: flex;
+      justify-content: center;
+
+      margin: 20px 0;
+      width: 100%;
+    }
+  }
+}

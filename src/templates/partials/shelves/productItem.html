@@ -1,0 +1,31 @@
+
+ #set($id = $product.Id)
+ #set($uri = $product.Uri)
+ #set($escapedName = $product.HtmlEscapedName)
+<article class="productCard" data-product-id="$id"><a class="productCard__link" href="$uri">
+    <div class="productCard__image js-shelf-product">
+  $product.GetImageTag(192, 192)<a class="productCard__sku-selector"> <span>Compra Rapida<i class="fas fa-plus"></i></span></a>
+    </div></a><a class="productCard__link" href="$uri">
+    <h3 class="productCard__name">
+ $escapedName
+    </h3></a>
+#if ($product.IsInStock)
+  <span class="productCard__price">
+    #if ($product.HasBestPrice)
+      <span class="productCard__price--old">$product.ListPrice</span>
+    #end
+    <span class="productCard__price--best">$product.BestPrice</span>
+    #if ($product.HasBestPrice)
+      <span class="productCard__price--condition">à vista no boleto</span>
+    #end
+  </span>
+  #if ($product.NumbersOfInstallment > 1)
+    <span class="productCard__installments">
+      ou<span class="productCard__installments--strong">${product.NumbersOfInstallment}X</span> de <span class="productCard__installments--strong">${product.InstallmentValue}</span>
+    </span>
+  #end
+#else
+  <span class="productCard__unavailable">Indisponível</span>
+#end
+
+</article>

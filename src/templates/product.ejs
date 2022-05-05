@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <%if (process.env.NODE_ENV === 'development') { %>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/head.ejs')() -%>
+  <% } else {%>
+  <vtex:template id="FRN-Head" />
+  <link rel="stylesheet" href="/arquivos/frn.lojapiticas.product.css" />
+  <% }  %>
+</head>
+
+<body>
+  <%if (process.env.NODE_ENV === 'development') { %>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/header.ejs')() -%>
+  <% } else {%>
+  <vtex:template id="FRN-Header" />
+  <% }  %>
+
+  <main class="willLoad">
+    <section class="productPage">
+      <section class="breadCrumb__container">
+        <%if (process.env.NODE_ENV === 'development') { %>
+        <%- require('ejs-webpack-loader!./partials/components/breadcrumbs.html')() %>
+        <% } else {%>
+        <vtex.cmc:breadcrumb />
+        <% }  %>
+      </section>
+
+      <div class="productPage__wrapper">
+        <section class="productPage__main">
+          <div class="productPage__content-one">
+            <!--<div class="productPage__image-mobile"></div>-->
+            <div class="productPage__description-product">
+              <div class="productPage__brand"></div>
+              <div class="productPage__name"></div>
+              <div class="productPage__id-product"></div>
+              <div class="productPage__variation-name"></div>
+              <div class="productPage__info">
+                <h2 class="productPage__description-title">Sobre a peça</h2>
+              </div>
+              <div class="productPage__description"></div>
+              <a id="seeMoreBtn">Veja +</a>
+            </div>
+            <div class="productPage__image">
+              <ul class="productPage__thumbs js-image-thumbs"></ul>
+            </div>
+          </div>
+          <div class="productPage__content-two">
+            <a data-product-id="$id" class="productPage__wishList"></a>
+            <div class="productPage__image">
+              <ul class="productPage__image-zoom js-image-zoom"><img class="teste" /><img
+                  class="productPage__image-zoom--image" src="" width="1000" height="1500" alt="" />
+              </ul>
+              <div class="productPage__image--main"></div>
+            </div>            
+          </div>
+          <div class="productPage__content-three">
+            <div class="productPage__content">
+              <div class="productPage__back-to-category"></div>
+              <div class="productPage__price">
+                <div class="productPage__best-price"></div>            
+                <div class="productPage__price-row">
+                  <div class="productPage__list-price"></div>
+                  <div class="productPage__installments"></div>
+                </div>
+              </div>
+              <div class="productPage__variations skuSelectorView"></div>
+              <div class="productPage__size--measures">
+                <a href="#">Confira a tabela de medidas</a>
+              </div>
+              <div class="productPage__avise-me"></div>
+              <div class="productPage__action">
+                <!--<div class="productPage__size">
+                  <div class="productPage__size--title">Tamanho</div>
+                  <ul class="productPage__size--items"></ul>                    
+                </div>-->
+                
+                <div class="productPage__quantityController"></div>
+                <vtex.cmc:buybutton />
+                <button class="productPage__add-to-cart js-add-to-cart">Adicionar ao carrinho<small>+</small></button>
+                <button class="productPage__buy-button">Finalizar Compra</button>
+                <div class="productPage__shipping">
+                  <p>Calcule frete e prazo</p>
+                  <input id="postal-code" type="number" name="postalcode" placeholder="CEP" />
+                  <button class="postal-code-send">Ok</button>
+                  <div class="shipping-results"></div>
+                </div>
+              </div>
+              <div class="productPage__share">
+                <div class="productPage__share-title">Compartilhar:</div><a
+                  class="productPage__share-item productPage__share-item--facebook" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21" viewbox="0 0 11 21">
+                    <g>
+                      <g>
+                        <path
+                          d="M.36 7.23h2.155V5.29c0-.853.024-2.172.694-2.989C3.915 1.437 4.885.85 6.552.85c2.716 0 3.862.359 3.862.359l-.539 2.956s-.898-.24-1.736-.24c-.837 0-1.587.277-1.587 1.052V7.23h3.435l-.24 2.886H6.552v10.027H2.515V10.116H.361z">
+                        </path>
+                      </g>
+                    </g>
+                  </svg></a><a class="productPage__share-item productPage__share-item--pinterest" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewbox="0 0 20 21">
+                    <g>
+                      <g>
+                        <path
+                          d="M10.43.857C5.114.857.803 5.174.803 10.5c0 3.948 2.37 7.34 5.763 8.832-.027-.673-.005-1.482.168-2.214l1.239-5.255s-.308-.615-.308-1.526c0-1.428.827-2.495 1.857-2.495.876 0 1.299.658 1.299 1.447 0 .882-.562 2.2-.85 3.422-.242 1.023.512 1.857 1.52 1.857 1.823 0 3.052-2.346 3.052-5.126 0-2.114-1.421-3.696-4.006-3.696-2.921 0-4.74 2.182-4.74 4.619 0 .84.247 1.432.634 1.89.179.211.203.296.139.538-.047.177-.153.605-.196.774-.065.244-.262.331-.482.241-1.346-.55-1.972-2.025-1.972-3.684 0-2.739 2.306-6.023 6.881-6.023 3.676 0 6.095 2.664 6.095 5.524 0 3.782-2.1 6.608-5.195 6.608-1.039 0-2.017-.563-2.352-1.202 0 0-.559 2.222-.677 2.65-.204.744-.604 1.488-.97 2.067a9.611 9.611 0 0 0 2.73.395c5.316 0 9.627-4.317 9.627-9.643 0-5.326-4.31-9.643-9.627-9.643z">
+                        </path>
+                      </g>
+                    </g>
+                  </svg></a><a class="productPage__share-item productPage__share-item--twitter" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewbox="0 0 19 16">
+                    <g>
+                      <g>
+                        <path
+                          d="M19.055 2.605a7.594 7.594 0 0 1-2.19.605 3.848 3.848 0 0 0 1.677-2.127c-.737.44-1.552.76-2.42.933A3.794 3.794 0 0 0 13.337.803c-2.105 0-3.812 1.72-3.812 3.842 0 .302.034.595.099.876a10.796 10.796 0 0 1-7.858-4.015 3.846 3.846 0 0 0-.516 1.932 3.85 3.85 0 0 0 1.696 3.198 3.773 3.773 0 0 1-1.727-.48v.048a3.838 3.838 0 0 0 3.058 3.768 3.803 3.803 0 0 1-1.722.066 3.821 3.821 0 0 0 3.562 2.669 7.61 7.61 0 0 1-5.644 1.591 10.727 10.727 0 0 0 5.843 1.727c7.013 0 10.847-5.856 10.847-10.934 0-.167-.004-.332-.011-.497a7.788 7.788 0 0 0 1.902-1.99z">
+                        </path>
+                      </g>
+                    </g>
+                  </svg></a><a class="productPage__share-item productPage__share-item--email" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewbox="0 0 16 12">
+                    <g>
+                      <g>
+                        <path
+                          d="M15.465 8.96V2.958L10.67 5.96zM.96 10.676c.212.468.694.793 1.254.793h11.88c.559 0 1.04-.323 1.253-.787.076-.165.118-.348.118-.541L9.726 6.549l-1.572.984-1.571-.984-5.74 3.592c0 .19.042.372.117.535zM.844 2.958V8.96l4.794-3zM2.214.45c-.56 0-1.042.326-1.254.793a1.282 1.282 0 0 0-.116.535l7.31 4.576 7.31-4.576a1.29 1.29 0 0 0-.117-.54 1.374 1.374 0 0 0-1.253-.788z">
+                        </path>
+                      </g>
+                    </g>
+                  </svg></a>
+              </div>
+            </div>
+          </div>
+          <!--<div class="productPage__main--mobile">
+            <div class="productPage__content-one">
+              <div class="productPage__image-mobile"></div>
+            </div>
+            <div class="productPage__content-two">
+              <div class="productPage__description-mobile">
+                <div class="productPage__brand-mobile"></div>
+                <div class="productPage__name-mobile"></div>
+                <div class="productPage__id-product-mobile"></div>
+              </div>
+            </div>
+          </div>-->
+        </section>
+        <section class="productPage__description--bottom">
+          <div class="productPage__description--bottom-title">
+            <p>Descrição</p>
+          </div>
+          <div class="productPage__description--bottom-content"></div>
+          <a id="seeMoreBtnBottom">Veja +</a>
+        </section>
+      </div>
+
+      <section class="similars"></section>
+      
+      <section class="kitlook">
+        <div class="kitlook__wrapper">
+          <div class="kitlook__list"></div>
+          <div class="kitlook__buy-button">
+            <!--<button>Comprar</button>-->
+          </div>
+          <vtex:contentPlaceHolder id="Complete seu Look" />
+        </div>
+      </section>
+
+      <section class="buyTogether">
+        <h2 class="buyTogether__title">
+          Compre Junto</h2>
+        <div class="buyTogether__container">
+          <div class="buyTogether__content"></div>
+          <div class="buyTogether__buy-skus">
+            <div class="buyTogether__result-wrapper">
+              <div class="buyTogether__total-price">
+                <h2 class="buyTogether__total-price-title">Leve os 3 itens por</h2>
+                <span></span>
+              </div>
+              <div class="buyTogether__buy-button">
+                <button>Adicionar ao carrinho</button>
+              </div>
+            </div>
+          </div>
+          <!--<vtex:contentPlaceHolder id="Compre Junto" />-->
+        </div>
+      </section>
+
+      <section class="productPage__collections">
+        <%if (process.env.NODE_ENV === 'development') { %>
+        <h2>Produto relacionado</h2>
+        <% } else {%>
+        <vtex:contentPlaceHolder id="Produto relacionado" />
+        <% }  %>
+      </section>
+
+    </section>
+  </main>
+  <div class="js-modal-zoom" style="display:none"></div>
+
+  <%if (process.env.NODE_ENV === 'development') { %>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/footer.ejs')() -%>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/scripts.ejs')() -%>
+  <% } else {%>
+  <vtex:template id="FRN-Footer" />
+  <vtex:template id="FRN-Scripts" />
+  <script src="/arquivos/frn.lojapiticas.product.js"></script>
+  <% }  %>
+</body>
+
+</html>

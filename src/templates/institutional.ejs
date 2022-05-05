@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <%if (process.env.NODE_ENV === 'development') { %>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/head.ejs')() -%>
+  <% } else {%>
+  <vtex:template id="FRN-Head" />
+  <link rel="stylesheet" href="/arquivos/frn.lojapiticas.institutional.css" />
+  <% }  %>
+</head>
+
+<body>
+  <%if (process.env.NODE_ENV === 'development') { %>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/header.ejs')() -%>
+  <% } else {%>
+  <vtex:template id="FRN-Header" />
+  <% }  %>
+
+  <main>
+    <section class="institucional-page">
+      <div class="institucional__fulltitle">
+        <h2 class="institucional__page-title">
+          <%if (process.env.NODE_ENV === 'development') { %>
+          Quem Somos
+          <% } else {%>
+          <vtex:contentPlaceHolder id="Page Title" />
+          <% }  %>
+        </h2>
+        <!--<vtex:template id="FRN-Brands" />-->
+
+        <!--<section class="breadCrumb__container">
+          <%if (process.env.NODE_ENV === 'development') { %>
+            <%- require('ejs-webpack-loader!./partials/components/breadcrumbs.html')() %>
+          <% } else {%>
+            <vtex.cmc:breadcrumb />
+          <% }  %>
+        </section>-->
+      </div>
+
+      <div class="institucional__wrapper">
+        <!--<div class="institucional__menu">
+          <div class="institucional__menu-item">
+            <h4 class="institucional__menu-title"> Ajuda</h4>
+            <ul class="institucional__link-list">
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewbox="0 0 16 20">
+                    <g>
+                      <g>
+                        <path d="M15.98 10.949s.019.561-.862.578c0 0-.218.028-.155.506l.01.695s-.028.208-.413.334c0 0-.073.072.037.208 0 0 .201.223-.148.705-.13.176-.337.397-.21.85 0 0 .165.873-.183 1.083 0 0-.396.462-1.989.27-.555-.068-1.584-.335-2.197.424 0 0-1.466 2.745-1.576 3.395 0 0-2.501-4.39-5.552-5.066 0 0 .742-1.652-.769-3.793 0 0-1.895-2.466-1.952-3.82 0 0-.5-2.283 1.864-4.884C3.02 1.185 4.523.024 8.234-.002c1.45-.012 3.663.325 5.385 2.121 1.042 1.084 1.81 2.455 1.59 4.693-.047.486-.75 1.047-.256 1.986 0 0 1.062 1.843 1.026 2.15zm-6.727.648c-.013-.719-.494-1.234-1.238-1.234-.714 0-1.223.516-1.223 1.234 0 .706.495 1.234 1.223 1.234.743 0 1.24-.528 1.238-1.234zM10.85 5.51c0-1.126-.825-2.115-2.641-2.115-.976 0-1.802.27-2.297.555l.468 1.478c.358-.244.908-.407 1.361-.407.688.027 1.005.339 1.005.814 0 .461-.357.895-.799 1.41-.618.733-.852 1.437-.81 2.129l.013.352h1.828V9.48c-.013-.61.193-1.138.702-1.694.523-.568 1.17-1.247 1.17-2.277z"></path>
+                      </g>
+                    </g>
+                  </svg>Dúvidas Frequentes</a></li>
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewbox="0 0 18 13">
+                    <g>
+                      <g>
+                        <path d="M5.856 11.312c0 .934-.792 1.69-1.77 1.69-.98 0-1.772-.756-1.772-1.69 0-.934.793-1.691 1.771-1.691.979 0 1.771.757 1.771 1.691zm-1.182 0a.576.576 0 0 0-.589-.562.576.576 0 0 0-.588.562c0 .31.264.562.588.562.326 0 .59-.252.59-.562zm11.13 0c0 .934-.793 1.69-1.772 1.69-.978 0-1.77-.756-1.77-1.69 0-.934.792-1.691 1.77-1.691.98 0 1.771.757 1.771 1.691zm-1.183 0a.576.576 0 0 0-.589-.562.576.576 0 0 0-.588.562c0 .31.264.562.588.562a.576.576 0 0 0 .59-.562zm3.376-1.56v1.213a.355.355 0 0 1-.363.347h-1.12c0-1.306-1.114-2.369-2.482-2.369s-2.48 1.063-2.48 2.369H6.565c0-1.306-1.113-2.369-2.481-2.369-1.368 0-2.48 1.063-2.48 2.369H.364a.355.355 0 0 1-.363-.347V9.753c0-.188.159-.34.355-.34h.19v-8.03c0-.766.65-1.387 1.452-1.387h9.075c.2 0 .363.155.363.347v1.448h3.27c.2 0 .462.124.583.276l2.012 2.525c.12.153.22.431.22.623v4.199h.12c.197 0 .356.151.355.339zm-5.638-4.624h3.416l-1.351-1.76a.792.792 0 0 0-.554-.265H12.36z"> </path>
+                      </g>
+                    </g>
+                  </svg>Entregas e Fretes</a></li>
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewbox="0 0 17 18">
+                    <g>
+                      <g>
+                        <path d="M16.525 10.713l-1.277 1.274V10.32l.449-.44a.453.453 0 0 0 .136-.303.426.426 0 0 0-.125-.302l-7.91-7.963a.417.417 0 0 0-.3-.123.43.43 0 0 0-.301.13L4.74 3.8l4.022 4.07H6.156L3.437 5.116l-.572.558a.448.448 0 0 0 0 .62l1.546 1.577H2.755l-.718-.743a1.639 1.639 0 0 1 0-2.292L6.369.476a1.585 1.585 0 0 1 2.257 0l7.91 7.964a1.615 1.615 0 0 1-.011 2.273zm-2.125-.494v4.26H.001v-4.26c0-.887.754-1.602 1.635-1.602h11.188c.882 0 1.576.715 1.576 1.602zM5.073 11.86c0-.646-.52-1.169-1.162-1.169-.312 0-.595.125-.803.327a1.151 1.151 0 0 0-.804-.327c-.641 0-1.161.523-1.161 1.169s.52 1.17 1.161 1.17c.312 0 .595-.126.804-.328.208.202.49.327.803.327.642 0 1.162-.523 1.162-1.169zM0 16.292h14.4v.094c0 .888-.695 1.611-1.577 1.611H1.636c-.881 0-1.635-.723-1.635-1.61z"></path>
+                      </g>
+                    </g>
+                  </svg>Pagamentos</a></li>
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="11" viewbox="0 0 18 11">
+                    <g>
+                      <g>
+                        <path d="M4.482 8.433V3.648H6.3L3.15 0 0 3.648h1.818v5.519c0 1.012.806 1.833 1.8 1.833H11.7L9.395 8.433zm11.7-1.081V1.833c0-1.012-.806-1.833-1.8-1.833H6.3l2.305 2.567h4.913v4.785H11.7L14.85 11 18 7.352z"></path>
+                      </g>
+                    </g>
+                  </svg>Troca, devolução e cancelamento</a></li>
+            </ul>
+          </div>
+          <div class="institucional__menu-item">
+            <h4 class="institucional__menu-title"> Institucional</h4>
+            <ul class="institucional__link-list">
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewbox="0 0 17 17">
+                    <g>
+                      <g>
+                        <image width="17" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAACQUlEQVQ4T4WUTUhUYRSGn3NH0/s3baIUXEUQgVCIiyC0gqgWSgVFUUIRSamLFq7CVYtcBVKQQkIU2EISKpIiChIlhH4XCdGmlWFBPzj3b0znnpgRxzvDpGd5vvM+3znv4fuEtcPoaLBGR2bDk0D8v1KpdLDZtrf01MnHnabUbaoS+bmk+imrP57+yTVP/4q+lWtKII7jNCq5ToQTBtQ3WcJuy+BNGPM+UnLKHMoDITXs+/7MCqwIcd2a7THGZ6Bid2W3q0G8w/MWvuTzRYGdNi+jeijwskeBvysiO21+CDJRUwKywXZrHyHyPMhENwoQyzFvGjClQpeojPl+OJi81XbNicCL9iVzjmN1q+hxUYZiaBHbMUcQvqN0aUr2hvPhu6TAcs2p0ItaSsC2vQuJXyMModQVxrFcq03QJxU2tQQagLiAUX6uSHvoheOrENEOlFagvui6phrVyB0gpzMY8jIBmUOYVJWRIsR2rX7QKwJfFZkEPQNUi+p+FXmlyDFBHwKLIPcFbVXYKki/74V9hU4ct3ZYkQure9fbinFKRPs0Zpuiv0WMXiEeVaQzWed72YsFiO1ad0HPls4sd0CPALNAA8hj0PNlNfcCLzy37EnavCVKd5lxS8AzoB0YBw4DVckaFQbDTNSz0knBkwrbmQD2ANNQML0kip44Tm3evIH/vdD18qK50/lOxEpbzagOCExXp2qurSdczGUvKdImRnw1mF94sezJRqtJYn2LMBZkovzfsWbYrnkd6MWID+Yh/wCijuHPahJr2AAAAABJRU5ErkJggg=="></image>
+                      </g>
+                    </g>
+                  </svg>Quem Somos</a></li>
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="23" viewbox="0 0 15 23">
+                    <g>
+                      <g>
+                        <path d="M4.024 6.839a8.836 8.836 0 0 0-1.405.77V5.015C2.619 2.25 4.809 0 7.5 0c2.691 0 4.88 2.25 4.88 5.016v2.592a8.827 8.827 0 0 0-1.404-.77l-.024-.01V5.017c0-1.956-1.548-3.548-3.452-3.548S4.048 3.06 4.048 5.016v1.813l-.024.01zM15 15.293C15 19.549 11.642 23 7.5 23 3.358 23 0 19.55 0 15.293s3.358-7.708 7.5-7.708c4.142 0 7.5 3.45 7.5 7.708zm-5.833-1.154c0-.946-.747-1.713-1.667-1.713s-1.667.767-1.667 1.713c0 .683.39 1.273.953 1.548v2.62h1.428v-2.62c.563-.275.953-.865.953-1.548z"></path>
+                      </g>
+                    </g>
+                  </svg> Pol&iacute;tica e Privacidade</a></li>
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="17" viewbox="0 0 14 17">
+                    <g>
+                      <g>
+                        <path d="M13.998 1.936v13.128c0 1.069-.898 1.935-2.007 1.935H2.008C.9 17 .001 16.133.001 15.064V1.936C.001.867.9.001 2.008.001h9.984c1.107 0 2.007.866 2.006 1.935zM1.882 6.525V7.91c0 .434.351.785.793.815h3.633c.441-.03.793-.381.793-.815V6.525c0-.454-.381-.821-.852-.821h-.284a1.86 1.86 0 0 0 .513-1.279c0-1.055-.886-1.909-1.98-1.909-1.092 0-1.98.855-1.98 1.909 0 .493.196.94.513 1.279h-.297c-.47 0-.852.367-.852.82zm10.236 7.184c0-.427-.36-.774-.803-.774h-8.63c-.443 0-.803.347-.803.774 0 .427.36.774.803.774h8.63c.443 0 .803-.347.803-.774zm0-2.903c0-.427-.36-.774-.803-.774h-8.63c-.443 0-.803.347-.803.774 0 .427.36.774.803.774h8.63c.443 0 .803-.347.803-.774zm0-2.903c0-.427-.36-.774-.803-.774h-2.61c-.442 0-.802.347-.802.774 0 .427.36.774.803.774h2.609c.443 0 .803-.347.803-.774z"></path>
+                      </g>
+                    </g>
+                  </svg>Trabalhe Conosco</a></li>
+              <li class="institucional__link-list-item"><a class="institucional__link" href="/institucional/quem-somos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewbox="0 0 14 18">
+                    <g>
+                      <g>
+                        <path d="M3.408 3.552C3.408 1.593 5.019 0 7 0c1.98 0 3.593 1.593 3.593 3.552S8.982 7.104 7 7.104c-1.982 0-3.593-1.593-3.593-3.552zM14 11.796v4.883c0 .73-.598 1.321-1.336 1.321H1.336A1.328 1.328 0 0 1 0 16.68v-4.867c0-1.358.845-2.66 2.185-2.99.49-.12 1.964-.325 1.995-.325.13 0 .251.08.299.208l2.156 5.849a.39.39 0 0 0 .731 0l2.157-5.85a.32.32 0 0 1 .392-.193s1.433.198 1.9.311l.007.002c1.3.42 2.178 1.62 2.178 2.971zM7.872 8.914l-.508.756.238 1.981-.468 1.23a.143.143 0 0 1-.268 0l-.468-1.23.238-1.981-.508-.756a.431.431 0 0 1 .058-.513.461.461 0 0 1 .34-.14h.949a.46.46 0 0 1 .339.14c.133.143.152.35.058.513z"></path>
+                      </g>
+                    </g>
+                  </svg>Seja um Franqueado</a></li>
+            </ul>
+          </div>
+        </div>-->
+        <div class="institucional__content">
+          <!--<p class="institucional__text">
+            <%if (process.env.NODE_ENV === 'development') { %>
+              <p>vitrine</p>
+            <% } else {%>
+              <vtex:contentPlaceHolder id="Institutional Content" />
+            <% }  %>
+          </p>-->
+          <div class="institucional__content--top">
+            <div class="institucional__content--first">
+              <div class="video-responsive">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HZSB4v6DPWw"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="institucional__content--last">
+              <div class="institucional__content--last-title">
+                <span>lorem ipsum dolor sit</span>
+                <h2>lorem ipsum dolor sit</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+                  accumsan lacus vel facilisis. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="institucional__main">
+          <div class="institucional__main--content">
+            <div class="institucional__main--content-img">
+              <img src="/arquivos/institucional_01.png" class="institucional__main--content-img-one" alt="" srcset="" />
+              <img src="/arquivos/institucional_02.png" class="institucional__main--content-img-two" alt="" srcset="" />
+              <img src="/arquivos/institucional_03.png" class="institucional__main--content-img-three" alt="" srcset="" />
+            </div>
+            <div class="institucional__main--content-text">
+              <div class="institucional__main--content-title">
+                <h2>rossettis</h2>
+              </div>
+              <p>A Piticas nasceu da ideia de dois irmãos, Vinicius e Felipe Rossetti, que após morarem por 10 anos nos
+                Estados Unidos, retornaram ao Brasil em busca de uma oportunidade empreendedora. Os irmãos sempre foram
+                muito fãs de cultura pop, em especial pelos filmes de super-heróis, séries e games. Após analisar vários
+                mercados, tiveram a visão de um negócio que ainda não era explorado no Brasil, ainda não tinha
+                profissionalização, o mercado de vestuário de peças licenciadas, mais especificamente camisetas. Eles
+                mergulharam de cabeça para criar uma franquia diferenciada de qualquer coisa já vista no mercado,
+                inicialmente foram abertos somente quiosques, hoje já conta com os modelos de quiosques e loja. Com uma
+                produção 100% verticalizada, e o foco no desenvolvimento da criatividade e atentos a cada detalhe, os
+                irmãos fundaram a primeira loja em 2010, e desde então acompanham todas as etapas de produção,
+                treinamento de funcionários e satisfação dos clientes, prezando por qualidade e criatividade em seus
+                produtos. Tudo o que a Piticas produz é diferenciado. A confecção das camisetas conta com um time de
+                designers preparados para lançar semanalmente novas estampas. A estamparia usa maquinários importados de
+                última geração, além de um time qualificado e treinado para produzir efeitos especiais nas peças, isso
+                tudo gera um dinamismo sem igual no mercado. Hoje a Piticas produz de 15 a 20 mil peças por dia,
+                dependendo da demanda, e oferece aos franqueados uma consultoria de negócios profunda e proativa. Após
+                quase 10 anos de existência, a Piticas hoje é a maior franquia focada no mercado geek com mais de 340
+                lojas franqueadas.</p>
+                <button class="institucional__main--content-button">encontre a mais próxima</button>             
+            </div>           
+          </div>
+        </div>
+        <div class="institucional__media">
+          <h2 class="institucional__media--title">piticas na mídia</h2>
+          <div class="institucional__media--items">
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+            <a href="#" class="institucional__media--item">
+              <div class="institucional__media--item-content">
+                <img src="/arquivos/logo-web-fundo-branco.png" class="institucional__media--item-img" alt=""
+                  srcset="" />
+                <div class="institucional__media--item-text">
+                  “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt”
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="institucional__social">
+          <div class="institucional__social--items">
+            <p>siga a gente nas <span>redes sociais:</span></p>
+            <div class="institucional__social--items-icons">
+              <div class="institucional__social--items-face">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="40" viewBox="0 0 13.23 28.67">
+                  <g>
+                    <path fill="#333"
+                      d="M3 28.67h5.78V14.21h4l.43-4.84H8.78V6.62C8.78 5.47 9 5 10.11 5h3.12V0h-4C4.94 0 3 1.89 3 5.51v3.86H0v4.9h3z" />
+                  </g>
+                </svg>
+              </div>
+              <div class="institucional__social--items-insta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 26 26">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #333
+                      }
+                    </style>
+                  </defs>
+                  <g id="Camada_2">
+                    <g id="Capa_1">
+                      <path
+                        d="M13 2.34c3.47 0 3.88 0 5.26.08a7.21 7.21 0 0 1 2.41.45 3.93 3.93 0 0 1 1.5 1 4.13 4.13 0 0 1 1 1.49 7.22 7.22 0 0 1 .45 2.42c.06 1.37.07 1.78.07 5.25s0 3.89-.07 5.26a7.21 7.21 0 0 1-.45 2.41 4.26 4.26 0 0 1-2.47 2.47 7.21 7.21 0 0 1-2.41.45c-1.38.06-1.79.07-5.26.07s-3.88 0-5.25-.07a7.22 7.22 0 0 1-2.42-.45 4.13 4.13 0 0 1-1.49-1 3.93 3.93 0 0 1-1-1.5 7.21 7.21 0 0 1-.45-2.41c-.06-1.37-.08-1.79-.08-5.26s0-3.88.08-5.25a7.22 7.22 0 0 1 .45-2.42 3.89 3.89 0 0 1 1-1.49 3.89 3.89 0 0 1 1.49-1 7.22 7.22 0 0 1 2.42-.45c1.37-.06 1.78-.08 5.25-.08M13 0C9.47 0 9 0 7.64.08a9.45 9.45 0 0 0-3.15.6 6.34 6.34 0 0 0-2.31 1.5 6.42 6.42 0 0 0-1.5 2.31 9.45 9.45 0 0 0-.6 3.15C0 9 0 9.47 0 13s0 4 .08 5.36a9.52 9.52 0 0 0 .6 3.16 6.39 6.39 0 0 0 1.5 2.3 6.21 6.21 0 0 0 2.31 1.5 9.68 9.68 0 0 0 3.15.61C9 26 9.47 26 13 26s4 0 5.36-.07a9.75 9.75 0 0 0 3.16-.61 6.26 6.26 0 0 0 2.3-1.5 6.39 6.39 0 0 0 1.5-2.3 9.75 9.75 0 0 0 .61-3.16C26 17 26 16.53 26 13s0-4-.07-5.36a9.68 9.68 0 0 0-.61-3.15 6.42 6.42 0 0 0-1.5-2.31 6.39 6.39 0 0 0-2.3-1.5 9.52 9.52 0 0 0-3.16-.6C17 0 16.53 0 13 0"
+                        class="cls-1" />
+                      <path
+                        d="M13 6.33A6.68 6.68 0 1019.68 13 6.66 6.66 0 0013 6.33m0 11A4.34 4.34 0 1117.34 13 4.33 4.33 0 0113 17.34M21.5 6.06a1.56 1.56 0 11-1.56-1.56 1.56 1.56 0 011.56 1.56"
+                        class="cls-1" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="pitmap">
+      <div class="pitmap__items">
+        <div class="pitmap__item--first">
+          <div class="pitmap__item--first-title">
+            <p>Consulte</p>
+            <p>Nossas lojas</p>
+          </div>
+          <button class="pitmap__item--first-button">encontre a mais próxima</button>
+        </div>
+        <div class="pitmap__item--last">
+          <div class="map-responsive">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.905786195268!2d-48.630458685415064!3d-28.027355247357168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9526d19cd072453b%3A0x68fc1b4f5fdd5d33!2sGaropaba%20-%20SC!5e0!3m2!1spt-BR!2sbr!4v1618570949243!5m2!1spt-BR!2sbr"
+              width="860" height="334" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pitinsta">
+      <div class="pitinsta__title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 26 26">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: #333
+              }
+            </style>
+          </defs>
+          <g id="Camada_2">
+            <g id="Capa_1">
+              <path
+                d="M13 2.34c3.47 0 3.88 0 5.26.08a7.21 7.21 0 0 1 2.41.45 3.93 3.93 0 0 1 1.5 1 4.13 4.13 0 0 1 1 1.49 7.22 7.22 0 0 1 .45 2.42c.06 1.37.07 1.78.07 5.25s0 3.89-.07 5.26a7.21 7.21 0 0 1-.45 2.41 4.26 4.26 0 0 1-2.47 2.47 7.21 7.21 0 0 1-2.41.45c-1.38.06-1.79.07-5.26.07s-3.88 0-5.25-.07a7.22 7.22 0 0 1-2.42-.45 4.13 4.13 0 0 1-1.49-1 3.93 3.93 0 0 1-1-1.5 7.21 7.21 0 0 1-.45-2.41c-.06-1.37-.08-1.79-.08-5.26s0-3.88.08-5.25a7.22 7.22 0 0 1 .45-2.42 3.89 3.89 0 0 1 1-1.49 3.89 3.89 0 0 1 1.49-1 7.22 7.22 0 0 1 2.42-.45c1.37-.06 1.78-.08 5.25-.08M13 0C9.47 0 9 0 7.64.08a9.45 9.45 0 0 0-3.15.6 6.34 6.34 0 0 0-2.31 1.5 6.42 6.42 0 0 0-1.5 2.31 9.45 9.45 0 0 0-.6 3.15C0 9 0 9.47 0 13s0 4 .08 5.36a9.52 9.52 0 0 0 .6 3.16 6.39 6.39 0 0 0 1.5 2.3 6.21 6.21 0 0 0 2.31 1.5 9.68 9.68 0 0 0 3.15.61C9 26 9.47 26 13 26s4 0 5.36-.07a9.75 9.75 0 0 0 3.16-.61 6.26 6.26 0 0 0 2.3-1.5 6.39 6.39 0 0 0 1.5-2.3 9.75 9.75 0 0 0 .61-3.16C26 17 26 16.53 26 13s0-4-.07-5.36a9.68 9.68 0 0 0-.61-3.15 6.42 6.42 0 0 0-1.5-2.31 6.39 6.39 0 0 0-2.3-1.5 9.52 9.52 0 0 0-3.16-.6C17 0 16.53 0 13 0"
+                class="cls-1" />
+              <path
+                d="M13 6.33A6.68 6.68 0 1019.68 13 6.66 6.66 0 0013 6.33m0 11A4.34 4.34 0 1117.34 13 4.33 4.33 0 0113 17.34M21.5 6.06a1.56 1.56 0 11-1.56-1.56 1.56 1.56 0 011.56 1.56"
+                class="cls-1" />
+            </g>
+          </g>
+        </svg>
+        Siga nosso Instagram
+      </div>
+      <div class="pitinsta__wrapper">
+        <div>
+          <a href="#">
+            <img src="/arquivos/insta-1.png" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="/arquivos/insta-2.png" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="/arquivos/insta-3.png" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="/arquivos/insta-4.png" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="/arquivos/insta-5.png" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <!--<div class="institucional__collections">
+      <%if (process.env.NODE_ENV === 'development') { %>
+      <p>vitrine</p>
+      <% } else {%>
+      <vtex:contentPlaceHolder id="Product Showcase" />
+      <% }  %>
+    </div>-->
+  </main>
+
+  <%if (process.env.NODE_ENV === 'development') { %>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/footer.ejs')() -%>
+  <%- require('ejs-webpack-loader!./partials/subtemplates/scripts.ejs')() -%>
+  <% } else {%>
+  <vtex:template id="FRN-Footer" />
+  <vtex:template id="FRN-Scripts" />
+  <script src="/arquivos/frn.lojapiticas.institutional.js"></script>
+  <% }  %>
+</body>
+
+</html>

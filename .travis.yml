@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - 14.0.0
+cache: yarn
+
+install: yarn install
+
+script:
+  - yarn run build:prod
+
+deploy:
+  provider: gcs
+  access_key_id: GOOGWEH4F4XE3U4KXBH556EW
+  secret_access_key: GAHYaZ3he1SuqftRfwKdsadasBT3AF4X/CAcj1
+  bucket: teste-alfredo
+  upload-dir: boiler-plate-frn
+  skip_cleanup: true
+  local-dir: public
+  acl: public-read
+  cache_control: private
