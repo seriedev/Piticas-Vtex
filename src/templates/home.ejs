@@ -1,183 +1,66 @@
+<!-- 01-FRN-Home -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
-  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
-  <%if (process.env.NODE_ENV === 'development') { %>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/head.ejs')() -%>
-  <% } else {%>
+    <script type='application/ld+json'>
+        {
+          "@context":"https://schema.org",
+          "@type":"WebSite",
+          "@id":"https://www.piticas.com.br/#website",
+          "url":"https://www.piticas.com.br/",
+          "name": "Piticas",
+          "publisher":{"@id":"https://www.piticas.com.br/#organization"},
+          "potentialAction": {
+            "@type":"SearchAction",
+            "target":"https://www.piticas.com.br/busca?ft={search_term_string}",
+            "query-input":"required name=search_term_string"
+          }
+        }
+  </script>
   <vtex:template id="FRN-Head" />
   <link rel="stylesheet" href="/arquivos/frn.lojapiticas.home.css" />
-  <% }  %>
+  <vtex.cmc:productRichSnippets showFacebook="true"/>
 </head>
 
 <body>
-  <%if (process.env.NODE_ENV === 'development') { %>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/header.ejs')() -%>
-  <% } else {%>
+  
   <vtex:template id="FRN-Header" />
-  <% }  %>
+  
 
   <main>
     <div class="homePage">
       <section class="full-banner full-banner-desktop">
         <div class="full-banner__wrapper">
           <ul class="full-banner__slides js-full-banner">
-            <%if (process.env.NODE_ENV === 'development') { %>
-            <picture>
-              <source media="(max-width: 480px)" srcset="/arquivos/banner-mobile.png"><img
-                src="/arquivos/home-banner-02.jpg" alt="" srcset="" />
-            </picture>
-            <picture>
-              <source media="(max-width: 480px)" srcset="/arquivos/banner-mobile.png"><img
-                src="/arquivos/home-banner-02.jpg" alt="" srcset="" />
-            </picture>
-            <% } else {%>
             <vtex:contentPlaceHolder id="HTML FullBanner" />
-            <% }  %>
+          </ul>
+          <ul class="full-banner__slides js-full-banner--mobile">
+            <vtex:contentPlaceHolder id="Mobile Full Banner" />
           </ul>
         </div>
       </section>
     </div>
 
-    <!--<%if (process.env.NODE_ENV === 'development') { %>
-      <%- require('ejs-webpack-loader!./partials/subtemplates/storeBenefits.ejs')() %>
-    <% } else {%>
-      <vtex:template id="frn-storeBenefits" />
-    <% }  %>-->
-
-    <%if (process.env.NODE_ENV === 'development') { %>
-    <%- require('ejs-webpack-loader!./partials/subtemplates/brands.ejs')() %>
-    <% } else {%>
+    
     <vtex:template id="FRN-Brands" />
-    <% }  %>
-
-    <!--<section class="category">
-      <div class="category__wrapper">
-        <h2 class="category__title">Licenças</h2>
-        <div class="category__first-column">
-          <div class="category__first-column-box--bigger">
-            <img src="/arquivos/masculino.jpg" alt="" srcset="" />
-            <div class="layer-img">
-              <h2>Masculino</h2>
-            </div>
-          </div>
-          <div class="category__first-column-box--bigger">
-            <img src="/arquivos/feminio.jpg" alt="" srcset="" />
-            <div class="layer-img">
-              <h2>Feminino</h2>
-            </div>
-          </div>
-        </div>
-        <div class="category__second-column">
-          <div class="category__first-column-box">
-            <div class="category__first-column-box--small">
-              <%if (process.env.NODE_ENV === 'development') { %>
-              <picture>
-                <source media="(max-width: 480px)" srcset="/arquivos/home-mosaico-surf-mobile.jpg" />
-                <img src="/arquivos/home-mosaico-surf.jpg" alt="" srcset="" />
-              </picture>
-              <% } else {%>
-              <vtex:contentPlaceHolder id="Mosaico-Surf" />
-              <% }  %>
-              <div class="layer-img">
-                <%if (process.env.NODE_ENV === 'development') { %>
-                <p>urf</p>
-                <% } else {%>
-                <vtex:contentPlaceHolder id="Mosaico-Surf-Title" />
-                <% }  %>
-              </div>
-            </div>
-            <div class="category__first-column-box--small">
-              <img src="/arquivos/biquini.jpg" alt="" srcset="" />
-              <div class="layer-img">
-                <h2>Biquini</h2>
-              </div>
-            </div>
-          </div>
-          <div class="category__first-column-box">
-            <div class="category__first-column-box--small">
-              <img src="/arquivos/skate.jpg" alt="" srcset="" />
-              <div class="layer-img">
-                <h2>Skate</h2>
-              </div>
-            </div>
-            <div class="category__first-column-box--small">
-              <img src="/arquivos/gopro.jpg" alt="" srcset="" />
-              <div class="layer-img">
-                <h2>Gopro</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="category__first-column">
-          <div class="category__first-column-box--bigger">
-            <img src="/arquivos/masculino.jpg" alt="" srcset="" />
-            <div class="layer-img">
-              <h2>Masculino</h2>
-            </div>
-          </div>
-          <div class="category__first-column-box--bigger">
-            <img src="/arquivos/feminio.jpg" alt="" srcset="" />
-            <div class="layer-img">
-              <h2>Feminino</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>-->
+    
 
     <section class="home__collections">
-      <%if (process.env.NODE_ENV === 'development') { %>
-      <p>vitrine</p>
-      <% } else {%>
+      
       <vtex:contentPlaceHolder id="Product Showcase" />
-      <% }  %>
+      
     </section>
 
-    <!--<section class="mosaico">
-      <div class="mosaico__wrapper">
-        <div class="mosaico__verao">
-          <div class="mosaico__verao-img"><a href="#"><img src="/arquivos/franqueado.png" alt="" srcset="" /></a></div>
-          <div class="mosaico__verao-content"><a href="#">
-              <h2>Verao 2020</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed accusantium veniam delectus minima optio
-                iure animi at sunt facilis omnis repellendus facere vitae eaque, distinctio, voluptatem id deserunt
-                reprehenderit eius!</p><a class="mosaico__link-btn" href="#"> saiba mais</a>
-            </a></div>
-        </div>
-        <div class="mosaico__outlet">
-          <div class="mosaico__outlet-img"><a href="#"><img
-                src="/arquivos/stock-photo-skateboarder-with-friends-in-skatepark-jumping-in-the-halfpipe-129496265.png"
-                alt="" srcset="" /></a></div>
-          <div class="mosaico__outlet-content"><a href="#">
-              <h2>Verao 2020</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed accusantium veniam delectus minima optio
-                iure animi at sunt facilis omnis repellendus facere vitae eaque, distinctio, voluptatem id deserunt
-                reprehenderit eius!</p><a class="mosaico__link-btn" href="#"> saiba mais</a>
-            </a></div>
-        </div>
-      </div>
-    </section>-->
+    
 
     <section class="pitfa">
-      <h2 class="pitfa__title">Para o seu lado Pitfã</h2>
+      <h2 class="pitfa__title"><vtex:contentPlaceHolder id="Title Pitfa" /></h2>
       <div class="pitfa__wrapper">
-        <div class="box-banner">
-          <a href="#"><img src="/arquivos/pitfa-1.jpeg" /></a>
-        </div>
-        <div class="box-banner">
-          <a href="#"><img src="/arquivos/pitfa-2.jpeg" /></a>
-        </div>
-        <div class="box-banner">
-          <a href="#"><img src="/arquivos/pitfa-3.jpeg" /></a>
-        </div>
-        <div class="box-banner">
-          <a href="#"><img src="/arquivos/pitfa-4.jpeg" /></a>
-        </div>
-        <div class="box-banner">
-          <a href="#"><img src="/arquivos/pitfa-5.jpeg" /></a>
-        </div>
+        <vtex:contentPlaceHolder id="Mosaico Pitfa" />
+      </div>
+      <div class="pitfa__wrapper-mobile">
+        <vtex:contentPlaceHolder id="Mosaico Pitfa Mobile" />
       </div>
     </section>
 
@@ -185,7 +68,7 @@
       <div class="franqueado__wrapper">
         <div class="franqueado__items">
           <div class="franqueado__item--first">
-            <img src="/arquivos/franqueado-01.png" class="franqueado__img" alt="" srcset="" />
+            <img src="/arquivos/franqueado-01.png" class="franqueado__img" alt="" srcset=""/>
           </div>
           <div class="franqueado__item--last">
             <div class="franqueado__item--last-content">
@@ -201,21 +84,7 @@
     <section class="moreprod">
       <h2 class="moreprod__title">Encontre mais produtos incríveis</h2>
       <div class="moreprod__wrapper">
-        <div class="moreprod__item">
-          <a href="moreprod__link"><img src="/arquivos/moreprod.png" class="moreprod__img" alt="" srcset="" /></a>
-        </div>
-        <div class="moreprod__item">
-          <a href="moreprod__link"><img src="/arquivos/moreprod.png" class="moreprod__img" alt="" srcset="" /></a>
-        </div>
-        <div class="moreprod__item">
-          <a href="moreprod__link"><img src="/arquivos/moreprod.png" class="moreprod__img" alt="" srcset="" /></a>
-        </div>
-        <div class="moreprod__item">
-          <a href="moreprod__link"><img src="/arquivos/moreprod.png" class="moreprod__img" alt="" srcset="" /></a>
-        </div>
-        <div class="moreprod__item">
-          <a href="moreprod__link"><img src="/arquivos/moreprod.png" class="moreprod__img" alt="" srcset="" /></a>
-        </div>
+        <vtex:contentPlaceHolder id="Mais Produtos Pitfa" />
       </div>
     </section>
 
@@ -224,78 +93,47 @@
         <div class="tab-header">
           <div class="active">Lançamentos</div>
           <div>Mais Vendidos</div>
-          <div>Especial Editions</div>
+          <div>Special Editions</div>
         </div>
         <div class="tab-indicator"></div>
         <div class="tab-body">
-          <div class="active">
-            <h3>Lançamentos</h3>
+          <div class="tab-item active">
             <div class="home__collections">
-              <vtex:contentPlaceHolder id="Product Showcase" />
+              <vtex:contentPlaceHolder id="Product Releases" />
             </div>
           </div>
-          <div>
-            <h3>Mais Vendidos</h3>
+          
+          <div class="tab-item">
             <div class="home__collections">
-              <vtex:contentPlaceHolder id="Product Showcase" />
+              <vtex:contentPlaceHolder id="Product Best Product" />
             </div>
           </div>
-          <div>
-            <h3>Especial Editions</h3>
+          
+          <div class="tab-item">
             <div class="home__collections">
-              <vtex:contentPlaceHolder id="Product Showcase" />
-            </div>            
+              <vtex:contentPlaceHolder id="Product Editions" />
+            </div>
           </div>
         </div>
+
       </div>
-      
-    </section>    
+    </section>   
 
     <section class="pitnews">
       <div class="pitnews__title">
-        <div class="pitnews__title--item"><img src="/arquivos/pit-news-home.png" class="pitnews__title--img" alt="Pit News"
-            srcset="" /><span> Lorem ipsum dolor sit amet adipiscing elit</span></div><a href="https://www.pitinews.com.br/" target="_blank" class="pitnews__title--link">Ver
-          todas <img src="/arquivos/two-arrow-right.png" class="pitnews__title--img" alt="Pit News"
-          srcset="" /></a>
+        <div class="pitnews__title--item">
+          <img src="/arquivos/pit-news-home.png" class="pitnews__title--img" alt="" srcset=""/>
+          <span>Confira as últimas notícias do mundo Geek</span>
+        </div>
+        <a href="https://www.pitinews.com.br" target="_blank">Ver todas >></a>
       </div>
-      <div class="pitnews__wrapper">        
-        <!-- <div class="pitnews__item">
-          <a href="pitnews__link">
-            <img src="/arquivos/moreprod.png" class="pitnews__img" alt="" srcset="" />
-            <div class="pitnews__item--title">Filme</div>
-            <div class="pitnews__item--content">Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
-            </div>
-          </a>
-        </div>
-        <div class="pitnews__item">
-          <a href="pitnews__link">
-            <img src="/arquivos/moreprod.png" class="pitnews__img" alt="" srcset="" />
-            <div class="pitnews__item--title">Filme</div>
-            <div class="pitnews__item--content">Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
-            </div>
-          </a>
-        </div>
-        <div class="pitnews__item">
-          <a href="pitnews__link">
-            <img src="/arquivos/moreprod.png" class="pitnews__img" alt="" srcset="" />
-            <div class="pitnews__item--title">Filme</div>
-            <div class="pitnews__item--content">Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
-            </div>
-          </a>
-        </div>
-        <div class="pitnews__item">
-          <a href="pitnews__link">
-            <img src="/arquivos/moreprod.png" class="pitnews__img" alt="" srcset="" />
-            <div class="pitnews__item--title">Filme</div>
-            <div class="pitnews__item--content">Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
-            </div>
-          </a>
-        </div> -->
+      <div class="pitnews__wrapper">
+        <!--<vtex:contentPlaceHolder id="PitNews" />-->
       </div>
+    </section>
+
+    <section class="trustvox">
+      <div id="_trustvox_colt"></div>
     </section>
 
     <section class="pitmap">
@@ -303,13 +141,13 @@
         <div class="pitmap__item--first">
           <div class="pitmap__item--first-title">
             <p>Consulte</p>
-            <p>Nossas lojas</p>
+            <p>Nossas Lojas</p>
           </div>
-          <button class="pitmap__item--first-button">encontre a mais próxima</button>
+          <a class="pitmap__item--first-button" href="https://lojas.piticas.com.br/" target="_blank">encontre a mais próxima</a>
         </div>
         <div class="pitmap__item--last">
           <div class="map-responsive">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7319634.815587146!2d-52.905480919394854!3d-26.389881194464508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sloja%20piticas!5e0!3m2!1spt-BR!2sbr!4v1621282517729!5m2!1spt-BR!2sbr" width="860" height="334" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d22302139.257209465!2d-57.95195022965771!3d-15.207902683342168!3m2!1i1024!2i768!4f13.1!2m1!1sloja%20piticas!5e0!3m2!1spt-BR!2sbr!4v1628256438810!5m2!1spt-BR!2sbr" width="800" height="334" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>          
         </div>
       </div>
@@ -339,43 +177,24 @@
         Siga nosso Instagram
       </div>
       <div class="pitinsta__wrapper">
-        <div>
-          <a href="#">
-            <img src="/arquivos/insta-1.png" />
-          </a>
-        </div>
-        <div>
-          <a href="#">
-            <img src="/arquivos/insta-2.png" />
-          </a>
-        </div>
-        <div>
-          <a href="#">
-            <img src="/arquivos/insta-3.png" />
-          </a>
-        </div>
-        <div>
-          <a href="#">
-            <img src="/arquivos/insta-4.png" />
-          </a>
-        </div>
-        <div>
-          <a href="#">
-            <img src="/arquivos/insta-5.png" />
-          </a>
-        </div>
+        <!-- LightWidget WIDGET -->
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+        <iframe src="https://cdn.lightwidget.com/widgets/974c25e9c8c957fb8f659465655f6c5b.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
       </div>
     </section>
   </main>
 
-  <%if (process.env.NODE_ENV === 'development') { %>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/footer.ejs')() -%>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/scripts.ejs')() -%>
-  <% } else {%>
+  
   <vtex:template id="FRN-Footer" />
   <vtex:template id="FRN-Scripts" />
   <script src="/arquivos/frn.lojapiticas.home.js"></script>
-  <% }  %>
+  <!-- Trustvox -->
+  <script type="text/javascript" src="//colt.trustvox.com.br/colt.min.js"></script> 
+  <script>
+    var _trustvox_colt = _trustvox_colt || [];
+    _trustvox_colt.push(['_storeId', '114371'], ['_limit', '7']);
+  </script>
+  <!-- /Trustvox -->
 </body>
 
 </html>

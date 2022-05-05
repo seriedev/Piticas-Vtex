@@ -1,51 +1,37 @@
+<!-- 02-FRN-Category -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
-  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
-  <%if (process.env.NODE_ENV === 'development') { %>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/head.ejs')() -%>
-  <% } else {%>
+  
   <vtex:template id="FRN-Head" />
-  <link rel="stylesheet" href="/arquivos/frn.lojapiticas.category.css" />
-  <% }  %>
+  <link rel="stylesheet" href="/arquivos/frn.lojapiticas.category.css?v=1.3"/>
+  
 </head>
 
 <body>
-  <%if (process.env.NODE_ENV === 'development') { %>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/header.ejs')() -%>
-  <% } else {%>
+  
   <vtex:template id="FRN-Header" />
-  <% }  %>
+  
 
   <main>
-    <!--<%if (process.env.NODE_ENV === 'development') { %>
-      <%- require('ejs-webpack-loader!./partials/subtemplates/storeBenefits.ejs')() %>
-    <% } else {%>
-      <vtex:template id="frn-storeBenefits" />
-    <% }  %>-->
+    
 
     <section class="banner-category">
       <div class="banner-category__content">
-        <%if (process.env.NODE_ENV === 'development') { %>
-        <h2>categoria</h2>
-        <picture class="box-banner">
-          <source media="(max-width: 480px)" srcset="/arquivos/banner-category-mobile.png"><img
-            src="/arquivos/banner-category.png" alt="" srcset="" />
-        </picture>
-        <% } else {%>
-        <vtex:contentPlaceHolder id="Category Banner" />
-        <% }  %>
+        <!--<h2>categoria</h2>-->
+        <div class="banner-category__desktop">
+            <h1>
+                <vtex:contentPlaceHolder id="Category Banner" />
+            </h1>
+        </div>
+        <div class="banner-category__mobile">
+                <vtex:contentPlaceHolder id="Category Banner Mobile" />
+        </div>
       </div>
     </section>
-
-    <!--<%if (process.env.NODE_ENV === 'development') { %>
-      <%- require('ejs-webpack-loader!./partials/subtemplates/brands.ejs')() %>
-    <% } else {%>
-      <vtex:template id="frn-brands" />
-    <% }  %>-->
-
-
+    
+    
     <div class="category__content"> 
       <div class="filter-overlay">
         <div class="icon-close-filter-right">
@@ -60,14 +46,7 @@
           Filtrar
           <a class="filter__reset-button" onClick="window.location.reload();">Limpar Filtros</a>
         </div>        
-        <!--<div class="filter__title-mobile"><a class="filter__header js-filter-mobile" href="javascript:;">Filtrar
-            <svg class="filter__icon filter__icon--close" width="16" height="16" viewBox="0 0 16 16" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M8 6.54545L1.45455 0L0 1.45455L6.54545 8L0 14.5455L1.45455 16L8 9.45455L14.5455 16L16 14.5455L9.45455 8L16 1.45455L14.5455 0L8 6.54545Z"
-                fill="#014080"></path>
-            </svg></a>
-        </div>-->
+        
         <div class="filter__wrapper">
           <div class="filter__especification">
             <ul class="filter__list js-filter-list"></ul>
@@ -92,52 +71,29 @@
         <div class="filter__title-desktop js-order-by-current">Ordernar por</div>
         <div class="orderBy">
           <ul class="orderBy__list--mobile js-filter-orderBy-list">
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByNameASC">Nome</a></li>
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByPriceASC">Preço</a></li>
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByTopSaleDESC">Mais vendidos</a></li>
-            <!-- <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByPriceDESC">Maior Preço</a></li>
-            <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByReviewRateDESC">Melhores avaliações</a></li>
-            <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByNameDESC">Z - A</a></li>
-            <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                data-filter-value="OrderByBestDiscountDESC">Melhor Desconto</a></li> -->
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByNameASC">Nome (A - Z)</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByNameDESC">Nome (Z - A)</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByPriceASC">Preço</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByTopSaleDESC">Mais Vendidos</a></li>
+            
           </ul>
         </div>
       </div>
       <div class="category__content--last">
         <div class="breadCrumb__container">
-          <%if (process.env.NODE_ENV === 'development') { %>
-          <%- require('ejs-webpack-loader!./partials/components/breadcrumbs.html')() %>
-          <% } else {%>
+          
           <vtex.cmc:breadcrumb />
-          <% }  %>
+          
           <div class="filter__orderBy">
             <div class="orderBy">
               <ul class="orderBy__list js-filter-orderBy-list">
                 <li class="orderBy__title">Ordernar por:</li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByNameASC">Nome</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByPriceASC">Preço</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByTopSaleDESC">Mais vendidos</a></li>
-                <!-- <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByPriceDESC">Maior Preço</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByReviewRateDESC">Melhores avaliações</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByNameDESC">Z - A</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
-                    data-filter-value="OrderByBestDiscountDESC">Melhor Desconto</a></li> -->
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByNameASC">Nome</a></li>
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByPriceASC">Preço</a></li>
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByTopSaleDESC">Mais Vendidos</a></li>
+                
               </ul>
             </div>
           </div>
@@ -160,42 +116,58 @@
             </div>
           </div>
         </section>
-        <section class="vitrine">        
-          <div class="vitrine__wrapper">
+        <section class="vitrine">
+        
+          <!-- insert h1 tag here-->
+          <div class="header-title-brands">
+            <vtex:contentPlaceHolder id="header-title" />              
+          </div>
+          
+          <div class="vitrine__wrapper" style="width:100%; height:100vh; padding:4% 9%; overflow: hidden;">
             <div class="vitrine__results">
               <ul class="vitrine__group"></ul>
             </div>
           </div>
           <div class="vitrine__loadmore"> </div>
-        </section>        
+        </section>
+        <section class="pagination"></section>
         <div class="filtro">
-          <h2 class="filter__title">Filtros
+          <div class="filter__title">Filtros
             <div class="content">
               <div id="app"></div>
             </div>
-            <button class="js-reset-filter">Limpiar Filtro</button>
+            <button class="js-reset-filter">Limpar Filtro</button>
             <button class="js-apply-filter">Aplicar Filtro</button>
-          </h2>
+          </div>
         </div>
       </div>     
     </div>    
   </main>
 
   <div class="hide">
-    <%if (process.env.NODE_ENV !== 'development') { %>
+     <!--não remover este controle -->
       <vtex.cmc:searchResult layout="2581f661-fc47-4829-9361-778c3f033794" itemCount="1" columnCount="1" />
-    <% }%>
+    
   </div>
-
-  <%if (process.env.NODE_ENV === 'development') { %>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/footer.ejs')() -%>
-  <%- require('ejs-webpack-loader!./partials/subtemplates/scripts.ejs')() -%>
-  <% } else {%>
+  <!-- text ux writing de marcas -->
+  <div>
+      <p class="rck-category-description"><vtex:contentPlaceHolder id="Ux-Writing-brands" /></p>
+  </div>
   <vtex:template id="FRN-Footer" />
   <vtex:template id="FRN-Scripts" />
   <script src="//code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-  <script src="/arquivos/frn.lojapiticas.category.js"></script>
-  <% }  %>
+  <script src="/arquivos/frn.lojapiticas.category.js?v=1.4"></script>
+  
+  <script src="/arquivos/rck-cls-category.min.js"></script>
+  <script src="/arquivos/RCK-HeadersTag.min.js?v=1.0.5"></script>
+  <script src="/arquivos/Rck-categoryDescription.min.js?v=1.0"></script>
+  
+  <!-- lazyload chamadas em home,categoria,coleção -->
+  <script src="/arquivos/lazyload-vtex.js"></script>
+  
+  <!--script landing page generate promotion-->
+  <!--<script src="/arquivos/lpgenerate.js?v=1.2"></script>-->
+  
 </body>
 
 </html>
