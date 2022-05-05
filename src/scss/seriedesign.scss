@@ -1,0 +1,8 @@
+// 27 PF - Implantação Truxtvox
+// Correção espaçamento na pagina de produto
+.product-page .productPage__wrapper{
+    margin: 34px auto 20px;
+    @media screen and (min-width: 768px) {
+        margin: 44px auto 20px;
+    }
+}
