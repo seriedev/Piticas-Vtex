@@ -82,6 +82,7 @@ function generateEntries(templateDir) {
   const entries = {};
 
   entries.general = [`./src/js/App.js`, './src/scss/main.scss'];
+  entries.seriedesign = [`./src/js/seriedesign.js`, './src/scss/seriedesign.scss']
   entries.account = [`${storeSassDesktopPath}/pages/account/index.scss`];
   entries.system = [`${storeSassDesktopPath}/pages/system/index.scss`];
 
