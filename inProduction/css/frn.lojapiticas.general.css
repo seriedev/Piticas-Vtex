@@ -2136,7 +2136,7 @@ a {
     max-width: 220px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 6px;
 }
@@ -2148,9 +2148,6 @@ a#seloEbit {
 @media screen and (max-width: 48rem) {
     .footer .payment-title {
         margin-top:0
-    }
-    .footer .payment-images-wrapper{
-        justify-content: flex-start;
     }
     a#seloEbit {
         padding-top: 20px;
