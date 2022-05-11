@@ -1,3 +1,31 @@
-@import '../../utils/_mixins.scss';
+.emptysearch {
+  padding: 100px 0;
+}
 
-@import './system.scss';
+.emptysearch__wrapper {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.emptysearch__title {
+  text-align: center;
+}
+
+.emptysearch__title h1 {
+  color: #000;
+  text-align: center;
+  margin: 0;
+  line-height: 1.3em;
+  font-size: 40px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: Montserrat, sans-serif;
+}
+
+.emptysearch__title p {
+  margin: 30px 0 10px;
+  font-size: 22px;
+}

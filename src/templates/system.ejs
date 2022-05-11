@@ -1,36 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
-<head>  
-  <%if (process.env.NODE_ENV === 'development') { %>
-    <%- require('ejs-webpack-loader!./partials/subtemplates/head.ejs')() -%>
-  <% } else {%>
-    <vtex:template id="FRN-Head" />
-    <link rel="stylesheet" href="/arquivos/frn.lojapiticas.system.css" />
-  <% }  %>
+<head>
+  <!--rck-seo canonical tags-->
+  <vtex.cmc:canonicalPage disable="true" />
+  <vtex:contentPlaceHolder id="rck-canonical" />
+  <!--fim canonical tags-->
+
+  <vtex:template id="FRN-Head" />
+  <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.system.css" />
+
 </head>
 
 <body>
-  <%if (process.env.NODE_ENV === 'development') { %>
-    <%- require('ejs-webpack-loader!./partials/subtemplates/header.ejs')() -%>
-  <% } else {%>
-    <vtex:template id="frn-header" />
-  <% }  %>
+
+  <vtex:template id="FRN-Header" />
+
 
   <main>
     <section class="emptysearch">
       <div class="wrapper">
         <div class="emptysearch__banner">
-          <%if (process.env.NODE_ENV === 'development') { %>
-            <picture>
-              <source media="(max-width: 480px)" srcset="/arquivos/home-fullbanner-calcados-mobile.jpg"><img src="/arquivos/home-banner-01.jpg" alt="" srcset="" />
-            </picture>
-            <picture>
-              <source media="(max-width: 480px)" srcset="/arquivos/home-fullbanner-calcados-mobile.jpg"><img src="/arquivos/home-banner-01.jpg" alt="" srcset="" />
-            </picture>
-          <% } else {%>
-            <vtex:contentPlaceHolder id="Banner" />
-          <% }  %>
+
+          <vtex:contentPlaceHolder id="Banner" />
+
         </div>
         <div class="emptysearch__title">
           <h1>OPS, NÃO ENCONTRAMOS NADA EM SUA BUSCA</h1>
@@ -41,23 +35,18 @@
 
     <section class="showcase">
       <div class="wrapper">
-        <%if (process.env.NODE_ENV === 'development') { %>
-          <p>vitrine</p>
-        <% } else {%>
-          <vtex:contentPlaceHolder id="Quem comprou, comprou também" />
-        <% }  %>
+
+        <vtex:contentPlaceHolder id="Quem comprou, comprou também" />
+
       </div>
     </section>
   </main>
 
-  <%if (process.env.NODE_ENV === 'development') { %>
-    <%- require('ejs-webpack-loader!./partials/subtemplates/footer.ejs')() -%>
-    <%- require('ejs-webpack-loader!./partials/subtemplates/scripts.ejs')() -%>
-  <% } else {%>
-    <vtex:template id="FRN-Footer" />
-    <vtex:template id="FRN-Scripts" />
-    <script src="/arquivos/frn.lojapiticas.system.js"></script>
-  <% }  %>
+
+  <vtex:template id="FRN-Footer" />
+  <vtex:template id="FRN-Scripts" />
+  <script src="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.system.js"></script>
+
 </body>
 
 </html>
