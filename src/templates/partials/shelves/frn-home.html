@@ -1,14 +1,14 @@
-#set($id = $product.Id) 
-#set($uri = $product.Uri) 
-#set($escapedName = $product.HtmlEscapedName) 
+#set($id = $product.Id)
+#set($uri = $product.Uri)
+#set($escapedName = $product.HtmlEscapedName)
 #set($evaluationRate = $product.EvaluationRate)
 
-#set ($indisponivel = "") 
+#set ($indisponivel = "")
 
-#if ($product.IsInStock) 
-    #set ($indisponivel = "") 
-#else 
-    #set($indisponivel = "indisponivel") 
+#if ($product.IsInStock)
+#set ($indisponivel = "")
+#else
+#set($indisponivel = "indisponivel")
 #end
 
 <article class="productCard $indisponivel" data-product-id="$id">
@@ -31,8 +31,8 @@
         $product.BrandName
     </span>
     <a class="productCard__link" href="$uri">
-    
-    <!--tags title H3 aqui-->
+
+        <!--tags title H3 aqui-->
         <h3 class="productCard__name">
             $escapedName
         </h3>
@@ -57,9 +57,11 @@
 
         <div class="productCard__installments">
             #if ($product.NumbersOfInstallment > 1) (ou
-            <span class="productCard__installments--strong productCard__installments--installments"> ${product.NumbersOfInstallment}X</span>
+            <span class="productCard__installments--strong productCard__installments--installments">
+                ${product.NumbersOfInstallment}X</span>
             de
-            <span class="productCard__installments--strong productCard__installments--value">${product.InstallmentValue} sem juros)</span>
+            <span class="productCard__installments--strong productCard__installments--value">${product.InstallmentValue}
+                sem juros)</span>
         </div>
         #end #else
     </div>

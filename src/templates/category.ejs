@@ -1,52 +1,51 @@
-<!-- 02-FRN-Category -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
-  
+
   <vtex:template id="FRN-Head" />
-  <link rel="stylesheet" href="/arquivos/frn.lojapiticas.category.css?v=1.3"/>
-  
+  <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.category.css" />
+
 </head>
 
 <body>
-  
   <vtex:template id="FRN-Header" />
-  
 
   <main>
-    
-
     <section class="banner-category">
       <div class="banner-category__content">
         <!--<h2>categoria</h2>-->
         <div class="banner-category__desktop">
-            <h1>
-                <vtex:contentPlaceHolder id="Category Banner" />
-            </h1>
+          <h1>
+            <span style="display: block; text-indent: 110%; overflow-x: hidden; white-space: nowrap;">
+              <vtex:contentPlaceHolder id="header-title-category" />
+            </span>
+            <vtex:contentPlaceHolder id="Category Banner" />
+          </h1>
         </div>
         <div class="banner-category__mobile">
-                <vtex:contentPlaceHolder id="Category Banner Mobile" />
+          <vtex:contentPlaceHolder id="Category Banner Mobile" />
         </div>
       </div>
     </section>
-    
-    
-    <div class="category__content"> 
+
+
+    <div class="category__content">
       <div class="filter-overlay">
         <div class="icon-close-filter-right">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
             <path
               d="M10.05 23.95c.39.39 1.024.39 1.414 0L17 18.414l5.536 5.536c.39.39 1.024.39 1.414 0 .39-.39.39-1.024 0-1.414L18.414 17l5.536-5.536c.39-.39.39-1.024 0-1.414-.39-.39-1.024-.39-1.414 0L17 15.586l-5.536-5.536c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.024 0 1.414L15.586 17l-5.536 5.536c-.39.39-.39 1.024 0 1.414z" />
           </svg>
-        </div>        
-      </div>     
-      <section class="filter js-filter">              
+        </div>
+      </div>
+      <section class="filter js-filter">
         <div class="filter__title-desktop">
           Filtrar
           <a class="filter__reset-button" onClick="window.location.reload();">Limpar Filtros</a>
-        </div>        
-        
+        </div>
+
         <div class="filter__wrapper">
           <div class="filter__especification">
             <ul class="filter__list js-filter-list"></ul>
@@ -57,7 +56,7 @@
               <div class="filter__selected-items"></div>
             </div>
           </div>
-        </div>        
+        </div>
       </section>
       <div class="order-overlay">
         <div class="icon-close-filter-left">
@@ -65,35 +64,44 @@
             <path
               d="M10.05 23.95c.39.39 1.024.39 1.414 0L17 18.414l5.536 5.536c.39.39 1.024.39 1.414 0 .39-.39.39-1.024 0-1.414L18.414 17l5.536-5.536c.39-.39.39-1.024 0-1.414-.39-.39-1.024-.39-1.414 0L17 15.586l-5.536-5.536c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.024 0 1.414L15.586 17l-5.536 5.536c-.39.39-.39 1.024 0 1.414z" />
           </svg>
-        </div>        
+        </div>
       </div>
       <div class="filter__orderBy--mobile js-filter-order">
         <div class="filter__title-desktop js-order-by-current">Ordernar por</div>
         <div class="orderBy">
           <ul class="orderBy__list--mobile js-filter-orderBy-list">
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByNameASC">Nome (A - Z)</a></li>
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByNameDESC">Nome (Z - A)</a></li>
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByPriceASC">Preço</a></li>
-            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByTopSaleDESC">Mais Vendidos</a></li>
-            
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item"
+                href="javascript:;" data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item"
+                href="javascript:;" data-filter-value="OrderByNameASC">Nome (A - Z)</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item"
+                href="javascript:;" data-filter-value="OrderByNameDESC">Nome (Z - A)</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item"
+                href="javascript:;" data-filter-value="OrderByPriceASC">Preço</a></li>
+            <li class="orderBy__item--mobile"><a class="orderBy__action--mobile js-filter-orderBy-item"
+                href="javascript:;" data-filter-value="OrderByTopSaleDESC">Mais Vendidos</a></li>
+
           </ul>
         </div>
       </div>
       <div class="category__content--last">
         <div class="breadCrumb__container">
-          
+
           <vtex.cmc:breadcrumb />
-          
+
           <div class="filter__orderBy">
             <div class="orderBy">
               <ul class="orderBy__list js-filter-orderBy-list">
                 <li class="orderBy__title">Ordernar por:</li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByNameASC">Nome</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByPriceASC">Preço</a></li>
-                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;" data-filter-value="OrderByTopSaleDESC">Mais Vendidos</a></li>
-                
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
+                    data-filter-value="OrderByReleaseDateDESC">Lançamento</a></li>
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
+                    data-filter-value="OrderByNameASC">Nome</a></li>
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
+                    data-filter-value="OrderByPriceASC">Preço</a></li>
+                <li class="orderBy__item"><a class="orderBy__action js-filter-orderBy-item" href="javascript:;"
+                    data-filter-value="OrderByTopSaleDESC">Mais Vendidos</a></li>
+
               </ul>
             </div>
           </div>
@@ -103,26 +111,28 @@
             <div class="filter-mobile__especification filter-mobile__open">
               <a class="filter-mobile__link" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 32 32">
-                  <path d="M27 6h-3c0-1.104-.896-2-2-2h-2c-1.104 0-2 .896-2 2H5c-.552 0-1 .448-1 1s.448 1 1 1h13c0 1.104.896 2 2 2h2c1.104 0 2-.896 2-2h3c.552 0 1-.448 1-1s-.448-1-1-1zm-5 2h-2V6h2v2zm5 6H14c0-1.104-.896-2-2-2h-2c-1.104 0-2 .896-2 2H5c-.552 0-1 .448-1 1s.448 1 1 1h3c0 1.104.896 2 2 2h2c1.104 0 2-.896 2-2h13c.552 0 1-.448 1-1s-.448-1-1-1zm-15 2h-2v-2h2v2zm15 6h-7c0-1.104-.896-2-2-2h-2c-1.104 0-2 .896-2 2H5c-.552 0-1 .448-1 1s.448 1 1 1h9c0 1.104.896 2 2 2h2c1.104 0 2-.896 2-2h7c.552 0 1-.448 1-1s-.448-1-1-1zm-9 2h-2v-2h2v2z"/>
+                  <path
+                    d="M27 6h-3c0-1.104-.896-2-2-2h-2c-1.104 0-2 .896-2 2H5c-.552 0-1 .448-1 1s.448 1 1 1h13c0 1.104.896 2 2 2h2c1.104 0 2-.896 2-2h3c.552 0 1-.448 1-1s-.448-1-1-1zm-5 2h-2V6h2v2zm5 6H14c0-1.104-.896-2-2-2h-2c-1.104 0-2 .896-2 2H5c-.552 0-1 .448-1 1s.448 1 1 1h3c0 1.104.896 2 2 2h2c1.104 0 2-.896 2-2h13c.552 0 1-.448 1-1s-.448-1-1-1zm-15 2h-2v-2h2v2zm15 6h-7c0-1.104-.896-2-2-2h-2c-1.104 0-2 .896-2 2H5c-.552 0-1 .448-1 1s.448 1 1 1h9c0 1.104.896 2 2 2h2c1.104 0 2-.896 2-2h7c.552 0 1-.448 1-1s-.448-1-1-1zm-9 2h-2v-2h2v2z" />
                 </svg>
                 Filtrar</a>
             </div>
             <div class="filter-mobile__orderBy orderBy-mobile__open">
               <a class="filter-mobile__link" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 32 32.002">
-                  <path d="M18.28 31.718c.196.196.454.294.71.292.258 0 .514-.096.71-.292l3.852-3.852c.39-.39.39-1.024 0-1.414s-1.024-.39-1.414 0L20 28.59V11.01c0-.552-.448-1-1-1s-1 .448-1 1v17.6l-2.304-2.304c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.024 0 1.414l3.998 3.998zM13 22.01c.552 0 1-.448 1-1V3.41l2.304 2.304c.39.39 1.024.39 1.414 0 .39-.39.39-1.024 0-1.414L13.72.302c-.196-.196-.452-.292-.71-.292-.258 0-.514.096-.71.292L8.448 4.154c-.39.39-.39 1.024 0 1.414.39.39 1.024.39 1.414 0L12 3.43v17.58c0 .552.448 1 1 1z"/>
+                  <path
+                    d="M18.28 31.718c.196.196.454.294.71.292.258 0 .514-.096.71-.292l3.852-3.852c.39-.39.39-1.024 0-1.414s-1.024-.39-1.414 0L20 28.59V11.01c0-.552-.448-1-1-1s-1 .448-1 1v17.6l-2.304-2.304c-.39-.39-1.024-.39-1.414 0-.39.39-.39 1.024 0 1.414l3.998 3.998zM13 22.01c.552 0 1-.448 1-1V3.41l2.304 2.304c.39.39 1.024.39 1.414 0 .39-.39.39-1.024 0-1.414L13.72.302c-.196-.196-.452-.292-.71-.292-.258 0-.514.096-.71.292L8.448 4.154c-.39.39-.39 1.024 0 1.414.39.39 1.024.39 1.414 0L12 3.43v17.58c0 .552.448 1 1 1z" />
                 </svg>
                 Ordernar</a>
             </div>
           </div>
         </section>
         <section class="vitrine">
-        
+
           <!-- insert h1 tag here-->
           <div class="header-title-brands">
-            <vtex:contentPlaceHolder id="header-title" />              
+            <vtex:contentPlaceHolder id="header-title" />
           </div>
-          
+
           <div class="vitrine__wrapper" style="width:100%; height:100vh; padding:4% 9%; overflow: hidden;">
             <div class="vitrine__results">
               <ul class="vitrine__group"></ul>
@@ -140,34 +150,36 @@
             <button class="js-apply-filter">Aplicar Filtro</button>
           </div>
         </div>
-      </div>     
-    </div>    
+      </div>
+    </div>
   </main>
 
   <div class="hide">
-     <!--não remover este controle -->
-      <vtex.cmc:searchResult layout="2581f661-fc47-4829-9361-778c3f033794" itemCount="1" columnCount="1" />
-    
+    <!--não remover este controle -->
+    <vtex.cmc:searchResult layout="2581f661-fc47-4829-9361-778c3f033794" itemCount="1" columnCount="1" />
+
   </div>
   <!-- text ux writing de marcas -->
   <div>
-      <p class="rck-category-description"><vtex:contentPlaceHolder id="Ux-Writing-brands" /></p>
+    <p class="rck-category-description">
+      <vtex:contentPlaceHolder id="Ux-Writing-brands" />
+    </p>
   </div>
   <vtex:template id="FRN-Footer" />
   <vtex:template id="FRN-Scripts" />
   <script src="//code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-  <script src="/arquivos/frn.lojapiticas.category.js?v=1.4"></script>
-  
-  <script src="/arquivos/rck-cls-category.min.js"></script>
-  <script src="/arquivos/RCK-HeadersTag.min.js?v=1.0.5"></script>
-  <script src="/arquivos/Rck-categoryDescription.min.js?v=1.0"></script>
-  
+  <script src="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.category.js"></script>
+
+  <script src="//lojapiticas.vteximg.com.br/arquivos/rck-cls-category.min.js"></script>
+  <script src="//lojapiticas.vteximg.com.br/arquivos/RCK-HeadersTag.min.js"></script>
+  <script src="//lojapiticas.vteximg.com.br/arquivos/Rck-categoryDescription.min.js"></script>
+
   <!-- lazyload chamadas em home,categoria,coleção -->
-  <script src="/arquivos/lazyload-vtex.js"></script>
-  
+  <script src="//lojapiticas.vteximg.com.br/arquivos/lazyload-vtex.js"></script>
+
   <!--script landing page generate promotion-->
-  <!--<script src="/arquivos/lpgenerate.js?v=1.2"></script>-->
-  
+  <!--<script src="//lojapiticas.vteximg.com.br/arquivos/lpgenerate.js?v=1.2"></script>-->
+
 </body>
 
 </html>

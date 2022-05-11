@@ -1,9 +1,9 @@
-<!-- 01-FRN-Home -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
-    <script type='application/ld+json'>
+  <script type='application/ld+json'>
         {
           "@context":"https://schema.org",
           "@type":"WebSite",
@@ -19,14 +19,14 @@
         }
   </script>
   <vtex:template id="FRN-Head" />
-  <link rel="stylesheet" href="/arquivos/frn.lojapiticas.home.css" />
-  <vtex.cmc:productRichSnippets showFacebook="true"/>
+  <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.home.css" />
+  <vtex.cmc:productRichSnippets showFacebook="true" />
 </head>
 
 <body>
-  
+
   <vtex:template id="FRN-Header" />
-  
+
 
   <main>
     <div class="homePage">
@@ -42,20 +42,22 @@
       </section>
     </div>
 
-    
+
     <vtex:template id="FRN-Brands" />
-    
+
 
     <section class="home__collections">
-      
+
       <vtex:contentPlaceHolder id="Product Showcase" />
-      
+
     </section>
 
-    
+
 
     <section class="pitfa">
-      <h2 class="pitfa__title"><vtex:contentPlaceHolder id="Title Pitfa" /></h2>
+      <h2 class="pitfa__title">
+        <vtex:contentPlaceHolder id="Title Pitfa" />
+      </h2>
       <div class="pitfa__wrapper">
         <vtex:contentPlaceHolder id="Mosaico Pitfa" />
       </div>
@@ -68,14 +70,16 @@
       <div class="franqueado__wrapper">
         <div class="franqueado__items">
           <div class="franqueado__item--first">
-            <img src="/arquivos/franqueado-01.png" class="franqueado__img" alt="" srcset=""/>
+            <img src="//lojapiticas.vteximg.com.br/arquivos/franqueado-01.png" class="franqueado__img" alt=""
+              srcset="" />
           </div>
           <div class="franqueado__item--last">
             <div class="franqueado__item--last-content">
               <p>venha empreender com a gente,</p>
               <span>seja um franqueado</span>
             </div>
-            <a class="franqueado__item--last-button" href="https://franquia.piticas.com.br/" target="_blank">Clique aqui</a>
+            <a class="franqueado__item--last-button" href="https://franquia.piticas.com.br/" target="_blank">Clique
+              aqui</a>
           </div>
         </div>
       </div>
@@ -102,13 +106,13 @@
               <vtex:contentPlaceHolder id="Product Releases" />
             </div>
           </div>
-          
+
           <div class="tab-item">
             <div class="home__collections">
               <vtex:contentPlaceHolder id="Product Best Product" />
             </div>
           </div>
-          
+
           <div class="tab-item">
             <div class="home__collections">
               <vtex:contentPlaceHolder id="Product Editions" />
@@ -117,12 +121,13 @@
         </div>
 
       </div>
-    </section>   
+    </section>
 
     <section class="pitnews">
       <div class="pitnews__title">
         <div class="pitnews__title--item">
-          <img src="/arquivos/pit-news-home.png" class="pitnews__title--img" alt="" srcset=""/>
+          <img src="//lojapiticas.vteximg.com.br/arquivos/pit-news-home.png" class="pitnews__title--img" alt=""
+            srcset="" />
           <span>Confira as últimas notícias do mundo Geek</span>
         </div>
         <a href="https://www.pitinews.com.br" target="_blank">Ver todas >></a>
@@ -131,11 +136,9 @@
         <!--<vtex:contentPlaceHolder id="PitNews" />-->
       </div>
     </section>
-
     <section class="trustvox">
       <div id="_trustvox_colt"></div>
     </section>
-
     <section class="pitmap">
       <div class="pitmap__items">
         <div class="pitmap__item--first">
@@ -143,12 +146,15 @@
             <p>Consulte</p>
             <p>Nossas Lojas</p>
           </div>
-          <a class="pitmap__item--first-button" href="https://lojas.piticas.com.br/" target="_blank">encontre a mais próxima</a>
+          <a class="pitmap__item--first-button" href="https://lojas.piticas.com.br/" target="_blank">encontre a mais
+            próxima</a>
         </div>
         <div class="pitmap__item--last">
           <div class="map-responsive">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d22302139.257209465!2d-57.95195022965771!3d-15.207902683342168!3m2!1i1024!2i768!4f13.1!2m1!1sloja%20piticas!5e0!3m2!1spt-BR!2sbr!4v1628256438810!5m2!1spt-BR!2sbr" width="800" height="334" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>          
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d22302139.257209465!2d-57.95195022965771!3d-15.207902683342168!3m2!1i1024!2i768!4f13.1!2m1!1sloja%20piticas!5e0!3m2!1spt-BR!2sbr!4v1628256438810!5m2!1spt-BR!2sbr"
+              width="800" height="334" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -179,17 +185,18 @@
       <div class="pitinsta__wrapper">
         <!-- LightWidget WIDGET -->
         <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-        <iframe src="https://cdn.lightwidget.com/widgets/974c25e9c8c957fb8f659465655f6c5b.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+        <iframe src="https://cdn.lightwidget.com/widgets/974c25e9c8c957fb8f659465655f6c5b.html" scrolling="no"
+          allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
       </div>
     </section>
   </main>
 
-  
+
   <vtex:template id="FRN-Footer" />
   <vtex:template id="FRN-Scripts" />
-  <script src="/arquivos/frn.lojapiticas.home.js"></script>
+  <script src="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.home.js"></script>
   <!-- Trustvox -->
-  <script type="text/javascript" src="//colt.trustvox.com.br/colt.min.js"></script> 
+  <script type="text/javascript" src="//colt.trustvox.com.br/colt.min.js"></script>
   <script>
     var _trustvox_colt = _trustvox_colt || [];
     _trustvox_colt.push(['_storeId', '114371'], ['_limit', '7']);

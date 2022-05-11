@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce">
+
+<head>
+  <title>Carrinho Abandonado</title>
+  <vtex:metaTags />
+  <style type="text/css">
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table id="Table_01" width="550" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="5" align="center" bgcolor="#d3791e" style="padding: 40px 0 30px 0;">
+        <a href="https://www.piticas.com.br/" target="_blank"><img src="//lojapiticas.vteximg.com.br/arquivos/logo-piticas.png" alt="Piticas"
+            width="122" height="50" style="display: block;" /></a>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#E0E7ED"></td>
+      <td bgcolor="#E0E7ED" colspan="3" style="padding:10px 0;">
+        <font face="Arial" color="#333333" size="2">Olá, <strong>{!Nome}</strong>.<br /><br />
+          <font>Notamos que você não finalizou sua compra. Aproveite enquanto os itens abaixo<br />
+            ainda estão disponíveis e <a
+              href="http://www.piticas.com.br/checkout/cart/{!rclastcart}&amp;utm_source=VTEXCEM&amp;utm_medium=Abandono_carrinho&amp;utm_campaign=Abandono">
+              <font color="#d3791e">CLIQUE AQUI</font>
+            </a> para finalizar seu pedido.</font>
+        </font>
+      </td>
+      <td bgcolor="#E0E7ED"></td>
+    </tr>
+    <tr>
+      <td colspan="5"><img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/carrinho-abandonado_06.png" width="550" height="65"
+          alt="" /></td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <table width="550" cellspacing="0">
+          <tr>
+            <td width="160" align="center" bgcolor="#f0f0f0" height="20">
+              <font face="Arial" size="2" color="#666666">Produto</font>
+            </td>
+            <td width="276" bgcolor="#f0f0f0" height="20"></td>
+            <td width="104" bgcolor="#f0f0f0" height="20">
+              <font face="Arial" size="2" color="#666666">Valor Un.</font>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div style="color:#FFF;">
+                <vtex.cmc:ProductQueryStringReferenceShelf layout="d9d76394-1813-44ac-9552-dd19a603566d" itemCount="50"
+                  columnCount="100" showUnavailable="true" />
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" colspan="3">
+        <font size="1" color="#2f2f2f" face="Arial">Precisa de ajuda? Fale com a
+          <a
+            href="http://www.piticas.com.br/atendimento?utm_source=VTEXCEM&amp;utm_medium=Abandono_carrinho&amp;utm_campaign=Abandono">
+            <font size="1" color="#2f2f2f" face="Arial">central de atendimento</font>
+          </a>
+        </font>
+      </td>
+      <td colspan="2">
+        <a
+          href="http://www.piticas.com.br/checkout/cart/{!rclastcart}&amp;utm_source=VTEXCEM&amp;utm_medium=Abandono_carrinho&amp;utm_campaign=Abandono">
+          <img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/carrinho-abandonado_09.png" width="240" height="48" alt="" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5"><img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/carrinho-abandonado_10.png" width="550" height="46"
+          alt="" /></td>
+    </tr>
+    <tr>
+      <td colspan="5" bgcolor="#000" style="padding: 20px 20px 20px 20px;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td valign="top">
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>
+                    <a href="https://www.piticas.com.br/" target="_blank"><img src="//lojapiticas.vteximg.com.br/arquivos/logo-web-fundo-branco.png"
+                        alt="Piticas" width="94" height="38" style="margin-top: 1rem;" /></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 16px 0 0 0;">
+                    <a href="https://www.piticas.com.br/" target="_blank"
+                      style="text-decoration: none; margin-right: 20px;"><img src="//lojapiticas.vteximg.com.br/arquivos/face-icon.png"
+                        alt="Piticas" width="10" height="22" /></a>
+                    <a href="https://www.piticas.com.br/" target="_blank" style="text-decoration: none;"><img
+                        src="//lojapiticas.vteximg.com.br/arquivos/insta-icon.png" alt="Piticas" width="22" height="22" /></a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td style="font-size: 0; line-height: 0;" width="5"></td>
+            <td width="240" valign="top">
+              <ul style="color: #fff; list-style: none; padding: 0; font-size: 12px;">
+                <li style="color: #d3791e; margin-left: 10px;">INSTITUCIONAL</li>
+                <li style="padding: 10px 0 0 0; margin-left: 10px;"><a
+                    href="https://www.piticas.com.br/institucional/quem-somos"
+                    style="color: #fff; text-decoration: none;">Quem somos</a></li>
+                <li style="padding: 10px 0 0 0; margin-left: 10px;"><a
+                    href="https://www.piticas.com.br/institucional/politica"
+                    style="color: #fff; text-decoration: none;">Política de Privacidade</a></li>
+                <li style="padding: 10px 0 0 0; margin-left: 10px;"><a
+                    href="https://www.piticas.com.br/institucional/regulamento-programa-fidelidade"
+                    style="color: #fff; text-decoration: none;">Regulamento Programa Fidelidade</a></li>
+                <li style="padding: 10px 0 0 0; margin-left: 10px;"><a
+                    href="https://www.piticas.com.br/institucional/programa-fidelidade"
+                    style="color: #fff; text-decoration: none;">Programa Fidelidade</a></li>
+              </ul>
+            </td>
+            <td style="font-size: 0; line-height: 0;" width="5"></td>
+            <td valign="top">
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>
+                    <ul style="color: #fff; list-style: none; padding: 0; font-size: 12px;">
+                      <li style="color: #d3791e; margin-left: 10px;">DÚVIDAS</li>
+                      <li style="padding: 10px 0 0 0; margin-left: 10px;"><a
+                          href="https://www.piticas.com.br/institucional/Ajuda"
+                          style="color: #fff; text-decoration: none;">FAQ - Dúvidas Frequentes</a></li>
+                      <li style="padding: 10px 0 0 0; margin-left: 10px;"><a
+                          href="https://www.piticas.com.br/institucional/trocas-devolucoes"
+                          style="color: #fff; text-decoration: none;">Trocas e Devoluções</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <ul style="color: #fff; list-style: none; padding: 0; font-size: 12px;">
+                      <li style="color: #d3791e; margin-left: 10px;">FORMAS DE PAGAMENTO</li>
+                      <li style="padding: 10px 0 0 0; margin-left: 10px;"><img src="//lojapiticas.vteximg.com.br/arquivos/pagamento.png"
+                          alt="Piticas Pagamentos" width="168" height="22" /></li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5" style="padding: 30px 0 0 0; color: #777777; font-size: 11px;">
+              Piticas - Avenida Monteiro Lobato, 2297, Galpão 01, Vila Miriam | 07190-000-Guarulhos-SP | CNPJ:
+              13.756.472/0001-10 <br />© 2019 Piticas - Todos os direitos reservados
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/spacer.gif" width="19" height="1" alt="" /></td>
+      <td><img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/spacer.gif" width="255" height="1" alt="" /></td>
+      <td><img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/spacer.gif" width="36" height="1" alt="" /></td>
+      <td><img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/spacer.gif" width="218" height="1" alt="" /></td>
+      <td><img style="display:block" src="//lojapiticas.vteximg.com.br/arquivos/spacer.gif" width="22" height="1" alt="" /></td>
+    </tr>
+  </table>
+</body>
+
+</html>
