@@ -1,25 +1,7 @@
-// Base Imports
-@import './base/reset';
 @import './base/variables';
+@import './utils/mixins';
+@import './utils/keyframes';
+
+@import './base/reset';
 @import './base/typography';
-
-// General Components
-@import './components/carrousel';
-
-// General layout
-@import './layout/header/index.scss';
-@import './layout/footer/index.scss';
-@import './layout/brands/index.scss';
-@import './layout/minicart/index.scss';
-@import './layout/wishslist/index.scss';
-@import './layout/newsletter/index.scss';
-@import './layout/skuSelector/index.scss';
-@import '../scss/layout/login/index.scss';
-@import './layout/store-benefits/index.scss';
-@import './layout/loader-spinner/index.scss';
-@import './layout/modalProductCard/index.scss';
-@import '../scss/layout/placeholder/index.scss';
-@import '../scss/pages/wishlist/index.scss';
-
-// Externals
-@import 'node_modules/placeholder-loading/src/scss/placeholder-loading.scss';
+@import './pages/general';
