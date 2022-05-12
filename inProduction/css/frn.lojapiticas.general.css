@@ -3340,7 +3340,6 @@ ul.brands__list {
 }
 
 #vtexIdContainer button {
-    border-radius: 5px!important;
     cursor: pointer;
     color: #fff;
     font-size: 13px;
@@ -3348,7 +3347,12 @@ ul.brands__list {
     line-height: 30px;
     text-transform: uppercase;
     outline: 0;
-    border: 0
+    border: 0;
+    border-radius: 5px!important;
+    -webkit-border-radius: 5px!important;
+    -moz-border-radius: 5px!important;
+    -ms-border-radius: 5px!important;
+    -o-border-radius: 5px!important;
 }
 
 #vtexIdContainer button:hover {
