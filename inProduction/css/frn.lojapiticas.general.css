@@ -3340,8 +3340,6 @@ ul.brands__list {
 }
 
 #vtexIdContainer button {
-    background-image: unset!important;
-    box-shadow: unset!important;
     border-radius: 5px!important;
     cursor: pointer;
     color: #fff;
