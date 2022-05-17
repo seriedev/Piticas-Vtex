@@ -6410,15 +6410,17 @@
                   seeMore = document.querySelector('#seeMoreBtn' || false);
                   seeMoreContent = document.querySelector('.productPage__description' || false);
                   seeMore.addEventListener("click", function () {
-                    seeMoreContent.classList.toggle("expanded");
-                    var expanded = seeMoreContent.classList.contains("expanded");
-  
-                    if (expanded) {
-                      seeMore.innerHTML = "Leia -";
-                    } else {
-                      seeMore.innerHTML = "Leia +";
-                    }
+                    // seeMoreContent.classList.toggle("expanded");var expanded = seeMoreContent.classList.contains("expanded");
+                    
+                    var element = document.querySelector('.productPage__description--bottom-title'),
+                    elementCalc = document.querySelector('.productPage__main');
+
+                    window.scrollTo({
+                      top: element.offsetTop + 66 - elementCalc.offsetTop , behavior: 'smooth'
+                    });
+                    // containerBody.scrollTo(0, 1000) if (expanded) {seeMore.innerHTML = "Leia -";} else {seeMore.innerHTML ="Leia+";}
                   });
+
                   /* Leia mais Botton */
   
                   seeMoreBotton = document.querySelector('#seeMoreBtnBottom');
