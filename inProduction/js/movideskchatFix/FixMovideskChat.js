@@ -1,6 +1,18 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // refatored function hide icon chat in click, this is merge of other older script
+
+//revalidar existencia de btns de comprar em cards de produto em categoria,colecao,marcas;
+let getNewButonsComprar;
+function revalidade(){
+    console.log('callback');
+    getNewButonsComprar = setInterval(function(){
+        document.URL.includes('/p') ? executeInPdp() : executeInOthers();  
+    }, 2000);
+}
+
 function hideIconChat(){
+
     let chatWidget = document.querySelector("#md-app-widget"), 
     chatContainer = document.querySelector("#md-app-widget > div.md-chat-widget-container.md-fade-when-visible"), 
     chatBtn = document.querySelector("#md-app-widget > div.md-chat-widget-btn-container"),
@@ -17,20 +29,55 @@ function hideIconChat(){
     });
     
     executeInOthers = () => {
-        document.querySelectorAll("a.productCard__sku-selector").forEach(e=>e.onclick = (()=>{
-            let btnComprar = document.querySelector(".js-add-to-cart");
-            btnComprar.onclick = (()=>{
-                chatWidget.style.zIndex = "9"
-            })}));
+            
+                let btnsLinkComprar;
+                btnsLinkComprar = document.querySelectorAll("a.productCard__sku-selector");
+                
+                //página de categoria,marca e coleção
+                if(document.body.classList.contains('category')||document.body.classList.contains('brand')){
+
+                    let btnsComprarOfcards = document.querySelectorAll('body > main section.vitrine div.vitrine__wrapper ul li a.productCard__sku-selector.productCard__buy'); 
+                    //verifica se os bototes da vitrine de produto carregaram
+                    if(btnsComprarOfcards.length > 1){
+                        btnsLinkComprar = document.querySelectorAll("a.productCard__sku-selector");
+                        clearInterval(getNewButonsComprar)
+                        
+                        // páginação
+                        document.querySelector('.pagination__wrapper').onclick = ()=>{
+                            
+                        if(btnsComprarOfcards.length > 1){
+                            console.log('carregou novos botoes de compra')
+                            revalidade();
+                            // clearInterval(getNewButonsComprar);
+                                    
+                            }else{revalidade();}      
+                        }
+
+                    }else{ revalidade();}
+    
+                }else{
+                    //se não for nenhuma das páginas acima, limpa intervalo
+                    clearInterval(getNewButonsComprar)
+                }
+
+                btnsLinkComprar.forEach(e=>e.onclick = (()=>{              
+                let btnComprar = document.querySelector(".js-add-to-cart");
+                btnComprar.onclick = (()=>{
+                    chatWidget.style.zIndex = "9"
+                    
+                })})); 
     }
+
     executeInPdp = () => {
         let btnComprar = document.querySelector(".js-add-to-cart");
             btnComprar.onclick = (()=>{
             chatWidget.style.zIndex = "9"
         });
     }
-    document.URL.includes('/p') ? executeInPdp() : executeInOthers(); 
+        document.URL.includes('/p') ? executeInPdp() : executeInOthers();  
 }
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///função trocar icone ///
 
@@ -123,4 +170,4 @@ function verifyElement(){
 }
 
 //inicia verificando elemento 
-verifyElement()
+verifyElement();
