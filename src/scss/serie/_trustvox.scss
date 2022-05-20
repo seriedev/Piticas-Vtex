@@ -1,0 +1,37 @@
+.trustvox{
+    &_title{
+        font-size: 18px;
+        font-weight: 800;
+        text-transform: uppercase;
+        display: block;
+        color: #000;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+    &-widget{
+        button.ts-thumb-up,.ts-button.ts-success{
+            color: white!important;
+            background: #ef7b00!important;
+        }
+    }
+    
+}
+.home{
+    section.trustvox{
+        margin-bottom: 2rem;
+        #_trustvox_colt {
+            @media screen and (min-width: 1100px) {
+                .ts-slider{
+                    max-width: 1100px;
+                }
+                .ts-frame{
+                    width: 965px;   
+                }
+                .ts-audited{
+                    margin-top: 1rem;
+                }
+            }
+        
+        }
+    }
+}
