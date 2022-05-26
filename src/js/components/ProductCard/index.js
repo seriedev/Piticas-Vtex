@@ -126,7 +126,7 @@ class ProductCardComponent extends FrnComponent {
             product.productId
           }' class="productCard__wishList" tabindex="0"></a>
         </div>
-        <div class="productCard__flag">
+        <div class="productCard__flag barararbarabr">
 
             ${
               DiscountHighLight[0] == undefined
@@ -167,7 +167,7 @@ class ProductCardComponent extends FrnComponent {
             Indisponível
           </span>
           `
-            : 
+            :
           `<a class="productCard__sku-selector productCard__buy" tabindex="0">Comprar</a>`
         }
         <div class="productCard__skuSelector-wrapper productCard__variations">

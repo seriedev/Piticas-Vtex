@@ -105,7 +105,7 @@ function generateEntries(templateDir) {
       ];
     }
   });
-  
+
   return entries;
 }
 
