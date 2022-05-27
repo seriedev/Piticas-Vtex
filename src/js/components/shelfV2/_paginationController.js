@@ -305,8 +305,19 @@ export default class PaginationController extends FrnComponent {
       .then(response => {
         window.scrollTo(0, 200);
         this._renderProductController._resolver(response);
+        //Dispatch an event
+        var evt = new CustomEvent("fires", {detail: "Any Object Here"});
+        window.dispatchEvent(evt);
       });
   }
+
+  _getListener(){
+    window.addEventListener("fires", function(evt) {
+      console.log('evt', evt)
+    }, false);
+  }
+
+
 
   handlerPagination(type) {
     switch (type) {
