@@ -5197,6 +5197,8 @@ var PaginationController = /*#__PURE__*/function (_FrnComponent) {
         window.scrollTo(0, 200);
 
         _this9._renderProductController._resolver(response);
+        var evtPgRendered = new CustomEvent("paginationRendered", {detail: "Pagination Listener"});
+        window.dispatchEvent(evtPgRendered);
       });
     }
   }, {
