@@ -1,31 +1,81 @@
+#set($id = $product.Id)
+#set($uri = $product.Uri)
+#set($escapedName = $product.HtmlEscapedName)
+#set($evaluationRate = $product.EvaluationRate)
 
- #set($id = $product.Id)
- #set($uri = $product.Uri)
- #set($escapedName = $product.HtmlEscapedName)
-<article class="productCard" data-product-id="$id"><a class="productCard__link" href="$uri">
-    <div class="productCard__image js-shelf-product">
-  $product.GetImageTag(192, 192)<a class="productCard__sku-selector"> <span>Compra Rapida<i class="fas fa-plus"></i></span></a>
-    </div></a><a class="productCard__link" href="$uri">
-    <h3 class="productCard__name">
- $escapedName
-    </h3></a>
+#set ($indisponivel = "")
+
 #if ($product.IsInStock)
-  <span class="productCard__price">
-    #if ($product.HasBestPrice)
-      <span class="productCard__price--old">$product.ListPrice</span>
-    #end
-    <span class="productCard__price--best">$product.BestPrice</span>
-    #if ($product.HasBestPrice)
-      <span class="productCard__price--condition">à vista no boleto</span>
-    #end
-  </span>
-  #if ($product.NumbersOfInstallment > 1)
-    <span class="productCard__installments">
-      ou<span class="productCard__installments--strong">${product.NumbersOfInstallment}X</span> de <span class="productCard__installments--strong">${product.InstallmentValue}</span>
-    </span>
-  #end
+    #set ($indisponivel = "")
 #else
-  <span class="productCard__unavailable">Indisponível</span>
+    #set($indisponivel = "indisponivel")
 #end
 
+<article class="productCard $indisponivel" data-product-id="$id">
+    <div class="render-checkbox"></div>
+    <div class="productCard__link">
+        <a class="productCard__link" href="$uri">
+            <div class="productCard__image js-product-image">
+                $product.GetImageTag(180,180)
+            </div>
+        </a>
+        <a data-product-id="$id" class="productCard__wishList"></a>
+    </div>
+    <div class="productCard__flag">
+        #if ($product.DiscountHightLight)
+        <span class="productCard__flag--span">$product.DiscountHightLight</span>
+        #end
+    </div>
+
+    <span class="productCard__brand">
+        $product.BrandName
+    </span>
+    <a class="productCard__link" href="$uri">
+
+    <!--tags title H3 aqui-->
+        <h3 class="productCard__name">
+            $escapedName
+        </h3>
+    </a>
+    <!-- Trustvox -->
+    <div class="trustvox-showcase" style="text-align: center">
+        <div data-trustvox-product-code="$product.Id"></div>
+    </div>
+    <!-- /Trustvox -->
+    #if ($product.IsInStock)
+    <div class="productCard__price">
+        <div class="productCard__price-content">
+            #if ($product.HasBestPrice)
+            <span class="productCard__price--old">
+                $product.ListPrice
+            </span>
+            #end
+            <span class="productCard__price--best">
+                $product.BestPrice
+            </span>
+        </div>
+
+        <div class="productCard__installments">
+            #if ($product.NumbersOfInstallment > 1) (ou
+            <span class="productCard__installments--strong productCard__installments--installments"> ${product.NumbersOfInstallment}X</span>
+            de
+            <span class="productCard__installments--strong productCard__installments--value">${product.InstallmentValue} sem juros)</span>
+        </div>
+        #end #else
+        <div class="productCard__installments" style="font-size: 24px;">
+            <span style="display: flex;align-items: center;width: 100%;gap: 9px;padding: 3px 0;">
+                <img src="/arquivos/logo-pix.png" style="width: 44px;height: 15px;">
+                <span style="color: #ef7b00;font-size: 0.66rem;font-weight: bold;">
+                   3% OFF a vista no Pix
+                </span>
+            </span>
+        </div>
+    </div>
+    <a class="productCard__buy productCard__buy--unavailable">Indisponível</a>
+    #end #if ($product.IsInStock)
+    <div class="js-shelf-product">
+        <a class="productCard__sku-selector">Comprar</a>
+    </div>
+    #end
+    <div class="productCard__skuSelector-wrapper productCard__variations"></div>
 </article>

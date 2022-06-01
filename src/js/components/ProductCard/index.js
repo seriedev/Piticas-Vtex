@@ -167,7 +167,7 @@ class ProductCardComponent extends FrnComponent {
             Indisponível
           </span>
           `
-            : 
+            :
           `<a class="productCard__sku-selector productCard__buy" tabindex="0">Comprar</a>`
         }
         <div class="productCard__skuSelector-wrapper productCard__variations">
