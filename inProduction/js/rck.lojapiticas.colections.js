@@ -357,29 +357,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -399,9 +376,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
 
 
 var ProductCardComponent = /*#__PURE__*/function (_FrnComponent) {
@@ -492,12 +466,9 @@ var ProductCardComponent = /*#__PURE__*/function (_FrnComponent) {
           imageText = imageProp.imageText,
           imageUrl = imageProp.imageUrl;
       var imageFormat = imageUrl.split('.')[4].split('?')[0];
-
-      var fallbackImageUrl = "/arquivos/placeholder-loading-product.gif";
-
       var urlFormatted = "/arquivos/ids/".concat(imageId, "-").concat(sizes.width, "-").concat(sizes.height, "/").concat(imageText, ".").concat(imageFormat);
       var secundaryClass = "".concat(this.productCardClass, "__img--secundary");
-      return `<img src="${fallbackImageUrl}"  width="140" height="150" data-src="${urlFormatted}" class="${secundary ? secundaryClass : "js--lazyload has--lazyload"}" />`;
+      return "<img data-src=\"https://www.kindpng.com/picc/m/392-3926418_loading-spinner-loading-icon-png-transparent-png-download.png\"  width=\"140\" height=\"150\" src=\"".concat(urlFormatted, "\" class=\"").concat(secundary ? secundaryClass : 'lazy', "\" />");
     }
   }, {
     key: "renderCard",
@@ -545,7 +516,6 @@ var ProductCardComponent = /*#__PURE__*/function (_FrnComponent) {
       var tagCondition = function tagCondition(className) {
         return Price !== ListPrice ? "productCard__".concat(className, "--visible") : "productCard__".concat(className);
       };
-
       const discountPix = `<div class="productCard__installments" style="font-size: 24px;">
             <span style="display: flex;align-items: center;width: 100%;gap: 9px;padding: 3px 0;">
                 <img src="/arquivos/logo-pix.png?v=637873682268530000" style="width: 44px;height: 15px;">
@@ -745,7 +715,6 @@ var SkuSelectorComponent = /*#__PURE__*/function () {
 }();
 
 
-
 /***/ }),
 
 /***/ "./src/js/components/SkuSelector/SkuSelectorController.js":
@@ -824,19 +793,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -846,15 +802,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
-
-
-
-
 var SkuSelectorController = /*#__PURE__*/function () {
   function SkuSelectorController(config) {
     _classCallCheck(this, SkuSelectorController);
 
-    if (!config) throw new Error('SkuSelectorController nÃ£o recebeu os parametros');
+    if (!config) throw new Error('SkuSelectorController não recebeu os parametros');
     this._config = config;
     this._context = config.context;
     this._loader = config.loader ? config.loader : true;
@@ -1648,31 +1600,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
 
 
 
@@ -1700,7 +1632,7 @@ var SkuSelectorView = /*#__PURE__*/function () {
       var dimensionsMap = response.dimensionsMap,
           dimensionsInputType = response.dimensionsInputType,
           skus = response.skus;
-      var types = Object.keys(dimensionsMap); //console.log('response >>>>>>', response);
+      var types = Object.keys(dimensionsMap); //console.log('response >>>>>>', response); 
 
       return types.map(function (type) {
         return "".concat(dimensionsInputType[type] == 'Radio' ? _this.renderRadioOptions(dimensionsMap, type, dimensionsInputType, skus) : _this.renderComboOptions(dimensionsMap, type));
@@ -1709,21 +1641,16 @@ var SkuSelectorView = /*#__PURE__*/function () {
   }, {
     key: "renderComboOptions",
     value: function renderComboOptions(dimensionsMap, type) {
-      // var dimensionsModel = ['UNI', '02', '2', '03', '3', '04', '4', '06', '6', '08', '8', '10', '12', '14', '16', '18', '20', '21 AO 26', '22', '24', '26', '28', '30', '32', '33 AO 38', '33/34', '33 / 34', '34', '35/36', '35 / 36', '36', '37/38', '37 / 38', '38', '38 AO 44', '39 / 40', '39 AO 44', '39', '40', '41', '42', '41 / 42', '43/44', '43 / 44', '44', '45', '46', '48', '50', 'INFANTIL', 'INF/ P/M', 'INF/ G/GG', 'BLPP', 'BLP', 'BLM', 'BLG', 'BLGG', 'PP', 'P', 'P/M', 'M', 'G', 'G/GG', 'GG', 'XP', 'XG', 'XGG', 'SEM GRADE'];
+      var dimensionsModel = ['UNI', '02', '2', '03', '3', '04', '4', '06', '6', '08', '8', '10', '12', '14', '16', '18', '20', '21 AO 26', '22', '24', '26', '28', '30', '32', '33 AO 38', '33/34', '33 / 34', '34', '35/36', '35 / 36', '36', '37/38', '37 / 38', '38', '38 AO 44', '39 / 40', '39 AO 44', '39', '40', '41', '42', '41 / 42', '43/44', '43 / 44', '44', '45', '46', '48', '50', 'INFANTIL', 'INF/ P/M', 'INF/ G/GG', 'BLPP', 'BLP', 'BLM', 'BLG', 'BLGG', 'PP', 'P', 'P/M', 'M', 'G', 'G/GG', 'GG', 'XP', 'XG', 'XGG', 'SEM GRADE'];
+      var availableSizes = [];
 
-        //armazena tamanhos e cores de cada SKU
-        //dimensions map tem array com valores fora de ordem, deve-se usar o array de skus
-        var dimensionsModel = dimensionsMap.Tamanho.concat(dimensionsMap.Cor)
-
-        var availableSizes = [];
-
-        for (var index = 0; index < dimensionsModel.length; index++) {
-          if (dimensionsMap[type].includes(dimensionsModel[index])) {
-            availableSizes.push(dimensionsModel[index]);
-          } else {
-            null;
-          }
+      for (var index = 0; index < dimensionsModel.length; index++) {
+        if (dimensionsMap[type].includes(dimensionsModel[index])) {
+          availableSizes.push(dimensionsModel[index]);
+        } else {
+          null;
         }
+      }
 
       return "<div class=\"variation__combo-wrapper variation__combo-wrapper--".concat(Helpers_index2__WEBPACK_IMPORTED_MODULE_25__["default"]._slugifyString(type), "\">\n          <button class=\"variation__combo-default\">Selecione a ").concat(type, "</button>\n          <div class=\"variation__combo-list\">\n            ").concat(availableSizes.map(function (option, index) {
         return "<div class='variation__option ".concat(index == 0 ? "option-selected" : null, " variation__option--").concat(Helpers_index2__WEBPACK_IMPORTED_MODULE_25__["default"]._slugifyString(option), "' data-sku-camp=\"").concat(type, "\" data-sku-value=\"").concat(option, "\">").concat(option, "</div>");
@@ -1732,24 +1659,16 @@ var SkuSelectorView = /*#__PURE__*/function () {
   }, {
     key: "renderRadioOptions",
     value: function renderRadioOptions(dimensionsMap, type, dimensionsInputType, skus) {
-      // var dimensionsModel = ['UNI', '02', '2', '03', '3', '04', '4', '06', '6', '08', '8', '10', '12', '14', '16', '18', '20', '21 AO 26', '22', '24', '26', '28', '30', '32', '33 AO 38', '33/34', '33 / 34', '34', '35/36', '35 / 36', '36', '37/38', '37 / 38', '38', '38 AO 44', '39 / 40', '39 AO 44', '39', '40', '41', '42', '41 / 42', '43/44', '43 / 44', '44', '45', '46', '48', '50', 'INFANTIL', 'INF/ P/M', 'INF/ G/GG', 'BLPP', 'BLP', 'BLM', 'BLG', 'BLGG', 'PP', 'P', 'P/M', 'M', 'G', 'G/GG', 'GG', 'XP', 'XG', 'XGG', 'SEM GRADE'];
+      var dimensionsModel = ['UNI', '02', '2', '03', '3', '04', '4', '06', '6', '08', '8', '10', '12', '14', '16', '18', '20', '21 AO 26', '22', '24', '26', '28', '30', '32', '33 AO 38', '33/34', '33 / 34', '34', '35/36', '35 / 36', '36', '37/38', '37 / 38', '38', '38 AO 44', '39 / 40', '39 AO 44', '39', '40', '41', '42', '41 / 42', '43/44', '43 / 44', '44', '45', '46', '48', '50', 'INFANTIL', 'INF/ P/M', 'INF/ G/GG', 'BLPP', 'BLP', 'BLM', 'BLG', 'BLGG', 'PP', 'P', 'P/M', 'M', 'G', 'G/GG', 'GG', 'XP', 'XG', 'XGG', 'SEM GRADE'];
+      var availableSizes = [];
 
-        //armazena tamanhos e cores de cada SKU
-        let prodTamanho = skus.map((res)=> res.dimensions.Tamanho)
-        let prodCor = skus.map((res)=> res.dimensions.Cor)
-
-        //removi valores duplicados, retorna um novo array com [cores e tamanhos]
-        let prodEspecifications = [...new Set(prodCor)].concat(...new Set(prodTamanho))
-
-        var availableSizes = [];
-
-        for (var index = 0; index < prodEspecifications.length; index++) {
-          if (dimensionsMap[type].includes(prodEspecifications[index])) {
-            availableSizes.push(prodEspecifications[index]);
-          } else {
-            null;
-          }
+      for (var index = 0; index < dimensionsModel.length; index++) {
+        if (dimensionsMap[type].includes(dimensionsModel[index])) {
+          availableSizes.push(dimensionsModel[index]);
+        } else {
+          null;
         }
+      }
 
       return "<div class='variation__wrapper variation__wrapper--".concat(Helpers_index2__WEBPACK_IMPORTED_MODULE_25__["default"]._slugifyString(type), "' data-input-type='").concat(dimensionsInputType[type], "'>\n                <div class='variation__wrapper--title-").concat(Helpers_index2__WEBPACK_IMPORTED_MODULE_25__["default"]._slugifyString(type), "'>").concat(Helpers_index2__WEBPACK_IMPORTED_MODULE_25__["default"]._slugifyString(type), "</div>\n                <div class='variation__wrapper--body-").concat(Helpers_index2__WEBPACK_IMPORTED_MODULE_25__["default"]._slugifyString(type), "'>       \n                ").concat(availableSizes.map(function (option, index) {
         return "<label class='variation__option ".concat(index == 0 ? "option-selected" : null, " ").concat(!skus[index].available && 'unavailable', " variation__option--").concat(Helpers_index2__WEBPACK_IMPORTED_MODULE_25__["default"]._slugifyString(option), " ' data-sku-camp=\"").concat(type, "\" data-sku-value=\"").concat(option, "\">").concat(option, "</label>\n                    ");
@@ -1817,12 +1736,12 @@ var SkuSelectorView = /*#__PURE__*/function () {
         // console.log('imgProduct', model)
         // productImage.forEach((img) => {
         //   img.src += sku.image;
-        // });
+        // }); 
         //  for (let i = 0; i < productImage.length; i++) {
         //   const imgProduct = productImage[i];
         //   console.log('imgProduct', imgProduct)
         //   imgProduct.src += sku.image;
-        // }
+        // } 
 
         productImage.src = sku.image;
       }
@@ -1965,7 +1884,7 @@ var SkuSelectorView = /*#__PURE__*/function () {
 
       var render = function render() {
         console.log("productInfo", productInfo);
-        var productVideo = productInfo['VÃ­deo'];
+        var productVideo = productInfo['Vídeo'];
         var getResponseWithAllImages = productInfo.items.filter(function (item) {
           return item.name == sku.skuname;
         });
@@ -2062,20 +1981,20 @@ var SkuSelectorView = /*#__PURE__*/function () {
        const productIamgeItemElements = document.querySelectorAll(
          '.productPage__image-item'
        );
-
+    
        const productImageZoomElement = document.querySelector(
          '.productPage__image-zoom'
        );
-
+    
        // Miguel 19/05/2021
        const productImageZoomElements = document.querySelectorAll(
          '.productPage__image-zoom'
        );
-
+    
        //let srcFirstImageValue =
         // productIamgeItemElements[0].dataset.productImageZoom;
         // productImageZoomElement.innerHTML = srcFirstImageValue;
-
+    
        productImageZoomElements.forEach(() => {
          let srcFirstImageValue =
          productIamgeItemElements[0].dataset.productImageZoom;
@@ -2085,16 +2004,16 @@ var SkuSelectorView = /*#__PURE__*/function () {
           // productImageZoomElement.innerHTML = srcValue;
          //});
        });
-
+    
        productIamgeItemElements.forEach((productIamgeItemElement) => {
          productIamgeItemElement.addEventListener('click', (e) => {
            let srcValue = e.target.parentNode.dataset.productImageZoom;
            productImageZoomElement.innerHTML = srcValue;
          });
        });
-
+    
        const thumbsList = document.querySelector('.js-image-thumbs');
-
+    
        if (Array.from(thumbsList.classList).includes('slick-initialized')) {
          thumbsList.classList.remove('slick-initialized');
        }
@@ -2247,13 +2166,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-
-
-
-
-
-
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -2398,7 +2310,7 @@ var AvisemeComponent = /*#__PURE__*/function (_FrnComponent) {
   }, {
     key: "_succes",
     value: function _succes() {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_12___default.a.fire('Enviado com sucesso!', 'NÃ³s te avisaremos quanto este produto estiver disponÃ­vel!', 'success');
+      sweetalert2__WEBPACK_IMPORTED_MODULE_12___default.a.fire('Enviado com sucesso!', 'Nós te avisaremos quanto este produto estiver disponível!', 'success');
     }
   }, {
     key: "_resetInput",
@@ -2412,7 +2324,7 @@ var AvisemeComponent = /*#__PURE__*/function (_FrnComponent) {
       sweetalert2__WEBPACK_IMPORTED_MODULE_12___default.a.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Teu email Ã© invalido!'
+        text: 'Teu email é invalido!'
       });
     }
   }]);
@@ -2476,23 +2388,7 @@ var RenderFilterType = /*#__PURE__*/function () {
      * @param {*} brands
      */
 
-  }, {
-    key: "renderBrandItem",
-    value: function renderBrandItem(brands) {
-      var brandItem = '';
-      brands.forEach(function (_ref) {
-        var Name = _ref.Name,
-            Value = _ref.Value,
-            Quantity = _ref.Quantity;
-        brandItem += "\n          <li class=\"filter__type\">\n            <label class=\"filter__label js-filter-label\">\n              <input type=\"checkbox\" class=\"filter__input js-filter-input\" name=\"".concat(Name, "\" data-category-name=\"/").concat(Value, "\" value=\",b\">\n              ").concat(Name, " <span>(").concat(Quantity, ")</span>\n            </label>\n          </li>\n        ");
-      });
-      return brandItem;
-    }
-    /**
-     * @param {*} categories
-     */
-
-  }, {
+  },{
     key: "renderCategoryList",
     value: function renderCategoryList(categories) {
       this.getFilterListElement.insertAdjacentHTML('afterbegin', "\n        <li class=\"filter__item\">\n          <span class=\"filter__name\">\n            Categorias\n            <span class=\"filter__name--active\"><i class=\"fas fa-chevron-down\"></i></span>\n          </span>\n          <div class=\"filter__popover\">\n            <ul class=\"filter__types js-filter-popover\" data-specification-group=\"categories\">\n              ".concat(this.renderCategoryItem(categories), "\n            </ul>\n          </div>\n        </li>\n      ")); // toggle filterlist
@@ -2568,14 +2464,12 @@ var RenderFilterType = /*#__PURE__*/function () {
     value: function renderSpecificationItem(specificationValues) {
       var specificationItems = '';
       console.log(specificationValues);
-      //var dimensionsModel = ['UNI', '02', '2', '03', '3', '04', '4', '06', '6', '08', '8', '10', '12', '14', '16', '18', '20', '21 AO 26', '22', '24', '26', '28', '30', '32', '33 AO 38', '33/34', '33 / 34', '34', '35/36', '35 / 36', '36', '37/38', '37 / 38', '38', '38 AO 44', '39 / 40', '39 AO 44', '39', '40', '41', '42', '41 / 42', '43/44', '43 / 44', '44', '45', '46', '48', '50', 'INFANTIL', 'INF/ P/M', 'INF/ G/GG', 'BLPP', 'BLP', 'BLM', 'BLG', 'BLGG', 'PP', 'P', 'P/M', 'M', 'G', 'G/GG', 'GG', 'XP', 'XG', 'XGG', 'SEM GRADE'];
-      let dimensionsModel = specificationValues.map((res) => res.Name)
-
+      var dimensionsModel = ['UNI', '02', '2', '03', '3', '04', '4', '06', '6', '08', '8', '10', '12', '14', '16', '18', '20', '21 AO 26', '22', '24', '26', '28', '30', '32', '33 AO 38', '33/34', '33 / 34', '34', '35/36', '35 / 36', '36', '37/38', '37 / 38', '38', '38 AO 44', '39 / 40', '39 AO 44', '39', '40', '41', '42', '41 / 42', '43/44', '43 / 44', '44', '45', '46', '48', '50', 'INFANTIL', 'INF/ P/M', 'INF/ G/GG', 'BLPP', 'BLP', 'BLM', 'BLG', 'BLGG', 'PP', 'P', 'P/M', 'M', 'G', 'G/GG', 'GG', 'XP', 'XG', 'XGG', 'SEM GRADE'];
       var availablesSpecification = [];
       dimensionsModel.forEach(function (dimension) {
         for (var index = 0; index < specificationValues.length; index++) {
           if (dimension === specificationValues[index].Name) {
-            availablesSpecification.push(specificationValues[index]); // console.log('ContÃ©m', specificationValues[index].Name)
+            availablesSpecification.push(specificationValues[index]); // console.log('Contém', specificationValues[index].Name)
           } else {
             null;
           }
@@ -2718,27 +2612,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2799,8 +2672,8 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
     _this.isBrandPage = document.querySelector('body').classList.contains('frn-brand');
     _this.isSearchPage = document.querySelector('body').classList.contains('frn-search');
     /**
-     * Fazer o querySelector dos dados que estao jÃ¡ no html do site
-     * PD: Ã© mais performatico...
+     * Fazer o querySelector dos dados que estao já no html do site
+     * PD: é mais performatico...
      *
      * Sao helpers, extends do FRNComponent
      */
@@ -2823,7 +2696,7 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
     return _this;
   }
   /**
-   * Render ele Ã© chamado so no primer momento de inicar a pagina
+   * Render ele é chamado so no primer momento de inicar a pagina
    * para fazer as validacoes se for pagina de "busqueda"
    *
    * Se for pagina de busqueda ele tem que consultar un enpoint diferente.
@@ -2840,9 +2713,9 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
       }
     }
     /**
-     * Ele Ã© o que faz a troca para renderizar os produtos da busqueda
+     * Ele é o que faz a troca para renderizar os produtos da busqueda
      *
-     * Pq faÃ§o de novo uma verificao para chamar o this.urlBuilder
+     * Pq faço de novo uma verificao para chamar o this.urlBuilder
      * Tem casos que as paginas de busquedas tem aquele parametro '?map='
      * de ai ele faria de novo a construcaco da url para pegar os produtos e chamar outra api
      */
@@ -2861,52 +2734,31 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
         this._renderProducts_(this.searchParams);
       }
     }
-    /**
-     * Ele faz um build da url quando nao tiver na url o '?map='
-     * so tomo o valor da url de ali faz o build da url para consultar as api
-     * para renderizar o filtro e os produtos no primer momento.
-     *
-     * Quando na url tiver '?map=' ele so deixa ignora o build e pega esse search da url
-     * para renderizar o filtro e produtos
-     */
+    
+    /*
+     * MONTA URL DA PÁGINA DE COLEÇÃO 
+     
+    */
 
   }, {
     key: "_urlBuilder_",
     value: function _urlBuilder_() {
+      
       this.locationPathname = window.location.pathname;
       this.locationSearch = window.location.search; // Se tiver na url uma queryString
+      
+      //pega id da coleção do elemento gerado pelo controle de template searchResults e monta a url de coleção
+      let initSliceString = document.querySelector("#PS").getAttribute('onchange').indexOf("'/")+1;
+      let endSliceString = document.querySelector("#PS").getAttribute('onchange').indexOf("?map=productClusterIds")+22;
+    
+      let urlColection = document.querySelector("#PS").getAttribute('onchange').slice(initSliceString, endSliceString)
+      var _params =  urlColection;
 
-      if (this.locationSearch.indexOf('specificationFilter') != -1 || this.locationSearch.indexOf('productClusterIds') != -1) {
-        var params = "".concat(this.locationPathname).concat(this.locationSearch);
-        this.searchParams.add(params);
-
-        this.__tiggerPayloadFacets(params);
-
-        this._renderProducts_(this.searchParams);
-      } else if (this.isBrandPage) {
-        // Brand Page
-        var _params = "".concat(this.locationPathname, "?map=b");
-
-        this.searchParams.add(_params);
-
-        this._renderProducts_(this.searchParams);
-      } else {
-        // Category & Departament
-        var countCategoriesPathname = this.locationPathname.split('/').filter(Boolean).length;
-        var map = 'c'.repeat(countCategoriesPathname);
-        this.map = map.split('').join(',');
-
-        var _params2 = "".concat(this.locationPathname, "?map=").concat(this.map);
-
-        this.searchParams.add(_params2);
-
-        this.__tiggerPayloadFacets(_params2);
-
-        this._renderProducts_(this.searchParams);
-      }
+      this.searchParams.add(_params);
+      this._renderProducts_(this.searchParams);
     }
     /**
-     * Esse metodo Ã© uma dispach que faz para consultar api de facets para obter o filtro
+     * Esse metodo é uma dispach que faz para consultar api de facets para obter o filtro
      * Marcas - Specifications.
      * Ele recive os parametros que estao na url (location.pathname -  location.search)
      */
@@ -2939,14 +2791,14 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
                   this._renderFilterType.renderCategoryList(categoryList);
 
                   this._renderFilterType.renderPriceRanges(priceRanges);
-                  /* Faixa de PreÃ§o */
+                  /* Faixa de Preço */
 
 
                   inputPrices = document.querySelectorAll('.filter__type--price-input input[type=range]');
                   sliderTrack = document.querySelector(".slider-track");
                   inputPrices.forEach(function (price) {
                     /* price.oninput = () => {
-
+                      
                       this.slidePriceOne = parseFloat(inputPrices[0].value),
                       this.slidePriceTwo = parseFloat(inputPrices[1].value);
                         document.querySelector('.filter__type--price-result').insertAdjacentHTML(
@@ -2955,7 +2807,7 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
                         <div class="filter__type--price-result-one">${this.slidePriceOne}</div>
                         <div class="filter__type--price-result-two">${this.slidePriceTwo}</div>
                       `);
-
+                      
                     } */
                     var percent1 = parseInt(inputPrices[0].value) / parseInt(inputPrices[0].max) * 100;
                     var percent2 = parseInt(inputPrices[1].value) / parseInt(inputPrices[1].max) * 100;
@@ -3012,7 +2864,7 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
       return __tiggerPayloadFacets;
     }()
     /**
-     * Ele Ã© um metodo que voce chama em cada funcao para renderizar os produtos,
+     * Ele é um metodo que voce chama em cada funcao para renderizar os produtos,
      * ele recive os parametros para fazer um update da shelve de produtos
      */
 
@@ -3130,7 +2982,7 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
       this.getFilterSelectedContainerElement().insertAdjacentHTML('beforeend', "\n      <li class=\"filter__selected-item\" data-filter-name=\"".concat(target.dataset.categoryName, "\" data-filter-value=\"").concat(target.value, "\"><i class=\"fas fa-times js-remove-filter\"></i> ").concat(target.name, "</li>\n    "));
     }
     /**
-     * Ele recive os dados do filtro selecionado para tirar da tela quando Ã© clicado
+     * Ele recive os dados do filtro selecionado para tirar da tela quando é clicado
      * no input(checkbox)
      * @param {html} target
      */
@@ -3145,7 +2997,7 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
       targetElment_.remove();
     }
     /**
-     * Ele Ã© chamado no init para deletar e desmarcar o filtro quando vc faz click
+     * Ele é chamado no init para deletar e desmarcar o filtro quando vc faz click
      * no X do lado do nome do filtro selecionado
      */
 
@@ -3254,12 +3106,6 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.it
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-
-
-
-
-
 
 
 
@@ -3397,11 +3243,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3444,29 +3285,29 @@ var FreeShippingController = /*#__PURE__*/function (_CartService) {
     key: "handleFreeShippingProgress",
     value: function handleFreeShippingProgress(data) {
       //variables for free shiping
-      var shippingValue = document.querySelector('.menu__frete');
+      var shippingValue = document.querySelector('.menu__frete');    
       var shippingTitle = document.querySelector('.cart-mini__shipping--title');
       var shippingProgressBar = document.querySelector('.js-shipping-progress');
       var shippingIcon = document.querySelector('.js-shipping-icon');
       var shippingTotalMissingElement = document.querySelector('.js-minicart-shipping-total');
       var goalReachedElement = document.querySelector('.cart-mini__shipping--goal-reached');
-
+      
       var formato = {
         minimumFractionDigits: 2,
         style: 'currency',
         currency: 'BRL'
       };
-
+      
       ///////////////////conditional to earn a free shiping//////////////////////////
       if (shippingTitle && shippingProgressBar && shippingIcon && shippingTotalMissingElement) {
          dataTotalizers = data.totalizers;
          orderFormTotalValue = data.items.length ? dataTotalizers[0].value : 0;
-
+        
         var freeShippingValue = parseFloat(shippingValue.textContent);
         var orderShippingCalculate = freeShippingValue - orderFormTotalValue;
         var resultCalcOrderAndShipping = orderFormTotalValue / freeShippingValue * 100;
         var result = resultCalcOrderAndShipping > 100 ? 100 : resultCalcOrderAndShipping;
-
+        
 
         if (orderShippingCalculate < 0 && shippingTotalMissingElement && shippingTotalMissingElement.parentElement) {
 
@@ -3492,7 +3333,7 @@ var FreeShippingController = /*#__PURE__*/function (_CartService) {
       }
 
       ///////////////////Conditional to earn a brinde/////////////////////////
-
+      
       //variables for brinde
       var brindeValue = document.querySelector('.menu_brinde');
       var brindeTitle = document.querySelector('.cart-mini__brinde--title');
@@ -3500,12 +3341,12 @@ var FreeShippingController = /*#__PURE__*/function (_CartService) {
       var brindeIcon = document.querySelector('.js-brinde-icon');
       var brindeTotalMissingElement = document.querySelector('.js-minicart-brinde-total');
       var goalReachedBrinde = document.querySelector('.cart-mini__brinde--goal-reached');
-
+      
       if (brindeTitle && brindeProgressBar && brindeIcon && brindeTotalMissingElement) {
-
+        
         var dataTotalizers = data.totalizers;
-        var orderFormTotalValue = data.items.length ? dataTotalizers[0].value : 0;
-
+        var orderFormTotalValue = data.items.length ? dataTotalizers[0].value : 0; 
+        
         var freeBrindeValue = parseFloat(brindeValue.textContent);
         var orderBrindeCalculate = freeBrindeValue - orderFormTotalValue;
         var resultCalcOrderAndBrinde = orderFormTotalValue / freeBrindeValue * 100;
@@ -3582,13 +3423,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-
-
-
-
-
-
 
 
 
@@ -3782,17 +3616,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -3816,11 +3639,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
 
 
 
@@ -4847,18 +4665,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -5206,8 +5012,6 @@ var PaginationController = /*#__PURE__*/function (_FrnComponent) {
         window.scrollTo(0, 200);
 
         _this9._renderProductController._resolver(response);
-        var evtPgRendered = new CustomEvent("paginationRendered", {detail: "Pagination Listener"});
-        window.dispatchEvent(evtPgRendered);
       });
     }
   }, {
@@ -5329,14 +5133,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -5402,7 +5198,7 @@ var RenderProductController = /*#__PURE__*/function (_FrnComponent) {
           this.render(products);
         }
       } else {
-        this.getShelfElement().querySelector('div > div > ul').innerHTML = '<h2 class="category__empty">Infelizmente nÃ£o encontramos resultado pra sua busca =(</h2>';
+        this.getShelfElement().querySelector('div > div > ul').innerHTML = '<h2 class="category__empty">Infelizmente não encontramos resultado pra sua busca =(</h2>';
         this.getShelfElement().classList.add(this.shelfEmptyClass);
         this.getShelfElement().classList.remove(this.shelfLoadingClass);
 
@@ -5417,7 +5213,7 @@ var RenderProductController = /*#__PURE__*/function (_FrnComponent) {
       var append = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       var container = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var productList = '';
-      //seta width e heigth baseado no device
+      //seta width e heigth baseado no device  
       let imgProdMobi = screen.width <= 1024;
       var sizes = {
         width:  imgProdMobi ? 140 : 215,
@@ -5513,15 +5309,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -5541,10 +5328,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
 
 
 
@@ -5614,7 +5397,7 @@ var ShelfComponentV2 = /*#__PURE__*/function (_FrnComponent) {
       }
     }
     /**
-     * Ele Ã© um oberserver de RXJS onde faz a chamada para api
+     * Ele é um oberserver de RXJS onde faz a chamada para api
      * Cria o loading
      *
      */
@@ -5828,20 +5611,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -5861,9 +5630,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
 
 
 
@@ -6193,7 +5959,7 @@ var WishListComponent = /*#__PURE__*/function (_FrnComponent) {
   }, {
     key: "_renderWishlistNoProductsFoundWarning",
     value: function _renderWishlistNoProductsFoundWarning(element) {
-      element.insertAdjacentHTML('beforeend', '<h2 class="js-wishlist-noProductsFound wishlist__warning wishlist__warning--no-favorites">VocÃª nÃ£o possui produtos favoritos :(</h2>');
+      element.insertAdjacentHTML('beforeend', '<h2 class="js-wishlist-noProductsFound wishlist__warning wishlist__warning--no-favorites">Você não possui produtos favoritos :(</h2>');
     }
   }, {
     key: "_getLocalStorageWishlist",
@@ -6361,10 +6127,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -6489,7 +6251,7 @@ var Helpers = /*#__PURE__*/function () {
   }, {
     key: "_slugifyString",
     value: function _slugifyString(str) {
-      var from = 'Ã£Ã Ã¡Ã¤Ã¢áº½Ã¨Ã©Ã«ÃªÃ¬Ã­Ã¯Ã®ÃµÃ²Ã³Ã¶Ã´Ã¹ÃºÃ¼Ã»Ã±Ã§Â·/_,:;';
+      var from = 'ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;';
       var to = 'aaaaaeeeeeiiiiooooouuuunc------';
       str = str.replace(/^\s+|\s+$/g, '').toLowerCase();
 
@@ -6614,7 +6376,7 @@ var Helpers = /*#__PURE__*/function () {
       this.cnpj = cnpj.replace(/[^0-9]/g, '');
       this.verificationCode1;
       this.verificationCode2;
-      if (this.cnpj.length < 14) throw 'CNPJ Ã© muito curto';
+      if (this.cnpj.length < 14) throw 'CNPJ é muito curto';
       this.verificationCode1 = this.cnpj.substr(-2, 1);
       this.verificationCode2 = this.cnpj.substr(-1, 1);
       var code1 = getVerificationCode1();
@@ -7192,7 +6954,7 @@ var Helpers = /*#__PURE__*/function () {
       this.cnpj = cnpj.replace(/[^0-9]/g, '');
       this.verificationCode1;
       this.verificationCode2;
-      if (this.cnpj.length < 14) throw 'CNPJ Ã© muito curto';
+      if (this.cnpj.length < 14) throw 'CNPJ é muito curto';
       this.verificationCode1 = this.cnpj.substr(-2, 1);
       this.verificationCode2 = this.cnpj.substr(-1, 1);
       var code1 = getVerificationCode1();
@@ -7254,7 +7016,7 @@ var Helpers = /*#__PURE__*/function () {
   }], [{
     key: "_slugifyString",
     value: function _slugifyString(str) {
-      var from = 'Ã£Ã Ã¡Ã¤Ã¢áº½Ã¨Ã©Ã«ÃªÃ¬Ã­Ã¯Ã®ÃµÃ²Ã³Ã¶Ã´Ã¹ÃºÃ¼Ã»Ã±Ã§Â·/_,:;';
+      var from = 'ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;';
       var to = 'aaaaaeeeeeiiiiooooouuuunc------';
       str = str.replace(/^\s+|\s+$/g, '').toLowerCase();
 
@@ -7329,13 +7091,6 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.it
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-
-
-
-
-
-
 
 
 
@@ -7787,17 +7542,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _vtex__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./vtex */ "./src/js/services/vtex.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -8407,15 +8151,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-
-
-
-
-
-
-
-
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -8541,14 +8276,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-
-
-
-
-
 
 
 
