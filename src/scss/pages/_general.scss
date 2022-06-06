@@ -2117,7 +2117,7 @@ a {
    padding-left: 20px;
 }
 
-.footer__link-item-collection a{
+.footer__link--collection{
     color: white;
     font-weight: 900;
 }
@@ -2128,6 +2128,21 @@ a {
     font-size: 13px;
     margin-left: 15px;
 }
+
+.footer__link-item-collection li a{
+    color: white;
+    font-size: 13px;
+}
+
+.footer__link--collection:hover{
+    opacity: .5;
+
+}
+
+.footer__link-item-collection li a:hover{
+    opacity: .5
+}
+
 
 .footer__link-item {
     color: #fff;
@@ -2156,6 +2171,10 @@ a {
 .footer__link-item .footer__link {
     text-decoration: none;
     color: inherit
+}
+
+.footer__link-item .footer__link:hover {
+    opacity: .5
 }
 
 .footer__link-item .footer__link:hover {
@@ -2411,7 +2430,7 @@ a#seloEbit {
       .footer .payment-title {
           margin-top: 0;
       }
-
+      
     .footer__newsletter {
         height: 100%;
         grid-template-columns: 1fr;
