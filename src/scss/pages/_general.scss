@@ -3084,6 +3084,16 @@ ul.brands__list {
     width: 88%;
     margin: 0 auto 10px
 }
+@media screen and (max-width:480px) {
+    .cart .cart-mini__list {
+        height: calc(100vh - 360px);
+    }
+    .cart .cart-mini__shipping {
+        padding-top: 9px;
+        padding-bottom: 9px;
+        margin: 0 auto
+    }
+}
 
 .cart .cart-mini__shipping_title {
     font-size: 14px;
@@ -4557,6 +4567,9 @@ ul.brands__list {
     .productCard__price--best {
         font-size: 18px!important;
         line-height: 24px
+    }
+    .adopt-controller-button.adopt-controller-button-left.svelte-3vkahb{
+        z-index: 99;
     }
 }
 
