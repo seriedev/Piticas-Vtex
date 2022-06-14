@@ -206,6 +206,17 @@ class AppController {
     menuToggler.addEventListener('click', e => {
       if (e.target.matches('.menuToggle input') || e.target.matches('.menuToggle-icon-close svg') || e.target.matches('.menuToggle-overlay')) {
         menuToggler.classList.toggle('menuToggle--open');
+        //fix bug overlappng searchbar on open menu mobile
+        if(window.screen.width < 1024 ){
+          let itensHeaderMenuMobile = document.querySelector('header .itens-right')  
+          if(itensHeaderMenuMobile.style.zIndex === "5" ){
+              setTimeout(()=>{
+                  itensHeaderMenuMobile.setAttribute('style','z-index:4');
+              },4e2)  
+          }else{
+            itensHeaderMenuMobile.setAttribute('style','z-index:5');    
+          }  
+        }
       }
     });
 
