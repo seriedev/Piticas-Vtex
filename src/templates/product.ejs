@@ -3,10 +3,11 @@
   xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
-  <vtex.cmc:productRichSnippets showFacebook="true" />
+  <vtex.cmc:productRichSnippets showFacebook="true" showGoogle="1"/>
+
   <vtex:template id="FRN-Head" />
   <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.product.css" />
-  
+
   <!-- Trustvox -->
   <style type="text/css">
     .trustvox-widget-rating .ts-shelf-container,
@@ -32,13 +33,13 @@
 <body>
   <!-- Trustvox -->
   <script type="text/javascript">
+
     window._trustvox = [];
     _trustvox.push(['_storeId', '114371']);
 
     _trustvox.push(['_productId', skuJson.productId]);
     _trustvox.push(['_productName', skuJson.name]);
     _trustvox.push(['_productPhotos', [skuJson.skus[0].image]]);
-
     $(document).ready(function () {
       $('.trustvox-fluid-jump').on('click', function (event) {
         event.preventDefault();
@@ -71,7 +72,7 @@
               <div class="trustvox-rating">
                 <a class="trustvox-fluid-jump trustvox-widget-rating" href="#trustvox-reviews"
                   title="Pergunte e veja opiniões de quem já comprou">
-                  <div class="trustvox-shelf-container" data-trustvox-product-code-js="skuJson.productId"
+                  <div class="trustvox-shelf-container" w-trustvox-product-code-js="skuJson.productId"
                     data-trustvox-should-skip-filter="true" data-trustvox-display-rate-schema="true"></div>
                   <span class="rating-click-here">Clique e veja!</span>
                 </a>
@@ -235,6 +236,27 @@
   <!--CLS FIX RCK-->
   <script type="text/javascript" src="//lojapiticas.vteximg.com.br/arquivos/pdp.cls.js"></script>
 
-</body>
 
+  <script type="text/javascript">
+    $(document).ready(function(){
+      
+      setTimeout(function(){
+        
+        let nameProduct = skuJson.name;
+  
+        $('.ts-product-reviews-list-item').prepend(`
+        <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
+          <span itemprop="name">${nameProduct}</span>  
+        </div>`);
+
+        $('.ts-information-and-survey-result [itemprop="aggregateRating"]').prepend(`
+        <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
+          <span itemprop="name">${nameProduct}</span>  
+        </div>`);
+
+      },2000)
+    })
+  </script>
+
+</body>
 </html>

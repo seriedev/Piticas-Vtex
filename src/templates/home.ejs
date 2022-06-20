@@ -4,29 +4,42 @@
 
 <head>
   <script type='application/ld+json'>
-        {
-          "@context":"https://schema.org",
-          "@type":"WebSite",
-          "@id":"https://www.piticas.com.br/#website",
-          "url":"https://www.piticas.com.br/",
-          "name": "Piticas",
-          "publisher":{"@id":"https://www.piticas.com.br/#organization"},
-          "potentialAction": {
-            "@type":"SearchAction",
-            "target":"https://www.piticas.com.br/busca?ft={search_term_string}",
-            "query-input":"required name=search_term_string"
-          }
-        }
+    {
+      "@context":"https://schema.org",
+      "@type":"Corporation",
+      "@id":"https://www.piticas.com.br/#website",
+      "url":"https://www.piticas.com.br/",
+      "name": "Piticas",
+      "alternateName": "ROSSTAMP CONFECCAO E ESTAMPARIA LTDA",
+      "logo": "https://www.piticas.com.br/arquivos/new-logo.png",
+      "publisher":{"@id":"https://www.piticas.com.br/#organization"},
+      "potentialAction": {
+        "@type":"SearchAction",
+        "target":"https://www.piticas.com.br/busca?ft={search_term_string}",
+        "query-input":"required name=search_term_string"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "(11) 5080-8797",
+        "contactType": "customer service",
+        "contactOption": "TollFree",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs":[
+        "https://pt-br.facebook.com/camisetaspiticas/",
+        "https://www.instagram.com/piticasoficial/?hl=pt-br",
+        "https://www.youtube.com/c/PiticasOficial",
+        "https://www.pitinews.com.br/"
+      ]
+    }
   </script>
   <vtex:template id="FRN-Head" />
   <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.home.css" />
-  <vtex.cmc:productRichSnippets showFacebook="true" />
 </head>
 
 <body>
-
   <vtex:template id="FRN-Header" />
-
 
   <main>
     <div class="homePage">
@@ -42,53 +55,55 @@
       </section>
     </div>
 
-
     <vtex:template id="FRN-Brands" />
 
-
     <section class="home__collections">
-
       <vtex:contentPlaceHolder id="Product Showcase" />
-
     </section>
-
-
 
     <section class="pitfa">
       <h2 class="pitfa__title">
         <vtex:contentPlaceHolder id="Title Pitfa" />
       </h2>
-      <div class="pitfa__wrapper">
-        <vtex:contentPlaceHolder id="Mosaico Pitfa" />
+      <div class="pitfa__wrapper js--lazyload has--lazyload" data-noscript="">
+        <noscript>
+          <vtex:contentPlaceHolder id="Mosaico Pitfa" />
+        </noscript>
       </div>
-      <div class="pitfa__wrapper-mobile">
-        <vtex:contentPlaceHolder id="Mosaico Pitfa Mobile" />
+      <div class="pitfa__wrapper-mobile js--lazyload has--lazyload" data-noscript="">
+        <noscript>
+          <vtex:contentPlaceHolder id="Mosaico Pitfa Mobile" />
+        </noscript>
       </div>
     </section>
 
-    <section class="franqueado">
-      <div class="franqueado__wrapper">
-        <div class="franqueado__items">
-          <div class="franqueado__item--first">
-            <img src="//lojapiticas.vteximg.com.br/arquivos/franqueado-01.png" class="franqueado__img" alt=""
-              srcset="" />
-          </div>
-          <div class="franqueado__item--last">
-            <div class="franqueado__item--last-content">
-              <p>venha empreender com a gente,</p>
-              <span>seja um franqueado</span>
+    <section class="franqueado js--lazyload has--lazyload" data-noscript="">
+      <noscript>
+        <div class="franqueado__wrapper">
+          <div class="franqueado__items">
+            <div class="franqueado__item--first">
+              <img src="//lojapiticas.vteximg.com.br/arquivos/franqueado-01.png" class="franqueado__img" alt=""
+                srcset="" />
             </div>
-            <a class="franqueado__item--last-button" href="https://franquia.piticas.com.br/" target="_blank">Clique
-              aqui</a>
+            <div class="franqueado__item--last">
+              <div class="franqueado__item--last-content">
+                <p>venha empreender com a gente,</p>
+                <span>seja um franqueado</span>
+              </div>
+              <a class="franqueado__item--last-button" href="https://franquia.piticas.com.br/" target="_blank">Clique
+                aqui</a>
+            </div>
           </div>
         </div>
-      </div>
+      </noscript>
     </section>
 
     <section class="moreprod">
       <h2 class="moreprod__title">Encontre mais produtos incríveis</h2>
-      <div class="moreprod__wrapper">
-        <vtex:contentPlaceHolder id="Mais Produtos Pitfa" />
+      <div class="moreprod__wrapper js--lazyload has--lazyload" data-noscript="">
+        <noscript>
+          <vtex:contentPlaceHolder id="Mais Produtos Pitfa" />
+        </noscript>
       </div>
     </section>
 
@@ -205,6 +220,9 @@
     _trustvox_colt.push(['_storeId', '114371'], ['_limit', '7']);
   </script>
   <!-- /Trustvox -->
+
+  <!-- lazyload chamadas em home, categoria e coleção -->
+  <script src="//lojapiticas.vteximg.com.br/arquivos/lazyload-vtex.js"></script>
 </body>
 
 </html>
