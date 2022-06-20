@@ -7,6 +7,45 @@
   <vtex:template id="FRN-Head" />
   <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.category.css" />
 
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var departmentName = vtxctx.departmentName;
+      var categoryName = vtxctx.categoryName;
+      var urlDepartment = window.location.pathname.split('/');
+      var el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.text = JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": window.location.origin,
+            "name": "Home"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@id": window.location.origin   "/"   urlDepartment[1],
+            "name": departmentName
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@id": window.location.href,
+            "name": categoryName
+          }
+        }
+        ]
+      });
+      document.querySelector('head').appendChild(el);
+    });
+  </script>
 </head>
 
 <body>
@@ -21,7 +60,15 @@
             <span style="display: block; text-indent: 110%; overflow-x: hidden; white-space: nowrap;">
               <vtex:contentPlaceHolder id="header-title-category" />
             </span>
+
             <vtex:contentPlaceHolder id="Category Banner" />
+
+            <!--h1 de marcas-->
+            <span
+              style="display:flex;justify-content: center;margin-top:10px;font-size:18px;font-weight:800;text-align:center;text-transform:uppercase;color:#ef7b00;">
+              <vtex:contentPlaceHolder id="header-title-h1-marcas" />
+            </span>
+
           </h1>
         </div>
         <div class="banner-category__mobile">
@@ -129,9 +176,9 @@
         <section class="vitrine">
 
           <!-- insert h1 tag here-->
-          <div class="header-title-brands">
-            <vtex:contentPlaceHolder id="header-title" />
-          </div>
+          <!--<div class="header-title-brands">-->
+          <!--  <vtex:contentPlaceHolder id="header-title" />-->
+          <!--</div>-->
 
           <div class="vitrine__wrapper" style="width:100%; height:100vh; padding:4% 9%; overflow: hidden;">
             <div class="vitrine__results">
@@ -171,8 +218,8 @@
   <script src="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.category.js"></script>
 
   <script src="//lojapiticas.vteximg.com.br/arquivos/rck-cls-category.min.js"></script>
-  <script src="//lojapiticas.vteximg.com.br/arquivos/RCK-HeadersTag.min.js"></script>
   <script src="//lojapiticas.vteximg.com.br/arquivos/Rck-categoryDescription.min.js"></script>
+  <script src="//lojapiticas.vteximg.com.br/arquivos/shelves-sd.js"></script>
 
   <!-- lazyload chamadas em home,categoria,coleção -->
   <script src="//lojapiticas.vteximg.com.br/arquivos/lazyload-vtex.js"></script>
