@@ -3,7 +3,7 @@
   xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
 
 <head>
-  <vtex.cmc:productRichSnippets showFacebook="true" showGoogle="1"/>
+  <vtex.cmc:productRichSnippets showFacebook="true"/>
 
   <vtex:template id="FRN-Head" />
   <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.product.css" />
@@ -31,6 +31,7 @@
 </head>
 
 <body>
+  <vtex.cmc:productRichSnippets showGoogle="1"/>
   <!-- Trustvox -->
   <script type="text/javascript">
 
@@ -250,15 +251,15 @@
             let nameProduct = skuJson.name;
       
             $('.ts-product-reviews-list-item').prepend(`
-            <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
-              <span itemprop="name">${nameProduct}</span>  
+            <div>
+              <span class="itemReviewedName">${nameProduct}</span>  
             </div>`);
 
             $('.ts-product-reviews-list-item').prepend(`<span itemprop="name" style="display:none">${nameProduct}</span>`);
     
-            $('.ts-information-and-survey-result [itemprop="aggregateRating"]').prepend(`
-            <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
-              <span itemprop="name">${nameProduct}</span>  
+            $('.ts-information-and-survey-result [class="ts-v-rating ts-block-one"]').prepend(`
+            <div>
+              <span class="itemReviewedTitle">${nameProduct}</span>  
             </div>`);
           },700)
           
