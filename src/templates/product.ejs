@@ -232,7 +232,7 @@
   <vtex:template id="FRN-Footer" />
   <vtex:template id="FRN-Scripts" />
   <script src="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.product.js"></script>
-  <script src="//lojapiticas.vteximg.com.br/arquivos/rck-prudct-dadoEstruturado.js"></script>
+  <!--<script src="//lojapiticas.vteximg.com.br/arquivos/rck-prudct-dadoEstruturado.js"></script>-->
   <!--CLS FIX RCK-->
   <script type="text/javascript" src="//lojapiticas.vteximg.com.br/arquivos/pdp.cls.js"></script>
 
@@ -240,21 +240,31 @@
   <script type="text/javascript">
     $(document).ready(function(){
       
-      setTimeout(function(){
+      let checkListReviews = setInterval(function(){
+
+        if( $('.ts-reviews-list').length !== 0 ){
+          clearInterval(checkListReviews);
+
+          setTimeout(function(){
+
+            let nameProduct = skuJson.name;
+      
+            $('.ts-product-reviews-list-item').prepend(`
+            <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
+              <span itemprop="name">${nameProduct}</span>  
+            </div>`);
+
+            $('.ts-product-reviews-list-item').prepend(`<span itemprop="name" style="display:none">${nameProduct}</span>`);
+    
+            $('.ts-information-and-survey-result [itemprop="aggregateRating"]').prepend(`
+            <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
+              <span itemprop="name">${nameProduct}</span>  
+            </div>`);
+          },700)
+          
+        }
         
-        let nameProduct = skuJson.name;
-  
-        $('.ts-product-reviews-list-item').prepend(`
-        <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
-          <span itemprop="name">${nameProduct}</span>  
-        </div>`);
-
-        $('.ts-information-and-survey-result [itemprop="aggregateRating"]').prepend(`
-        <div itemprop="itemReviewed" itemscope="itemscope" itemtype="http://schema.org/Product">
-          <span itemprop="name">${nameProduct}</span>  
-        </div>`);
-
-      },2000)
+      },500)
     })
   </script>
 
