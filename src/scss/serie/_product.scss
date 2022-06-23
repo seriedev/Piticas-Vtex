@@ -20,27 +20,23 @@
       }
     }
   } 
+  
+  .itemReviewedTitle{
 
-  .ts-information-and-survey-result{
-    [itemprop="name"]{
-      font-weight: bold;
-      color: #666;
-      margin-bottom: 22px;
-      display: block;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 22px;
+    display: block;
+  
+}
+
+.itemReviewedName{
+    display: block;
+    text-align: left;
+    color: #999;
+
+    @media (max-width: 499px){
+      text-align: center;
     }
   }
-
-  .ts-product-reviews-list-item{
-    [itemprop="itemReviewed"]{
-      width: 100%;
-      display: block;
-      text-align: left;
-      color: #999;
-
-      @media (max-width: 499px){
-        text-align: center;
-      }
-    }
-  }
-
 }
