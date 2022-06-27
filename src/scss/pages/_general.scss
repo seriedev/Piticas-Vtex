@@ -2835,7 +2835,7 @@ ul.brands__list {
 
 .cart .cart-mini__list {
     scrollbar-face-color:rgba(0,0,0,.5);scrollbar-track-color:#fff;margin: 10px 10px 0;
-    height: calc(100vh - 320px);
+    height: calc(86vh - 320px);
     overflow-y: scroll;
     width: calc(100% - 16px);
     padding-left: 0
@@ -3010,7 +3010,7 @@ ul.brands__list {
     font-weight: 700;
     letter-spacing: 1px;
     width: 88%;
-    padding: 10px 20px;
+    padding: 3px 20px;
     margin: 0 auto 10px;
     border-bottom: 1px solid #e8e8e8
 }
@@ -3078,8 +3078,8 @@ ul.brands__list {
 }
 
 .cart .cart-mini__shipping {
-    padding-top: 24px;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 6px;
     border-bottom: 1px solid #e8e8e8;
     width: 88%;
     margin: 0 auto 10px
@@ -3094,6 +3094,11 @@ ul.brands__list {
         margin: 0 auto
     }
 }
+@media screen and (min-width: 1024px){
+    .cart .cart-mini__list {
+        height: calc(90vh - 320px);
+    }
+}
 
 .cart .cart-mini__shipping_title {
     font-size: 14px;
@@ -3103,7 +3108,8 @@ ul.brands__list {
     color: #474747
 }
 
-.cart .cart-mini__shipping svg.cart-mini__shipping_progress {
+.cart .cart-mini__shipping svg.cart-mini__shipping_progress,
+.cart .cart-mini__shipping svg.cart-mini__brinde_progress {
     display: none
 }
 
@@ -3111,7 +3117,8 @@ ul.brands__list {
     fill: #ef7b00
 }
 
-.cart .cart-mini__shipping--title {
+.cart .cart-mini__shipping--title,
+.cart .cart-mini__brinde--title {
     justify-content: center;
     align-items: center;
     color: #686a69;
@@ -3124,8 +3131,16 @@ ul.brands__list {
     padding-left: 8px
 }
 
-.cart .cart-mini__shipping--title svg {
+.cart .cart-mini__shipping--title svg,
+.cart .cart-mini__brinde--title > img {
     margin-right: 8px
+}
+
+@media screen and (max-width: 360px){
+    .cart .cart-mini__brinde--title > img,
+    .cart .cart-mini__shipping--title > svg{
+        display: none;
+    }
 }
 
 .cart .cart-mini__shipping--total {
