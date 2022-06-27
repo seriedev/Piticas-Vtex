@@ -3709,7 +3709,7 @@
     
             }
     
-            shippingProgressBar.style.width = "".concat(result, "%");
+            shippingProgressBar.style.transform = "scaleX(".concat(result, "%)");
               shippingIcon.style.transform = resultCalcOrderAndShipping > 100 ? "translate(calc(".concat(result, "% - 1.75rem), 1.25rem)") : "translate(".concat(result, "%, 1.25rem)");
     
           }
