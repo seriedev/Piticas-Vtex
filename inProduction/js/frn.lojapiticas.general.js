@@ -3753,7 +3753,7 @@
     
             }
     
-            brindeProgressBar.style.width = "".concat(resultFinal, "%");
+            brindeProgressBar.style.transform = "scaleX(".concat(resultFinal, "%)");
     
               brindeIcon.style.transform = resultCalcOrderAndBrinde > 100 ? "translate(calc(".concat(resultFinal, "% - 1.75rem), 1.25rem)") : "translate(".concat(resultFinal, "%, 1.25rem)");
     
