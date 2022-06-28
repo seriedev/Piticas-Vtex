@@ -3327,7 +3327,7 @@ var FreeShippingController = /*#__PURE__*/function (_CartService) {
 
         }
 
-        shippingProgressBar.style.width = "".concat(result, "%");
+        shippingProgressBar.style.transform = "scaleX(".concat(result, "%)");
           shippingIcon.style.transform = resultCalcOrderAndShipping > 100 ? "translate(calc(".concat(result, "% - 1.75rem), 1.25rem)") : "translate(".concat(result, "%, 1.25rem)");
 
       }
@@ -3371,7 +3371,7 @@ var FreeShippingController = /*#__PURE__*/function (_CartService) {
 
         }
 
-        brindeProgressBar.style.width = "".concat(resultFinal, "%");
+        brindeProgressBar.style.transform = "scaleX(".concat(resultFinal, "%)");
 
           brindeIcon.style.transform = resultCalcOrderAndBrinde > 100 ? "translate(calc(".concat(resultFinal, "% - 1.75rem), 1.25rem)") : "translate(".concat(resultFinal, "%, 1.25rem)");
 
