@@ -8,7 +8,13 @@ window.onload = function () {
   
   let imageRichSnippet        = skuJson.skus[0].image;
   
-  let urlRichSnippet          = document.URL;
+  let strUrl = document.URL;
+
+  let regexUrl = new RegExp(".*.[/p|P]");
+
+  let resultRegexUrl;
+
+  let urlSkuProduct = new Array();
 
   let skuRichSnippet          = skuJson.productId;
   
@@ -74,22 +80,13 @@ window.onload = function () {
 	}
 
 	// reviewBody
-	let auxReviewBody;
 	let reviewBodyFinal = new Array();
 
 	for (i = 0; i < arrayReviewBody.length; i++) {
-		auxReviewBody = arrayReviewBody[i].innerText
-
-		if (auxReviewBody == "      Cliente não escreveu uma avaliação, apenas deu a nota do produto.") {
-			auxReviewBody[i] = "";
-
-		} else {
-			reviewBodyFinal[i] = arrayReviewBody[i].innerText
-			reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '')
-			reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '').trim()
-			reviewBodyFinal[i] = JSON.stringify(reviewBodyFinal[i])
-		}
-
+		reviewBodyFinal[i] = arrayReviewBody[i].innerText
+		reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '')
+		reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '').trim()
+		reviewBodyFinal[i] = JSON.stringify(reviewBodyFinal[i])
 	}
 
 	// construção do dado de review
@@ -152,26 +149,44 @@ window.onload = function () {
 	}
 
   // Info Offers
-  let offers = ""
-  for (let sku = 0; sku < skuJson.skus.length; sku ++){        
-       let idSku       = skuJson.skus[sku].sku
-	   let available   = (skuJson.skus[sku].available) ? "InStock" : "OutOfStock"
 
-		if (priceRichSnippet[sku] != undefined && priceRichSnippet[sku] != null && priceRichSnippet[sku] != "") {
-      if (sku == skuJson.skus.length-1){
-		  offers += `{"@type": "Offer","url": "${urlRichSnippet}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${idSku}","availability": "${available}"}`
-         }
-         else{
-			    offers += `{"@type": "Offer","url": "${urlRichSnippet}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${idSku}","availability": "${available}"},`
-	        }
-		} else {
-			if (sku == skuJson.skus.length - 1) {
-				offers += `{"@type": "Offer","url": "${urlRichSnippet}","sku": "${idSku}","availability": "${available}"}`
-			} else {
-				offers += `{"@type": "Offer","url": "${urlRichSnippet}","sku": "${idSku}","availability": "${available}"},`
-			}
-		}
-	}
+  let idSku = new Array();
+  let auxIdSku = new Array();
+  let offers = ""
+
+  if(strUrl.match(regexUrl)!=null)
+    {
+        resultRegexUrl = strUrl.match(regexUrl);
+    }
+    else{
+        resultRegexUrl = document.URL;
+    }
+    for (let sku = 0; sku < skuJson.skus.length; sku ++){        
+		idSku[sku] = "?idsku=" + skuJson.skus[sku].sku;
+		auxIdSku[sku] = skuJson.skus[sku].sku;
+		let available   = (skuJson.skus[sku].available) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+		
+	   if(strUrl.match(regexUrl)!=null){
+		   urlSkuProduct[sku] = resultRegexUrl + idSku[sku];
+	   }
+	   else{
+		   urlSkuProduct[sku] = resultRegexUrl;
+	   }    
+
+	   if (priceRichSnippet[sku] != undefined && priceRichSnippet[sku] != null && priceRichSnippet[sku] != "") {
+			   if (sku == skuJson.skus.length-1){
+			   offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${auxIdSku[sku]}","availability": "${available}"}`
+		   } else{
+				 offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${auxIdSku[sku]}","availability": "${available}"},`
+			   }
+		 } else {
+			 if (sku == skuJson.skus.length - 1) {
+				 offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","sku": "${auxIdSku[sku]}","availability": "${available}"}`
+			 } else {
+				 offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","sku": "${auxIdSku[sku]}","availability": "${available}"},`
+			 }
+		 }	 
+	 }
 
 	let aggregateOffer = "";
 
