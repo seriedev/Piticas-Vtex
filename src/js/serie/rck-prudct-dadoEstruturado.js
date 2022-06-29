@@ -1,22 +1,29 @@
 window.onload = function () {
-  let head                    = document.querySelector("head");
-  
-  let nameRichSnippet         = skuJson.name;
-  nameRichSnippet             = nameRichSnippet.replaceAll(`"`, `'`);
+	let head = document.querySelector("head");
+	
+	let nameRichSnippet = skuJson.name;
 
-  let descriptionRichSnippet  = document.querySelector('meta[name="description"]').content;
-  
-  let imageRichSnippet        = skuJson.skus[0].image;
-  
-  let strUrl = document.URL;
+	nameRichSnippet = nameRichSnippet.replaceAll(`"`, `'`);
 
-  let regexUrl = new RegExp(".*.[/p|P]");
+	let descriptionRichSnippet = document.querySelector('meta[name="description"]').content;
+	
+	let imageRichSnippet = skuJson.skus[0].image;
+	
+	let strUrl = document.URL;
 
-  let resultRegexUrl;
+	let regexUrl = new RegExp(".*.[/p|P]");
 
-  let urlSkuProduct = new Array();
+	let regexSku = new RegExp("idsku=.*");
 
-  let skuRichSnippet          = skuJson.productId;
+	let resultRegexUrl;
+	
+	let resultRegexSku;
+
+	let urlSkuProduct = new Array();
+
+	let priceVariation = false;
+
+	let skuRichSnippet = skuJson.productId;
   
 	let aggregateRatingValue = "";
 
@@ -53,82 +60,92 @@ window.onload = function () {
 	let n = 0;
 
 	for (i = 0; i < arrayNameReview.length; i++) {
-		auxNameReview = arrayNameReview[i].innerHTML
+		auxNameReview = arrayNameReview[i].innerHTML;
 
 		if (auxNameReview[0] == " ") {
 			nameReviewFinal[n] = arrayNameReview[i].innerHTML.trim();
-			nameReviewFinal[n] = nameReviewFinal[n].replace("....", ".")
-			nameReviewFinal[n] = JSON.stringify(nameReviewFinal[n])
-			n++
+			nameReviewFinal[n] = nameReviewFinal[n].replace("....", ".");
+			nameReviewFinal[n] = JSON.stringify(nameReviewFinal[n]);
+			n++;
 		}
 	}
 
 	n = 0;
 
 	//ratingValue
+
 	let auxRatingValue;
 	let ratingValueFinal = new Array();
 
 	for (i = 0; i < arrayRatingValue.length; i++) {
-		auxRatingValue = arrayRatingValue[i].innerText
+		auxRatingValue = arrayRatingValue[i].innerText;
 
 		if (auxRatingValue[1] != "." && auxRatingValue[1] != " ") {
-			ratingValueFinal[n] = arrayRatingValue[i].innerText
-			ratingValueFinal[n] = JSON.stringify(ratingValueFinal[n])
-			n++
+			ratingValueFinal[n] = arrayRatingValue[i].innerText;
+			ratingValueFinal[n] = JSON.stringify(ratingValueFinal[n]);
+			n++;
 		}
 	}
 
 	// reviewBody
+
 	let reviewBodyFinal = new Array();
 
 	for (i = 0; i < arrayReviewBody.length; i++) {
-		reviewBodyFinal[i] = arrayReviewBody[i].innerText
-		reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '')
-		reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '').trim()
-		reviewBodyFinal[i] = JSON.stringify(reviewBodyFinal[i])
+		reviewBodyFinal[i] = arrayReviewBody[i].innerText;
+		reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '');
+		reviewBodyFinal[i] = reviewBodyFinal[i].replace('"', '').trim();
+		reviewBodyFinal[i] = JSON.stringify(reviewBodyFinal[i]);
 	}
 
 	// construção do dado de review
+
 	if (arrayRatingValue.length > 1) {
 		for (i = 0; i < ratingValueFinal.length; i++) {
-
-			rating = ratingValueFinal[i]
-			nameReview = nameReviewFinal[i]
+			rating = ratingValueFinal[i];
+			nameReview = nameReviewFinal[i];
 
 			if (i < ratingValueFinal.length - 1) {
-				review += `{"@type": "Review","reviewRating": {"@type": "Rating","ratingValue": ${rating}},"author": {"@type": "Person","name": ${nameReview}},"reviewBody": ${reviewBodyFinal[i]}},`
-			} else {
-				review += `{"@type": "Review","reviewRating": {"@type": "Rating","ratingValue": ${rating}},"author": {"@type": "Person","name": ${nameReview}},"reviewBody": ${reviewBodyFinal[i]}}`
+				review += `{"@type": "Review","reviewRating": {"@type": "Rating","ratingValue": ${rating}},"author": {"@type": "Person","name": ${nameReview}},"reviewBody": ${reviewBodyFinal[i]}},`;
+			} 
+			
+			else {
+				review += `{"@type": "Review","reviewRating": {"@type": "Rating","ratingValue": ${rating}},"author": {"@type": "Person","name": ${nameReview}},"reviewBody": ${reviewBodyFinal[i]}}`;
 			}
 		}
 	}
 
-	// ---------------------- REVIEW ------------------------------------------    
+	// ---------------------- REVIEW ------------------------------------------  
+
 	aggregateRating = JSON.stringify(aggregateRating);
 
-  let brandRichSnippet;
-  if(document.querySelector(".productPage__brand")){
-      brandRichSnippet   = document.querySelector(".productPage__brand").textContent
-  }else{brandRichSnippet = dataLayer[0].productBrandName;} 
+	let brandRichSnippet;
 
-  let gTinTamanho        = (dataLayer[0].productEans) ? dataLayer[0].productEans[0].length : null;
-  let gTinRichSnippet    = (dataLayer[0].productEans) ? dataLayer[0].productEans[0] : null;
+	if(document.querySelector(".productPage__brand")){
+		brandRichSnippet = document.querySelector(".productPage__brand").textContent;
+	}
+	
+	else{
+		brandRichSnippet = dataLayer[0].productBrandName;
+	} 
 
-  let countSkus = skuJson.skus.length;
-  let priceRichSnippet = new Array();
-  let bestPriceRichSnippet = new Array();
+	let gTinTamanho = (dataLayer[0].productEans) ? dataLayer[0].productEans[0].length : null;
+	let gTinRichSnippet = (dataLayer[0].productEans) ? dataLayer[0].productEans[0] : null;
+	let countSkus = skuJson.skus.length;
+	let priceRichSnippet = new Array();
+	let bestPriceRichSnippet = new Array();
 
-  for (i = 0; i < skuJson.skus.length; i++){
-      if (skuJson.skus[i].available){
-		    priceRichSnippet[i] = skuJson.skus[i].fullSellingPrice
-			priceRichSnippet[i] = priceRichSnippet[i].replace("R$", "").replace(" ", "").replaceAll(".", "").replace(",", ".")
-			bestPriceRichSnippet[i] = skuJson.skus[i].bestPriceFormated
-			bestPriceRichSnippet[i] = bestPriceRichSnippet[i].replace("R$", "").replace(" ", "").replaceAll(".", "").replace(",", ".")
+	for (i = 0; i < skuJson.skus.length; i++){
+		if (skuJson.skus[i].available){
+			priceRichSnippet[i] = skuJson.skus[i].fullSellingPrice;
+			priceRichSnippet[i] = priceRichSnippet[i].replace("R$", "").replace(" ", "").replaceAll(".", "").replace(",", ".");
+			bestPriceRichSnippet[i] = skuJson.skus[i].bestPriceFormated;
+			bestPriceRichSnippet[i] = bestPriceRichSnippet[i].replace("R$", "").replace(" ", "").replaceAll(".", "").replace(",", ".");
 		}
+
 	}
   
-	let filterBestPrice = bestPriceRichSnippet.filter((item) => item != undefined)
+	let filterBestPrice = bestPriceRichSnippet.filter((item) => item != undefined);
 
 	let menor = "";
 	let maior = "";
@@ -148,45 +165,88 @@ window.onload = function () {
 		}
 	}
 
-  // Info Offers
+	//verificação se o produto tem variação de preço conforme o tamanho
 
-  let idSku = new Array();
-  let auxIdSku = new Array();
-  let offers = ""
+	let auxSkuVariation;
 
-  if(strUrl.match(regexUrl)!=null)
-    {
+	for(i = 0; i < skuJson.skus.length - 1; i++)
+	{
+		if((skuJson.skus[i].bestPrice/100).toFixed(2) != (skuJson.skus[i+1].bestPrice/100).toFixed(2)) {
+			priceVariation = true;
+		}
+	}
+
+
+  	if(strUrl.match(regexSku)!=null) {
+		resultRegexSku = strUrl.match(regexSku);
+		resultRegexSku = resultRegexSku[0].replace(/[^0-9]/g,'');
+  	}
+
+  	for(i = 0; i < skuJson.skus.length ; i++) {
+
+		if(skuJson.skus[i].sku == resultRegexSku) {
+			auxSkuVariation =  i;
+		}
+  	}
+
+	// Info Offers
+
+	let idSku = new Array();
+	let auxIdSku = new Array();
+	let offers = "";
+
+  	if(strUrl.match(regexUrl)!=null){
         resultRegexUrl = strUrl.match(regexUrl);
     }
+
     else{
         resultRegexUrl = document.URL;
     }
-    for (let sku = 0; sku < skuJson.skus.length; sku ++){        
+
+    for (let sku = 0; sku < skuJson.skus.length; sku ++) {        
 		idSku[sku] = "?idsku=" + skuJson.skus[sku].sku;
 		auxIdSku[sku] = skuJson.skus[sku].sku;
-		let available   = (skuJson.skus[sku].available) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+		let available   = (skuJson.skus[sku].available) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock";
 		
-	   if(strUrl.match(regexUrl)!=null){
+	   	if(strUrl.match(regexUrl)!=null) {
 		   urlSkuProduct[sku] = resultRegexUrl + idSku[sku];
-	   }
-	   else{
+	   	}
+	   	else {
 		   urlSkuProduct[sku] = resultRegexUrl;
-	   }    
+	  	 }    
 
-	   if (priceRichSnippet[sku] != undefined && priceRichSnippet[sku] != null && priceRichSnippet[sku] != "") {
-			   if (sku == skuJson.skus.length-1){
-			   offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${auxIdSku[sku]}","availability": "${available}"}`
-		   } else{
-				 offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${auxIdSku[sku]}","availability": "${available}"},`
-			   }
-		 } else {
-			 if (sku == skuJson.skus.length - 1) {
-				 offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","sku": "${auxIdSku[sku]}","availability": "${available}"}`
-			 } else {
-				 offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","sku": "${auxIdSku[sku]}","availability": "${available}"},`
-			 }
-		 }	 
-	 }
+	   	if(priceVariation == true && resultRegexSku != undefined && priceRichSnippet[auxSkuVariation] != undefined && priceRichSnippet[auxSkuVariation] != null && priceRichSnippet[auxSkuVariation] != "") {
+			offers = `{"@type": "Offer","url": "${strUrl}","price": "${priceRichSnippet[auxSkuVariation]}","priceCurrency": "BRL","sku": "${resultRegexSku}","availability": "https://schema.org/InStock"}`
+			break;
+	   	} 
+		
+		else if((priceVariation == true && resultRegexSku != undefined && priceRichSnippet[auxSkuVariation] == undefined) || priceRichSnippet[auxSkuVariation] == ""){
+			offers = `{"@type": "Offer","url": "${strUrl}","sku": "${resultRegexSku}","availability": "https://schema.org/OutOfStock"}`;
+			break;
+		}
+		 
+			else if (priceRichSnippet[sku] != undefined && priceRichSnippet[sku] != null && priceRichSnippet[sku] != "") {
+
+				if (sku == skuJson.skus.length-1) {
+				offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${auxIdSku[sku]}","availability": "${available}"}`;
+				} 	
+				
+				else {
+					offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${auxIdSku[sku]}","availability": "${available}"},`;
+				}
+			} 
+
+		else {
+			 
+			if (sku == skuJson.skus.length - 1) {
+				 offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","sku": "${auxIdSku[sku]}","availability": "${available}"}`;
+			} 
+
+			else {
+				offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","sku": "${auxIdSku[sku]}","availability": "${available}"},`;
+			}
+		}	 
+	}
 
 	let aggregateOffer = "";
 
@@ -194,12 +254,28 @@ window.onload = function () {
 		aggregateOffer = `"lowPrice": "${menor}","highPrice": "${maior}","priceCurrency": "BRL",`;
 	}
 
-  let productInfos = ""
+  	let productInfos = "";
 
-	if (review == "") {
-		productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": {"@type": "AggregateOffer",${aggregateOffer}"offers": [${offers}],"offerCount": "${countSkus}"}}`
-	} else {
-		productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": {"@type": "AggregateOffer",${aggregateOffer}"offers": [${offers}],"offerCount": "${countSkus}"}, "review": [${review}],"aggregateRating": ${aggregateRating}}`
+	if(priceVariation == true && resultRegexSku != undefined){
+
+		if (review == "") {
+			productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": ${offers}}`;
+		} 
+		
+		else {
+			productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": ${offers}, "review": [${review}],"aggregateRating": ${aggregateRating}}`;
+		}
+	}
+
+	else {
+
+		if (review == "") {
+			productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": {"@type": "AggregateOffer",${aggregateOffer}"offers": [${offers}],"offerCount": "${countSkus}"}}`;
+		}
+
+		else {
+			productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": {"@type": "AggregateOffer",${aggregateOffer}"offers": [${offers}],"offerCount": "${countSkus}"}, "review": [${review}],"aggregateRating": ${aggregateRating}}`;
+		}
 	}
 
 	let breadCrumb;
@@ -218,41 +294,43 @@ window.onload = function () {
 		urlBreadCrumb = JSON.stringify(urlBreadCrumb);
 
 		if (i < auxBreadCrumbList - 1) {
-			itemListElement += `{"@type": "ListItem","position": ${positionBreadCrumb},"name": ${nameBreadCrumb},"item": ${urlBreadCrumb}},`
-		} else {
-			itemListElement += `{"@type": "ListItem","position": ${positionBreadCrumb},"name": ${nameBreadCrumb},"item": ${urlBreadCrumb}}`
+			itemListElement += `{"@type": "ListItem","position": ${positionBreadCrumb},"name": ${nameBreadCrumb},"item": ${urlBreadCrumb}},`;
+		} 
+		
+		else {
+			itemListElement += `{"@type": "ListItem","position": ${positionBreadCrumb},"name": ${nameBreadCrumb},"item": ${urlBreadCrumb}}`;
 		}
 	}
 
-	breadCrumb = `{"@context": "https://schema.org","@type": "BreadcrumbList","name": "${nameRichSnippet}","itemListElement": [${itemListElement}]}`
+	breadCrumb = `{"@context": "https://schema.org","@type": "BreadcrumbList","name": "${nameRichSnippet}","itemListElement": [${itemListElement}]}`;
 
-  let scriptElemento = document.createElement("script")
-  scriptElemento.setAttribute("type", "application/ld+json");
-  scriptElemento.setAttribute("id", "product-rich-snippet");
-  scriptElemento.innerText = productInfos;
-  head.appendChild(scriptElemento)
+	let scriptElemento = document.createElement("script");
+	scriptElemento.setAttribute("type", "application/ld+json");
+	scriptElemento.setAttribute("id", "product-rich-snippet");
+	scriptElemento.innerText = productInfos;
+	head.appendChild(scriptElemento);
 
-  let scriptElementoBreadCrumb = document.createElement("script")
-  scriptElementoBreadCrumb.setAttribute("type", "application/ld+json");
-  scriptElementoBreadCrumb.setAttribute("id", "breadCrumb-rich-snippet");
-  scriptElementoBreadCrumb.innerText = breadCrumb;
-  head.appendChild(scriptElementoBreadCrumb)
+	let scriptElementoBreadCrumb = document.createElement("script");
+	scriptElementoBreadCrumb.setAttribute("type", "application/ld+json");
+	scriptElementoBreadCrumb.setAttribute("id", "breadCrumb-rich-snippet");
+	scriptElementoBreadCrumb.innerText = breadCrumb;
+	head.appendChild(scriptElementoBreadCrumb);
 
-  let k = document.querySelectorAll("*[itemprop]").length
+	let k = document.querySelectorAll("*[itemprop]").length;
 
-  for (i = 0; i < k; i++) {
-	document.querySelectorAll("*[itemprop]")[0].removeAttribute("itemprop")
-  }
+	for (i = 0; i < k; i++) {
+		document.querySelectorAll("*[itemprop]")[0].removeAttribute("itemprop");
+	}
 
-  let l = document.querySelectorAll("*[itemtype]").length
+	let l = document.querySelectorAll("*[itemtype]").length;
 
-  for (i = 0; i < l; i++) {
-	document.querySelectorAll("*[itemtype]")[0].removeAttribute("itemtype")
-  }
+	for (i = 0; i < l; i++) {
+		document.querySelectorAll("*[itemtype]")[0].removeAttribute("itemtype");
+	}
 
-  let m = document.querySelectorAll("*[itemscope]").length
+	let m = document.querySelectorAll("*[itemscope]").length;
 
-  for (i = 0; i < m; i++) {
-  	document.querySelectorAll("*[itemscope]")[0].removeAttribute("itemscope")
-  }
+	for (i = 0; i < m; i++) {
+		document.querySelectorAll("*[itemscope]")[0].removeAttribute("itemscope");
+	}
 }
