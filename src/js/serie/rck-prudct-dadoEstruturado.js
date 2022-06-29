@@ -12,9 +12,15 @@ window.onload = function () {
 
   let regexUrl = new RegExp(".*.[/p|P]");
 
+  let regexSku = new RegExp("idsku=.*");
+
   let resultRegexUrl;
+  
+  let resultRegexSku;
 
   let urlSkuProduct = new Array();
+
+  let priceVariation = false;
 
   let skuRichSnippet          = skuJson.productId;
   
@@ -126,6 +132,7 @@ window.onload = function () {
 			bestPriceRichSnippet[i] = skuJson.skus[i].bestPriceFormated
 			bestPriceRichSnippet[i] = bestPriceRichSnippet[i].replace("R$", "").replace(" ", "").replaceAll(".", "").replace(",", ".")
 		}
+
 	}
   
 	let filterBestPrice = bestPriceRichSnippet.filter((item) => item != undefined)
@@ -148,7 +155,33 @@ window.onload = function () {
 		}
 	}
 
-  // Info Offers
+//verificação se o produto tem variação de preço conforme o tamanho
+
+	let auxSkuVariation = 0;
+
+  for(i = 0; i < skuJson.skus.length - 1; i++)
+  {
+	 if((skuJson.skus[i].bestPrice/100).toFixed(2) != (skuJson.skus[i+1].bestPrice/100).toFixed(2))
+	 {
+		 priceVariation = true;
+	 }
+  }
+
+
+  if(strUrl.match(regexSku)!=null){
+		resultRegexSku = strUrl.match(regexSku)
+		resultRegexSku = resultRegexSku[0].replace(/[^0-9]/g,'');
+  }
+
+  for(i = 0; i < skuJson.skus.length ; i++)
+  {
+	if(skuJson.skus[i].sku == resultRegexSku)
+	{
+		auxSkuVariation =  i;
+	}
+  }
+
+// Info Offers
 
   let idSku = new Array();
   let auxIdSku = new Array();
@@ -173,7 +206,15 @@ window.onload = function () {
 		   urlSkuProduct[sku] = resultRegexUrl;
 	   }    
 
-	   if (priceRichSnippet[sku] != undefined && priceRichSnippet[sku] != null && priceRichSnippet[sku] != "") {
+	   if(priceVariation == true && resultRegexSku != undefined && priceRichSnippet[auxSkuVariation] != undefined && priceRichSnippet[auxSkuVariation] != null && priceRichSnippet[auxSkuVariation] != "") {
+				offers = `{"@type": "Offer","url": "${strUrl}","price": "${priceRichSnippet[auxSkuVariation]}","priceCurrency": "BRL","sku": "${resultRegexSku}","availability": "https://schema.org/InStock"}`
+				break;
+	   	 } else if(priceVariation == true && resultRegexSku != undefined && priceRichSnippet[auxSkuVariation] == undefined || priceRichSnippet[auxSkuVariation] == null || priceRichSnippet[auxSkuVariation] == "")
+		 {
+			offers = `{"@type": "Offer","url": "${strUrl}","sku": "${resultRegexSku}","availability": "https://schema.org/OutOfStock"}`
+		 }
+		 
+		 else if (priceRichSnippet[sku] != undefined && priceRichSnippet[sku] != null && priceRichSnippet[sku] != "") {
 			   if (sku == skuJson.skus.length-1){
 			   offers += `{"@type": "Offer","url": "${urlSkuProduct[sku]}","price": "${priceRichSnippet[sku]}","priceCurrency": "BRL","sku": "${auxIdSku[sku]}","availability": "${available}"}`
 		   } else{
@@ -195,13 +236,21 @@ window.onload = function () {
 	}
 
   let productInfos = ""
+	if(priceVariation == true && resultRegexSku != undefined){
+		if (review == "") {
+			productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": ${offers}}`
+		} else {
+			productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": ${offers}, "review": [${review}],"aggregateRating": ${aggregateRating}}`
+		}
+	}
 
+	else{
 	if (review == "") {
 		productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": {"@type": "AggregateOffer",${aggregateOffer}"offers": [${offers}],"offerCount": "${countSkus}"}}`
 	} else {
 		productInfos = `{"@context": "https://schema.org","@type": "Product","name": "${nameRichSnippet}","gtin${gTinTamanho}": "${gTinRichSnippet}","image": "${imageRichSnippet}","description": "${descriptionRichSnippet}","sku": "${skuRichSnippet}","brand": {"@type": "Brand","name": "${brandRichSnippet}"},"offers": {"@type": "AggregateOffer",${aggregateOffer}"offers": [${offers}],"offerCount": "${countSkus}"}, "review": [${review}],"aggregateRating": ${aggregateRating}}`
 	}
-
+	}
 	let breadCrumb;
 	let auxBreadCrumbList = document.querySelectorAll('div[class="bread-crumb"] ul li').length;
 	let positionBreadCrumb = 0;
