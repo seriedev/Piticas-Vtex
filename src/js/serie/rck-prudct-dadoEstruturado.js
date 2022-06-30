@@ -186,6 +186,8 @@ window.onload = function () {
 
 		if(skuJson.skus[i].sku == resultRegexSku) {
 			auxSkuVariation =  i;
+			// clicando no botão da variação caso o URL esteja parametrizado com sku do produto
+			document.querySelectorAll(".variation__wrapper--body-tamanho label")[i].click();
 		}
   	}
 
