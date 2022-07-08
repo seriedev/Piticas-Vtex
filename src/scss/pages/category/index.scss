@@ -619,7 +619,9 @@
 }
 
 .floating-header .filter-mobile__link svg path {
-  fill: #666666 !important;
+  @media (min-width: 1025px){
+    fill: #666666 !important;
+  }
 }
 
 .productCard {
@@ -2208,7 +2210,9 @@
 }
 
 .floating-header .filter-mobile__link svg path {
-  fill: #666666 !important;
+  @media (min-width: 1025px){
+    fill: #666666 !important;
+  }
 }
 
 .filtro {
