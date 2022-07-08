@@ -16,15 +16,21 @@ openMenuMob = () => {
 
 openPesquisa = () => {
   $('.open-pesquisa > svg').on('click', function(){
-    $('.header-mobile .header__wrapper:nth-of-type(2)').slideDown();
+    $('.header-mobile .header__wrapper:nth-of-type(2)').show();
     $('.close-pesquisa').show();
     $(this).hide();
   })
 
   $('.close-pesquisa').on('click', function(){
-    $('.header-mobile .header__wrapper:nth-of-type(2)').slideUp();
+    $('.header-mobile .header__wrapper:nth-of-type(2)').hide();
     $('.close-pesquisa').hide();
     $('.open-pesquisa > svg').show();
+  })
+
+  $(document).on('scroll', function(){
+    if( !$('body').hasClass('floating-header') ){
+      $('.header-mobile .header__wrapper:nth-of-type(2)').show();
+    }
   })
 }
 
