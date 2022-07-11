@@ -4251,8 +4251,8 @@
                     for (i = 0; i < miniCartListItems.length; i++) {
                       miniCartListItem = miniCartListItems[i];
     
-                      if (miniCartListItem !== miniCartListItemTemplateElement) {
-                        miniCartList.removeChild(miniCartListItem);
+                      if (miniCartListItem !== miniCartListItemTemplateElement) {                        
+                        miniCartList.removeChild(miniCartListItem); 
                       }
                     }
     
