@@ -2691,19 +2691,14 @@ ul.brands__list {
             left: 0;
         }
 
-        path {
-            fill: #E5E5E5
-        }
+
+        fill: #E5E5E5;
     }
 }
 
 
 .brands .slick-arrow:hover svg{
-    
-
-    path {
-        fill: #666
-    }
+    fill: $primary-color;
 }
 
 
