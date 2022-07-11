@@ -4334,6 +4334,9 @@ ul.brands__list {
     .productCard {
         max-width:13rem
     }
+    .productCard div[data-trustvox-product-code]{
+        min-height: 45px;
+    }
 }
 
 @media screen and (max-width: 48rem) {

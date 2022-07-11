@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// refatored #2 function hide icon chat in click and trade the image icon, this is merge of other older script
+// refatored #2 functions: hide icon chat in click on minicart and trade the image icon, this is merge of other older script
 
 // identify an element to observe
 let mycartElement     = document.querySelector(".cart-mini"),
