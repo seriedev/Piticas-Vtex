@@ -102,7 +102,16 @@ const promoProgressBar = async ()=>{
 //inicializa 
 promoProgressBar();
 
-$(window).on('orderFormUpdated.vtex', function(evt, orderForm) {
-    promoProgressBar()
-    console.log(orderForm);
+
+// identify an element to observe
+const elementToObserve = document.querySelector("div.cart-mini__prices > div.cart-mini__prices-final")
+
+// create a new instance of `MutationObserver` named `observer`,
+// passing it a callback function
+const observer = new MutationObserver(function() {
+    promoProgressBar();
 });
+
+// call `observe()` on that MutationObserver instance,
+// passing it the element to observe, and the options object
+observer.observe(elementToObserve, {subtree: true, childList: true});
