@@ -2598,7 +2598,9 @@
           _element.innerHTML = " <h4>AVISE-ME</h4>\n          <span class=\"skuselector__avise-me-text\">Para ser avisado da disponibilidade deste Produto, basta preencher os campos abaixo</span>\n          <input placeholder='Nome' class='skuselector__avise-me-input skuselector__avise-me-input--name' required='required'/>\n          <input placeholder='E-mail' class='skuselector__avise-me-input skuselector__avise-me-input--email' />\n          <button class='skuselector__avise-me-btn'>\n            <i class=\"icon-envelope-alt\"></i>\n            avise-me\n          </button>";
   
           this._setAutomaticEmail();
-  
+
+          //os btns de variações foram renderizados?
+          document.querySelector(".variation__wrapper--body-tamanho") ? null : skuId = skuJson.skus[0].sku
           this._setClickEvent(skuId);
         } else {
           console.log("Element ".concat(_element, " not found!!"));
