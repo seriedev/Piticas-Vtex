@@ -68,11 +68,19 @@
       right: 0;
       top: -8px;
       font-size: 13px;
+
+      @media (max-width: 1024px){
+        top: - 12px;
+      }
     }
     .cart__link {
       margin-right: 14px;
       position: relative;
       top: 6px;
+
+      @media (max-width: 1024px){
+        top: 1px;
+      }
     }
   }
 

@@ -8,8 +8,12 @@ html.smarthint-voice-ativo input#smarthint-search-input {
 }
 
 .header {
-  .header__topbar a {
+  .header__topbar a { 
     font-size: 14px;
+  }
+
+  .fecha-menu{
+    display: none;
   }
 
   .menu__group-link.menu__group-link.menu__first-item{

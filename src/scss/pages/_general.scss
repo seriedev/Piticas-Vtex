@@ -459,7 +459,14 @@ a {
     }
 }
 
-.header__top .header__wrapper div a svg path {
+.menu__group-link.menu__group-link.menu__first-item svg:not(.fecha-menu){
+    @media screen and (min-width: 1025px) {
+        fill: #ef7b00
+    }
+    fill: #fff
+}
+
+.header__top .header__wrapper div a svg:not(.fecha-menu) {
     fill: #fff
 }
 
@@ -1112,10 +1119,6 @@ a {
     width: 120px;
 }
 
-.menu__sticky .menu__first-item svg path {
-    fill: #fff!important
-}
-
 .menu__wrapper {
     width: 100%;
     max-width: 1200px;
@@ -1140,10 +1143,6 @@ a {
         font-size:calc(-6.34043px + 1.59574vw);
         font-weight: 700!important
     }
-}
-
-.menu__first-item svg path {
-    fill: #ef7b00!important
 }
 
 .menu__group {

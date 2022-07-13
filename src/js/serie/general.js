@@ -1,4 +1,4 @@
-openMenuMob = () => {
+function openMenuMob(){
   $('.header-mobile .menu__sticky').on('click', function(){
     $('.menu-mobile').css('left','0');
     $('.menuToggle-title,.menuToggle__menu').css('left','0');
@@ -14,7 +14,7 @@ openMenuMob = () => {
   })
 }
 
-openPesquisa = () => {
+function openPesquisa() {
   $('.open-pesquisa > svg').on('click', function(){
     $('.header-mobile .header__wrapper:nth-of-type(2)').show();
     $('.close-pesquisa').show();
@@ -34,8 +34,23 @@ openPesquisa = () => {
   })
 }
 
+function openMenuTopoFixoDesk() {
+  let tela = window.innerWidth;
+
+  if(tela > 1024){
+    $('.menu__sticky .menu__group-link').on('click', function(e){
+      e.preventDefault();
+  
+      $(this).find('.fecha-menu').parent().toggleClass('menu-aberto');
+      $(this).find('.fecha-menu').toggle();
+      $(this).find('svg:nth-of-type(1)').toggle();
+    });
+  }
+}
+
 
 $(document).ready(function(){
   openMenuMob();
   openPesquisa();
+  openMenuTopoFixoDesk();
 })

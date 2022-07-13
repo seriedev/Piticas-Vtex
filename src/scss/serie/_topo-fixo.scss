@@ -16,6 +16,20 @@
     }
   }
 
+  .menu__sticky a.menu__group-link{
+    @media (min-width: 1025px){
+      &.menu-aberto{
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+  
+        .text-menu{
+          color: $main-color;
+        }
+      }
+    }
+  }
+
   @media (min-width: 1025px) {
     .header__topbar {
       display: none;
