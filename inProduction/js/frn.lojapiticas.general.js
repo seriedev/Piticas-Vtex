@@ -511,6 +511,20 @@
           }
         }
       }, {
+        key: "handleLoginUser",
+        value: function handleLoginUser(){
+          const vendorURL = document.location.protocol + "//" + document.location.hostname
+          document.querySelector("header .user > a").addEventListener('click',(e)=>{
+            e.preventDefault();
+            fetch(vendorURL +'/api/vtexid/pub/authenticated/user')
+            .then(res=>res.json()).then((data) =>{
+                data != null ? window.location.href = vendorURL + "/_secure/account#/profile"
+                : vtexid.start({ returnUrl: "", userEmail: '', locale: 'pt-BR', forceReload: false });  
+            })
+            .catch(console.error)
+          })
+        }
+      }, {
         key: "eventHandlerBinds",
         value: function eventHandlerBinds() {
           var _this3 = this;
@@ -539,6 +553,8 @@
             _this3.handleSlickTopbar();
     
             _this3.wishList_.load();
+
+            _this3.handleLoginUser();
           });
         }
       }]);
