@@ -833,10 +833,16 @@ h2 {
 }
 
 .full-banner__wrapper .slick-arrow-left {
-  display: none !important;
-  left: 6.2rem;
+  left: 2vw;
 }
 
+.slick-arrow-right svg path, .slick-arrow-left svg path{
+  fill: white;
+}
+
+.slick-arrow-right:hover svg path, .slick-arrow-left:hover svg path{
+ fill: #ef7b00;
+}
 @media screen and (max-width: 48rem) {
   .full-banner__wrapper .slick-arrow-left {
     left: 1rem;
@@ -844,8 +850,7 @@ h2 {
 }
 
 .full-banner__wrapper .slick-arrow-right {
-  right: 6.2rem;
-  display: none !important;
+  right: 2vw;
 }
 
 @media screen and (max-width: 48rem) {
