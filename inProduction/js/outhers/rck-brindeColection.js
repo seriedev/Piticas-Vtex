@@ -45,15 +45,16 @@ const promoProgressBar = async ()=>{
                 
             }})
             .then(response => response.json())
-            .then(response => Object.keys(response[0].productClusters))
-        
+            .then(response => response[0] === undefined ? "objeto vazio" : Object.keys(response[0].productClusters))
+            .catch(error => console.error(error))  
     })
 
     // verifica se produto está incluso na coleção em evidencia
     for (let index = 0; index < getProductColections.length; index++) {
 
         let product = await getProductColections[index]
-        if(product.includes(colectionId)){
+        
+        if(product != "objeto vazio" && product.includes(colectionId)){
 
             let productQuantity = cartProductIDS[index].quantity;
             totalPromoProductsPrices += cartProductIDS[index].itemPrice * productQuantity;
