@@ -833,10 +833,16 @@ h2 {
 }
 
 .full-banner__wrapper .slick-arrow-left {
-  display: none !important;
-  left: 6.2rem;
+  left: 2vw;
 }
 
+.slick-arrow-right svg path, .slick-arrow-left svg path{
+  fill: white;
+}
+
+.slick-arrow-right:hover svg path, .slick-arrow-left:hover svg path{
+ fill: #ef7b00;
+}
 @media screen and (max-width: 48rem) {
   .full-banner__wrapper .slick-arrow-left {
     left: 1rem;
@@ -844,8 +850,7 @@ h2 {
 }
 
 .full-banner__wrapper .slick-arrow-right {
-  right: 6.2rem;
-  display: none !important;
+  right: 2vw;
 }
 
 @media screen and (max-width: 48rem) {
@@ -2092,4 +2097,111 @@ a.mosaico__link-btn:hover {
 main {
   user-select: auto !important;
   -webkit-user-drag: auto !important;
+}
+
+// Estilos da proposta de valor abaixo do banner
+.valueOffer{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid#cbcbcb;
+  border-top: 1px solid #cbcbcb;
+  color: #4a4a4a;
+}
+
+.valueOffer-grid{
+  max-width: 1250px;
+  display: grid;
+  grid-template-areas: "shipping installment discount exchange";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-flow: column;
+
+}
+
+.valueOffer-main{
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+}
+
+
+.valueOffer-flex{
+  display: flex;
+  align-items: center;
+  height: 25px;
+}
+
+.valueOffer-flex svg{
+  padding-right: 12px;
+}
+
+.textValueOffer{
+  text-align: left;
+  font-size: 14px;
+}
+
+.shippingCard{
+  grid-area: shipping;
+  padding: 0 auto;
+}
+
+.installmentCard{
+  grid-area: installment;
+  padding: 0 auto;
+}
+
+.discountCard{
+  grid-area: discount;
+  padding: 0 auto;
+}
+
+.discountCard svg{
+padding-right: 2px;
+}
+
+.exchangeCard{
+  grid-area: exchange;
+  padding: 0 auto;
+}
+
+.exchangeCard{
+  grid-area: exchange;
+}
+
+.valueOffer-wrap{
+  display: flex;
+  justify-content: space-between;
+}
+.border-valueOffer{
+  border-right: 2px solid #989898;
+}
+
+@media (max-width: 1024px){
+
+  .valueOffer{
+      justify-content: left;
+      overflow-x: scroll;
+  }
+  .valueOffer-main{
+      width: 230px;
+  }
+
+  .border-valueOffer{
+      border: none;
+  }
+
+  .valueOffer-grid{
+      max-width: unset;
+      padding-inline: 16px
+  }
+
+  .valueOffer-wrap{
+      padding-inline: 16px;
+  }
 }
