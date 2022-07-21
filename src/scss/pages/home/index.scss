@@ -2105,9 +2105,7 @@ main {
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid#cbcbcb;
-  border-top: 1px solid #cbcbcb;
+  padding-top: 30px;
   color: #4a4a4a;
 }
 
@@ -2143,7 +2141,7 @@ main {
 
 .textValueOffer{
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .shippingCard{
@@ -2178,22 +2176,38 @@ padding-right: 2px;
   display: flex;
   justify-content: space-between;
 }
+
 .border-valueOffer{
   border-right: 2px solid #989898;
 }
+
+.span-shippingCard{
+  margin-right: 30px;
+}
+
+.span-discountCard{
+  margin-right: 25px;
+}
+
+.span-installmentCard{
+  margin-right: -10px;
+  margin-left: 10px;
+}
+
 
 @media (max-width: 1024px){
 
   .valueOffer{
       justify-content: left;
       overflow-x: scroll;
+      padding-top: 18px;
   }
   .valueOffer-main{
       width: 230px;
   }
 
   .border-valueOffer{
-      border: none;
+      display: none;
   }
 
   .valueOffer-grid{
@@ -2203,5 +2217,9 @@ padding-right: 2px;
 
   .valueOffer-wrap{
       padding-inline: 16px;
+  }
+
+  .textValueOffer{
+    font-size: 15px;
   }
 }
