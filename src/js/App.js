@@ -340,6 +340,19 @@ class AppController {
     }
   }
 
+  handleLoginUser(){
+    const vendorURL = document.location.protocol + "//" + document.location.hostname
+    document.querySelector("header .user > a").addEventListener('click',(e)=>{
+      e.preventDefault();
+      fetch(vendorURL +'/api/vtexid/pub/authenticated/user')
+      .then(res=>res.json()).then((data) =>{
+          data != null ? window.location.href = vendorURL + "/_secure/account#/profile"
+          : vtexid.start({ returnUrl: "", userEmail: '', locale: 'pt-BR', forceReload: false });  
+      })
+      .catch(console.error)
+    })
+  }
+
   eventHandlerBinds() {
     document.addEventListener('DOMContentLoaded', () => {
       this.carrousel_.load();
@@ -356,9 +369,10 @@ class AppController {
 
       this.footer.handleDropdown();
       this.storeBennefitsCarousel();
-      this.handleSlickTopbar()
-
+      this.handleSlickTopbar();
+      
       this.wishList_.load();
+      this.handleLoginUser();
     });
   }
 }
