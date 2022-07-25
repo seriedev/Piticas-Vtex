@@ -269,11 +269,12 @@
           if ($(window).width() < 1024) {
             var buttonSearchMobile = document.querySelector('.searchIcon');
             var searchModalMobileContent = document.querySelector('.search');
+            var buttonSearchInModalMobile = document.querySelector('#smarthint-search-input')
             buttonSearchMobile.addEventListener('click', function () {
               return searchModalMobileContent.classList.add('show-search-mobile');
             });
-            searchModalMobileContent.addEventListener('click', function () {
-              if (searchModalMobileContent.classList.contains('show-search-mobile')) {
+            searchModalMobileContent.addEventListener('click', function (e) {
+              if (searchModalMobileContent.classList.contains('show-search-mobile') && e.target != buttonSearchInModalMobile) {
                 searchModalMobileContent.classList.remove('show-search-mobile');
               }
             });
