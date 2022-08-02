@@ -24,7 +24,11 @@ const promoProgressBar = async ()=>{
     let brindePrice                 = Number(document.getElementById("brindeColectionPrice").textContent); 
     
     let colectionId                 = document.getElementById("brindeColectionId").textContent;
-    let cartProductItems            = await getCartProductItems();
+    let colectionImageUrl              = document.querySelector("#brindeColectionImageUrl").textContent;
+    let iconBrindeImage             = document.querySelector(".colection-brinde-image");   
+    colectionImageUrl !="" ? iconBrindeImage.src = colectionImageUrl : null;
+    
+    let cartProductItems            = await getCartProductItems(); 
     let totalPromoProductsPrices    = 0;
     let toEarnAbrinde               = brindePrice;
     let cartProductIDS              = cartProductItems.map(item=>{
