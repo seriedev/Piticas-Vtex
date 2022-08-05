@@ -1,0 +1,112 @@
+@media screen and (min-width: 768px) {
+    .smarthint .slick-list.draggable {
+        min-height: 575px !important;
+    }
+}
+
+.shelftab {
+    .colection h2,
+    .collection__title {
+        font-family: 'Noah';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+        color: #EF7B00;
+    }
+
+    .tabs .slick-arrow {
+        top: 120px !important;
+
+        &.slick-prev,
+        &.slick-next {
+
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+
+        &.slick-prev {
+            left: -35px;
+        }
+
+        svg path {
+            fill: #E5E5E5;
+        }
+    }
+}
+
+article.productCard {
+    padding-bottom: 0;
+    border-radius: 20px;
+    border-color: #E5E5E5;
+
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        max-width: 270px;
+    }
+
+    .productCard {
+        &__sku-selector {
+            border-radius: 25px;
+            font-family: 'Noah';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        &__image {
+            border-color: #E5E5E5;
+        }
+
+        &__name {
+            margin-bottom: 0px;
+            font-family: 'Noah';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #000000;
+
+        }
+
+        &__brand {
+            font-family: 'Noah';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            color: #9E9E9E;
+        }
+
+        &__installments {
+
+            &,
+            &--strong {
+                font-family: 'Noah';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+                color: #9E9E9E;
+            }
+        }
+
+        &__price-content {
+            font-family: 'Noah';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            color: #EF7B00;
+            min-width: 51%;
+        }
+    }
+
+    div[data-trustvox-product-code] {
+        margin-bottom: 10px;
+    }
+}
