@@ -42,7 +42,9 @@ article.productCard {
     padding-bottom: 0;
     border-radius: 20px;
     border-color: #E5E5E5;
-
+    @media screen and (max-width: 768px) {
+        padding: 0 12px 0;
+    }
     @media screen and (min-width: 768px) {
         width: 100%;
         max-width: 270px;
@@ -70,6 +72,11 @@ article.productCard {
             font-size: 16px;
             line-height: 20px;
             color: #000000;
+            @media screen and (max-width: 768px) {
+                height: 60px;
+                display: flex;
+                align-items: center;
+            }
 
         }
 
@@ -83,7 +90,6 @@ article.productCard {
         }
 
         &__installments {
-
             &,
             &--strong {
                 font-family: 'Noah';
@@ -93,20 +99,39 @@ article.productCard {
                 line-height: 15px;
                 color: #9E9E9E;
             }
+            @media screen and (max-width: 768px) {
+                min-height: unset;
+                font-size: 9px!important;   
+                img + span{
+                    font-size: 11px;
+                    font-weight: bold;
+                }
+            }
         }
 
-        &__price-content {
-            font-family: 'Noah';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 30px;
-            color: #EF7B00;
-            min-width: 51%;
+        &__price{
+            &--best{
+                @media screen and (max-width: 768px) {
+                    font-size: 23px!important;
+                    line-height: 24px;
+                }
+            }
+           &-content {
+                font-family: 'Noah';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 30px;
+                color: #EF7B00;
+                min-width: 51%;
+            }
         }
     }
 
     div[data-trustvox-product-code] {
         margin-bottom: 10px;
+        @media screen and (max-width: 768px) {
+            min-height: auto;
+        }
     }
 }
