@@ -20,7 +20,7 @@ function filterOrderBy(){
 
     orderListButtons.forEach(btn=>btn.addEventListener('click',(e)=>{
     //atualiza o estado das cores dos botoes
-        orderListButtons.forEach((btnColor)=>{btnColor.style.fontWeight="400"; btnColor.style.color="#666"});
+        orderListButtons.forEach((btnColor)=>{btnColor.style.fontWeight="400"; btnColor.style.color="#adadad"});
         e.target.style.cssText = 'color: #ef7b00; font-weight: 600;'
     }));
 }
