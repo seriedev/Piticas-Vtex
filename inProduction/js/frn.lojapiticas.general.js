@@ -316,8 +316,10 @@
     
           window.addEventListener('scroll', function (e) {
             if (window.scrollY > floatingBar.offsetHeight) {
+              $('.header__topbar').addClass('collapsed')
               document.body.classList.add('floating-header'); // allDepartamentElements_.classList.add('all-departaments-show');
             } else {
+              $('.header__topbar').removeClass('collapsed')
               document.body.classList.remove('floating-header');
               $('.header__topbar--item--row-slide').slick('setPosition'); // allDepartamentElements_.classList.remove('all-departaments-show');
             }
