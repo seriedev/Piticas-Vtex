@@ -159,7 +159,7 @@ body.home{
 }
 
 .slick-dots {
-  bottom: 18px !important;
+  bottom: -28px !important;
 }
 
 .slick-dots li button {
@@ -169,7 +169,7 @@ body.home{
   border: 3px solid #d3791e;
   height: 12px !important;
   border-radius: 50% !important;
-  background-color: #fff !important;
+  background-color: #e8c1aa !important;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
   -ms-border-radius: 50% !important;
@@ -814,6 +814,10 @@ h2 {
   h2 {
     margin-top: 42px;
   }
+}
+
+.full-banner__wrapper{
+  padding-bottom: 28px;
 }
 
 .full-banner__wrapper .box-banner a img {
