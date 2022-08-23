@@ -4544,7 +4544,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1200,
             timerProgressBar: true,
             onOpen: function onOpen(toast) {
               toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_20___default.a.stopTimer);

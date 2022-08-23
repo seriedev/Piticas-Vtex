@@ -1440,7 +1440,8 @@ var SkuSelectorController = /*#__PURE__*/function () {
               }
             });
           } else {
-            _this4.miniCart_._addProduct(skuId[0].sku, _this4.skuSelectorModel_.quantityValue);
+            console.log("default Add product")
+            //_this4.miniCart_._addProduct(skuId[0].sku, _this4.skuSelectorModel_.quantityValue);
           }
         });
       }
@@ -4301,7 +4302,7 @@ var MiniCartComponent = /*#__PURE__*/function (_FrnComponent) {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 1200,
         timerProgressBar: true,
         onOpen: function onOpen(toast) {
           toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_20___default.a.stopTimer);
