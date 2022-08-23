@@ -97,12 +97,6 @@
           <div class="filter__especification">
             <ul class="filter__list js-filter-list"></ul>
           </div>
-          <div class="filter-selected">
-            <div class="filter-selected__wrapper">
-              <div class="filter-selected__title js-order-by-current"><span>Você filtrou por:</span></div>
-              <div class="filter__selected-items"></div>
-            </div>
-          </div>
         </div>
       </section>
       <div class="order-overlay">
@@ -173,6 +167,16 @@
             </div>
           </div>
         </section>
+        
+        <div class="filter-selected">
+          <div class="filter-selected__wrapper">
+            <div class="filter-selected__title js-order-by-current"><pre class="titleYouFilterBy">Filtros
+Ativos:</pre></div>
+            <div class="filter__selected-items"></div>
+            <div class="clearFiltersMobile" onclick="window.location.reload();">Limpar Filtros</div>
+          </div>
+        </div>
+
         <section class="vitrine">
 
           <!-- insert h1 tag here-->

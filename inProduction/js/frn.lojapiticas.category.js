@@ -9181,3 +9181,15 @@ module.exports = __webpack_require__(/*! ./src/scss/pages/category/index.scss */
 
 /******/ });
 //# sourceMappingURL=frn.lojapiticas.category.js.map
+
+const filterLenghtObserved = document.querySelector('div.filter__selected-items')
+
+const observerFilterLenght = new MutationObserver(() => {
+  if(document.querySelectorAll('div.filter__selected-items li').length > 0){
+    document.querySelector('div.filter-selected').style.display='block';
+  } else{
+    document.querySelector('div.filter-selected').style.display='none'
+  }
+});
+
+observerFilterLenght.observe(filterLenghtObserved, {childList: true});
