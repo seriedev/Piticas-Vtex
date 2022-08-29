@@ -1592,6 +1592,20 @@ a {
     box-shadow: 0 2px 10.5px .6px rgba(42,42,42,.1)
 }
 
+.tagFreteGratis{
+    position: absolute;
+    text-transform: none;
+    color: #ef7b00;
+}
+
+.tagFreteGratis span{
+    font-weight: 900;
+}
+
+.menu__group-sub-products .prateleira ul li .productCard__name {
+    padding-top: 10px;
+}
+
 @media screen and (max-width: 1024px) {
     .hamburguer {
         display:flex;

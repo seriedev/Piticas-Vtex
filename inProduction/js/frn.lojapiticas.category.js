@@ -3129,10 +3129,6 @@ var FilterComponent = /*#__PURE__*/function (_FrnComponent) {
     key: "_seletedSpecification_",
     value: function _seletedSpecification_(target) {
       this.getFilterSelectedContainerElement().insertAdjacentHTML('beforeend', "\n      <li class=\"filter__selected-item\" data-filter-name=\"".concat(target.dataset.categoryName, "\" data-filter-value=\"").concat(target.value, "\"><i class=\"fas fa-times js-remove-filter\"></i> ").concat(target.name, "</li>\n    "));
-      
-      let filterSelected = document.querySelector('div.filter-selected').style
-      const filterSelectedItems = document.querySelectorAll('div.filter__selected-items li')  
-      filterSelectedItems.length > 0 ? filterSelected.display ='block' : filterSelected.display = 'none'
     }
     /**
      * Ele recive os dados do filtro selecionado para tirar da tela quando Ã© clicado
@@ -9186,3 +9182,14 @@ module.exports = __webpack_require__(/*! ./src/scss/pages/category/index.scss */
 /******/ });
 //# sourceMappingURL=frn.lojapiticas.category.js.map
 
+const filterLenghtObserved = document.querySelector('div.filter__selected-items')
+
+const observerFilterLenght = new MutationObserver(() => {
+  if(document.querySelectorAll('div.filter__selected-items li').length > 0){
+    document.querySelector('div.filter-selected').style.display='block';
+  } else{
+    document.querySelector('div.filter-selected').style.display='none'
+  }
+});
+
+observerFilterLenght.observe(filterLenghtObserved, {childList: true});
