@@ -1,0 +1,147 @@
+@media screen and (min-width: 768px) {
+    .smarthint .slick-list.draggable {
+        min-height: 575px !important;
+    }
+}
+
+.shelftab {
+    .colection h2,
+    .collection__title {
+        font-family: 'Noah';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+        color: #EF7B00;
+    }
+
+    .tabs .slick-arrow {
+        top: 120px !important;
+
+        &.slick-prev,
+        &.slick-next {
+
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+
+        &.slick-prev {
+            left: -35px;
+        }
+
+        svg path {
+            fill: #E5E5E5;
+        }
+
+        &:hover{
+            svg path {
+                fill: #EF7B00;
+            }
+        }
+    }
+}
+
+article.productCard {
+    padding-bottom: 0;
+    border-radius: 20px;
+    border-color: #E5E5E5;
+    @media screen and (max-width: 768px) {
+        padding: 0 12px 0;
+    }
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        max-width: 270px;
+    }
+
+    .productCard {
+        &__sku-selector {
+            border-radius: 25px;
+            font-family: 'Noah';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            color: #FFFFFF;
+            transition: 0.5s background;
+            &:hover{
+                background: #F29532;
+            }
+        }
+
+        &__image {
+            border-color: #E5E5E5;
+        }
+
+        &__name {
+            margin-bottom: 0px;
+            font-family: 'Noah';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #000000;
+            @media screen and (max-width: 768px) {
+                height: 60px;
+                display: flex;
+                align-items: center;
+            }
+
+        }
+
+        &__brand {
+            font-family: 'Noah';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            color: #9E9E9E;
+        }
+
+        &__installments {
+            &,
+            &--strong {
+                font-family: 'Noah';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+                color: #9E9E9E;
+            }
+            @media screen and (max-width: 768px) {
+                min-height: unset;
+                font-size: 9px!important;   
+                img + span{
+                    font-size: 11px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &__price{
+            &--best{
+                @media screen and (max-width: 768px) {
+                    font-size: 23px!important;
+                    line-height: 24px;
+                }
+            }
+           &-content {
+                font-family: 'Noah';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 30px;
+                color: #EF7B00;
+                min-width: 51%;
+            }
+        }
+    }
+
+    div[data-trustvox-product-code] {
+        margin-bottom: 10px;
+        @media screen and (max-width: 768px) {
+            min-height: auto;
+        }
+    }
+}
