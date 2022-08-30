@@ -72,6 +72,9 @@ article.productCard {
 
         &__image {
             border-color: #E5E5E5;
+            img{
+                max-width: unset;
+            }
         }
 
         &__name {
