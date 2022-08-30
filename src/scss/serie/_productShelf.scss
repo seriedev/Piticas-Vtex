@@ -64,6 +64,10 @@ article.productCard {
             font-weight: 700;
             font-size: 14px;
             color: #FFFFFF;
+            transition: 0.5s background;
+            &:hover{
+                background: #F29532;
+            }
         }
 
         &__image {
