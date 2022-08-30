@@ -316,8 +316,10 @@
     
           window.addEventListener('scroll', function (e) {
             if (window.scrollY > floatingBar.offsetHeight) {
+              $('.header__topbar').addClass('collapsed')
               document.body.classList.add('floating-header'); // allDepartamentElements_.classList.add('all-departaments-show');
             } else {
+              $('.header__topbar').removeClass('collapsed')
               document.body.classList.remove('floating-header');
               $('.header__topbar--item--row-slide').slick('setPosition'); // allDepartamentElements_.classList.remove('all-departaments-show');
             }
@@ -4542,7 +4544,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1200,
             timerProgressBar: true,
             onOpen: function onOpen(toast) {
               toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_20___default.a.stopTimer);

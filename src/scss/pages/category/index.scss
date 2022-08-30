@@ -42,12 +42,6 @@
   border-radius: 0.25rem;
 }
 
-.filter-selected {
-  display: block;
-  opacity: 0;
-  visibility: hidden;
-}
-
 .filter-selected--show {
   opacity: 1;
   visibility: visible;
@@ -468,10 +462,6 @@
     -o-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-  }
-
-  .filter-selected {
-    display: none;
   }
 
   .filter__show {
@@ -1631,12 +1621,6 @@
   border-radius: 0.25rem;
 }
 
-.filter-selected {
-  display: block;
-  opacity: 0;
-  visibility: hidden;
-}
-
 .filter-selected--show {
   opacity: 1;
   visibility: visible;
@@ -2058,11 +2042,7 @@
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
-
-  .filter-selected {
-    display: none;
-  }
-
+  
   .filter__show {
     transform: none;
     padding-top: 0;
@@ -2205,6 +2185,64 @@
   .filter-mobile__count--hide {
     display: none;
   }
+}
+
+
+.filter-selected__wrapper {
+  display: flex;
+  overflow: auto;
+  align-items: center;
+  padding: 10px 15px 15px 15px;
+}
+
+.filter__selected-items {
+  display: flex;
+  list-style: none;
+  padding-right: 15px;
+}
+
+.filter__selected-items li {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  border: 1px solid #e3e3e3;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1607843137254902);
+  border-radius: 5px;
+  color: #666;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.filter__selected-item .fa-times:before {
+  color: #ef7b00;
+  padding: 3px;
+}
+
+.filter-selected {
+  display: none;
+}
+
+.titleYouFilterBy {
+  padding-right: 10px;
+  line-height: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media(min-width: 769px) {
+  .filter-selected {
+      display: none!important;
+  }
+}
+
+.clearFiltersMobile{
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .floating-header .filter-mobile__link svg path {
@@ -2461,7 +2499,7 @@ img {
 
 @media screen and (min-width: 85rem) {
   .vitrine div > div > ul {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 

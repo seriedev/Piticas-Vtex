@@ -266,12 +266,19 @@
   background-color: #d3791e;
 }
 
-.b--action-primary {
-  border-color: #f18920;
+.b--action-primary span {
+  color: #ef7b00 !important;
+  font-weight: 600;
 }
 
-.b--action-primary span {
-  color: #fff !important;
+.b--action-primary,
+.b--action-primary:hover {
+  border-color: #f18920;
+  color: #ef7b00 !important;
+}
+
+.vtex-modal__confirmation > .vtex-button > div {
+  color: white;
 }
 
 .hover-b--action-primary:hover {
@@ -282,6 +289,16 @@
 .hover-bg-action-primary:hover {
   background-color: #d3791e;
 }
+
+.hover-b--action-secondary.t-action {
+  color: #fff !important;
+  padding: 6px;
+}
+
+.rccs__card--unknown>div {
+  background: linear-gradient(66deg,#ef7b00,#ff5722);
+}
+
 
 div.accountPage > div > div.accountPage__container > div > div > div > div > div > section > main > div > article > main > form > div.vtex-profile-form__toggle-business-btn__wrapper.mb7 > button {
   background: #bb6b1b;
@@ -330,6 +347,7 @@ div.accountPage > div > div.accountPage__container > div > div > div > div > div
 
 .vtex-button {
   background-color: #f18920 !important;
+  color: white;
 }
 .vtex-button div > span {
   color: #fff !important;
@@ -364,4 +382,15 @@ body > div.accountPage > div > div.accountPage__container > div > div > div > di
 #root > form > div.w-100 > form > div > a,
 #root > form > div.w-100 > div.vtex-address-form__country.pb6 > div > label > div > div > div > div.vtex-dropdown__arrow.flex-none.flex.items-center.pl2.c-action-primary {
   color: #d3791e !important;
+}
+
+@media screen and (max-width:48rem) {
+  .t-small {
+    font-size: .716rem;
+  }
+
+  .vtex-button__label {
+    color: #fff;
+    font-size: 0.6rem;
+  }
 }

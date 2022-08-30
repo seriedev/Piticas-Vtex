@@ -137,8 +137,10 @@ class AppController {
       'scroll',
       e => {
         if (window.scrollY > floatingBar.offsetHeight) {
+          $('.header__topbar').addClass('collapsed')
           document.body.classList.add('floating-header');
         } else {
+          $('.header__topbar').removeClass('collapsed')
           document.body.classList.remove('floating-header');
           $('.header__topbar--item--row-slide').slick('setPosition');
         }

@@ -8,6 +8,13 @@
   <vtex:contentPlaceHolder id="rck-canonical" />
   <!--fim canonical tags-->
 
+  <script id="product-redirect" type="text/javascript" language="javascript">
+    if(document.URL.includes('404?ProductLinkNotFound')){
+        let searchTerm = window.location.search.substr(window.location.search.indexOf('='))
+        window.location.replace("https://www.piticas.com.br/Sistema/buscavazia?ft"+searchTerm)
+    }  
+  </script>
+  
   <vtex:template id="FRN-Head" />
   <link rel="stylesheet" href="//lojapiticas.vteximg.com.br/arquivos/frn.lojapiticas.system.css" />
 
